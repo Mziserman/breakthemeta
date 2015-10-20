@@ -1,0 +1,345 @@
+/*
+Theme Name: Hetic Groupe 2
+Theme URI: http://wordpress.org
+Author: mwa
+Author URI: http://wordpress.org/
+Version: 1.0
+Tags: black, brown, orange
+*/
+
+/*******	GENERAL		*******/
+html, body {
+	font-size:12px; 
+	line-height:18px;
+	height: 100%;
+	font-family: "PT Sans";
+	background-color: #212327;
+	color: #fff;
+ }
+
+.main-container {
+	height:auto; 
+	height: 100%;
+	min-height: 100%;
+}
+
+a{
+	text-decoration: none;
+	color: #fff;
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+/* @group HEADER */
+
+	.header {
+		position: relative;
+		width: 100%;
+		height: 80px;
+		background-color: #212327;
+		box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5);
+	}
+
+		.header .logo {
+			float: left;
+			margin-top: 20px;
+			margin-left: 35px;
+		}
+
+		.header .navigation {
+			position: relative;
+			float: right;
+			height: 80px;
+			color: #fff;
+		}
+
+			.header .navbar,
+			.header .navbar ul {
+				height: 100%;
+			}
+
+				.header .navbar li {
+					position: relative;
+					display: inline-block;
+					text-transform: uppercase;
+					padding: 0 15px;
+					height: 100%;
+					min-width: 120px;
+					text-align: center;
+					font-weight: bold;
+					font-size: 1.17em;
+					margin-left: -3px;
+				}
+
+				.header .navbar li.active {
+					background-color: #BB3A3A;
+
+				}
+
+
+					.header .navbar li a {
+						display: block;
+						height: 100%;
+						line-height: 80px;
+					}
+
+
+/* @end HEADER */
+
+/* @group CONTAINERS */
+
+	.container {
+		max-width: 1280px;
+		
+	}
+
+/* @end CONTAINERS */
+
+
+/* @group BUILD LIST */
+
+	.container .aside {
+		width: 480px;
+		box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
+	}
+
+	/* Filters */
+
+		.filters {
+			padding-top: 15px;
+			padding-left: 40px;
+			padding-bottom: 20px;
+		}
+
+			.filters p {
+				text-transform: uppercase;
+				font-weight: bold;
+				margin-bottom: 10px;
+			}
+
+			.filter-button {
+				display: inline-block;
+				height: 25px;
+				min-width: 80px;
+				margin-right: 8px;
+				text-align: center;
+				text-transform: uppercase;
+				font-weight: bold;
+				font-size: 0.92em;
+				line-height: 25px;
+			}
+
+				.filter-button.red {
+					background-color: #BB3A3A;
+				}
+				.filter-button.yellow {
+					background-color: #E8A336;
+				}
+				.filter-button.blue {
+					background-color: #5174CB;
+				}
+
+	/* Filters elements list */
+
+		.aside-list-items {
+
+		}
+
+			.aside-list-items .champions,
+			.aside-list-items .lanes,
+			.aside-list-items .roles {
+				border-top: 1px solid #3A3C42;
+			}
+
+			.aside-list-items .champions {
+				height: 500px;
+				padding-left: 40px;
+				padding-top: 25px;
+				overflow-y: scroll;
+			}
+
+			/* Scrollbar */
+				::-webkit-scrollbar              {
+					width: 10px;
+				}
+				::-webkit-scrollbar-track-piece  {
+					background-color: #303136;
+				}
+				::-webkit-scrollbar-thumb        {
+					background-color: #3A3C42;
+					height: 10px;
+				}
+
+			/* Search input for champions */
+				.search-champion {
+					float: right;
+					position: relative;
+					margin-right: 20px;
+					margin-top: -10px;
+					width: 170px;
+					height: 35px;
+					line-height: 35px;
+					background-color: #3A3C42;
+					box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
+				}
+
+					.search-champion .search-field {
+						width: 100%;
+						height: 35px;
+						padding-left: 30px;
+						background-color: transparent;
+						color: #fff;
+						font-family: "PT Sans";
+						border: none;
+						outline: none;
+					}
+
+					.search-champion button {
+						position: absolute;
+						left: 6px;
+						top: 6px;
+						background-color: #3A3C42;
+						border: none;
+						color: #fff;
+					}
+
+						.search-champion button:hover {
+							cursor: pointer;
+						}
+
+						.search-champion button .fa-search {
+							font-size: 1.5em;
+						}
+
+			/* Champion picture select */
+				.aside .champ-list {
+					margin-top: 25px;
+				}
+
+					.aside .champ-list li {
+						display: inline-block;
+						text-transform: uppercase;
+						width: 70px;
+						text-align: center;
+						margin-right: 8px;
+						margin-bottom: 4px;
+					}
+
+					.aside .champ-list li.active img {
+						border: 2px solid #BB3A3A;
+					}
+
+						.aside .champ-list a {
+							display: block;
+						}
+
+						.aside .champ-list a:hover img {
+							border: 2px solid #BB3A3A;
+						}
+
+							.aside .champ-list a img {
+								width: 70px;
+								height: 70px;
+								border: 2px solid transparent;
+							}
+
+							.aside .champ-list a span {
+								margin-top: -4px;
+							}
+
+		/* Lanes */
+			.aside-list-items .lanes {
+
+			}
+
+				.aside-list-items .lanes {
+
+				}
+
+		/* Roles */
+			.aside-list-items .roles {
+
+			}
+
+				.aside-list-items .lanes a,
+				.aside-list-items .roles a {
+					display: block;
+					padding: 25px 0 25px 40px;
+				}
+
+				.aside-list-items .lanes a i,
+				.aside-list-items .roles a i {
+					float: right;
+					margin-right: 25px;
+				}
+
+				.aside-list-items .title {
+					display: inline-block;
+					text-transform: uppercase;
+					font-size: 1.5em;
+					font-weight: bold;
+				}
+
+		/* Filter list for Lanes and Roles */
+
+			.aside-list-items .filter-list {
+				display: none;
+				padding-left: 40px;
+				padding-bottom: 20px;
+				transition: height .5s;
+				transition-delay: 0s;
+				overflow: hidden;
+			}
+
+				.aside-list-items .filter-list li {
+					display: inline-block;
+					text-transform: uppercase;
+				}
+
+					.aside-list-items .lanes .filter-list li a {
+						color: #5174CB;
+						padding: 5px 10px;
+						border: 2px solid transparent;
+					}
+
+					.aside-list-items .lanes .filter-list li a:hover {
+						border: 2px solid #5174CB;
+					}
+
+					.aside-list-items .roles .filter-list li a {
+						color: #E8A336;
+						padding: 5px 10px;
+						border: 2px solid transparent;
+					}
+
+					.aside-list-items .roles .filter-list li a:hover {
+						border: 2px solid #E8A336;
+					}
+
+			.aside-list-items a.active + .filter-list {
+				display: block;
+			}
+
+/* @end BUILD LIST */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
