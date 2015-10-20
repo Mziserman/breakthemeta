@@ -21,7 +21,7 @@ function create_post_type() {
 			),
 			'public' => true,
 			'supports' => array('title', 'editor', 'thumbnail'),
-			'has_archive' => false
+			'has_archive' => true
 		)
 	);
 }
