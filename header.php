@@ -30,7 +30,8 @@
   
         <!-- Logo -->
         <div class="logo">
-            <a href="<?php echo get_template_directory_uri(); ?>/archive-build.php"><img src="<?php echo get_template_directory_uri(); ?>/img/logo_site.png" alt="" /></a>
+            <!-- <a href="<?php echo get_template_directory_uri(); ?>/archive-build.php"><img src="<?php echo get_template_directory_uri(); ?>/img/logo_site.png" alt="" /></a> -->
+            <a href="<?php echo get_site_url(); ?>/build/">NewMeta</a>
         </div>
     
         <!-- Main Navigation -->

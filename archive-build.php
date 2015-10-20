@@ -6,9 +6,6 @@
 
     		<div class="filters">
     			<p>Filtres</p>
-    			<div class="filter-button red">Azir</div>
-    			<div class="filter-button yellow">Tank</div>
-    			<div class="filter-button blue">Mid</div>
     		</div>
 
     		<div class="aside-list-items">
@@ -19,28 +16,28 @@
     				</div>
     				<div class="champ-list">
     					<ul>
-    						<li class="champ-list-item"><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Aatrox.png" alt=""><span>Aatrox</span></a></li>
-    						<li class="champ-list-item"><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Ahri.png" alt=""><span>Ahri</span></a></li>
-    						<li class="champ-list-item"><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Akali.png" alt=""><span>Akali</span></a></li>
-    						<li class="champ-list-item"><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Alistar.png" alt=""><span>Alistar</span></a></li>
-    						<li class="champ-list-item"><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Amumu.png" alt=""><span>Amumu</span></a></li>
-    						<li class="champ-list-item"><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Anivia.png" alt=""><span>Anivia</span></a></li>
-    						<li class="champ-list-item"><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Annie.png" alt=""><span>Annie</span></a></li>
-    						<li class="champ-list-item"><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Ashe.png" alt=""><span>Ashe</span></a></li>
-    						<li class="champ-list-item active"><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Azir.png" alt=""><span>Azir</span></a></li>
-    						<li class="champ-list-item"><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Blitzcrank.png" alt=""><span>Blitzcrank</span></a></li>
-    						<li class="champ-list-item"><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Brand.png" alt=""><span>Brand</span></a></li>
-    						<li class="champ-list-item"><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Braum.png" alt=""><span>Braum</span></a></li>
-    						<li class="champ-list-item"><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Caitlyn.png" alt=""><span>Caitlyn</span></a></li>
-    						<li class="champ-list-item"><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Corki.png" alt=""><span>Corki</span></a></li>
-    						<li class="champ-list-item"><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Darius.png" alt=""><span>Darius</span></a></li>
-    						<li class="champ-list-item"><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Diana.png" alt=""><span>Diana</span></a></li>
-    						<li class="champ-list-item"><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Draven.png" alt=""><span>Draven</span></a></li>
-    						<li class="champ-list-item"><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/champion/DrMundo.png" alt=""><span>Mundo</span></a></li>
-    						<li class="champ-list-item"><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Elise.png" alt=""><span>Elise</span></a></li>
-    						<li class="champ-list-item"><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Evelynn.png" alt=""><span>Evelynn</span></a></li>
-    						<li class="champ-list-item"><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Ezreal.png" alt=""><span>Ezreal</span></a></li>
-    						<li class="champ-list-item"><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Fiora.png" alt=""><span>Fiora</span></a></li>
+    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Aatrox.png" alt=""><span class="champ-name">Aatrox</span></a></li>
+    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Ahri.png" alt=""><span class="champ-name">Ahri</span></a></li>
+    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Akali.png" alt=""><span class="champ-name">Akali</span></a></li>
+    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Alistar.png" alt=""><span class="champ-name">Alistar</span></a></li>
+    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Amumu.png" alt=""><span class="champ-name">Amumu</span></a></li>
+    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Anivia.png" alt=""><span class="champ-name">Anivia</span></a></li>
+    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Annie.png" alt=""><span class="champ-name">Annie</span></a></li>
+    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Ashe.png" alt=""><span class="champ-name">Ashe</span></a></li>
+    						<li class="champ-list-item active"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Azir.png" alt=""><span class="champ-name">Azir</span></a></li>
+    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Blitzcrank.png" alt=""><span class="champ-name">Blitzcrank</span></a></li>
+    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Brand.png" alt=""><span class="champ-name">Brand</span></a></li>
+    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Braum.png" alt=""><span class="champ-name">Braum</span></a></li>
+    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Caitlyn.png" alt=""><span class="champ-name">Caitlyn</span></a></li>
+    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Corki.png" alt=""><span class="champ-name">Corki</span></a></li>
+    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Darius.png" alt=""><span class="champ-name">Darius</span></a></li>
+    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Diana.png" alt=""><span class="champ-name">Diana</span></a></li>
+    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Draven.png" alt=""><span class="champ-name">Draven</span></a></li>
+    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/DrMundo.png" alt=""><span class="champ-name">Mundo</span></a></li>
+    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Elise.png" alt=""><span class="champ-name">Elise</span></a></li>
+    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Evelynn.png" alt=""><span class="champ-name">Evelynn</span></a></li>
+    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Ezreal.png" alt=""><span class="champ-name">Ezreal</span></a></li>
+    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Fiora.png" alt=""><span class="champ-name">Fiora</span></a></li>
     					</ul>
     				</div>
     			</div>
@@ -59,7 +56,6 @@
     				<a class="title" href="">Roles<i class="fa fa-plus"></i></a>
     				<div class="filter-list">
     					<ul>
-    						<li><a href="">Jungler</a></li>
     						<li><a href="">Carry AP</a></li>
     						<li><a href="">Carry AD</a></li>
     						<li><a href="">Tank</a></li>
@@ -71,41 +67,79 @@
     		
     	</div>
     	
-        <div class="main">
-        	<?php if(have_posts()) :  ?>
-        		<?php while ( have_posts() ) : the_post(); ?>
-				<!-- Si j'ai des posts, j'affiche cette partie -->
+        <div class="main-archive">
 
-                <!-- Blog Post 1 -->
-                <li class="span3 blog-post-item">
-                    <div class="blog-post-hover hidden-phone hidden-tablet">
-						<?php 
-							$terms = get_the_terms( $post->ID, 'type');
-							if($terms && ! is_wp_error($terms)) : 
-								$subject_links = array();
-								foreach ($terms as $term) : 
-									$subject_links[] = $term->name;
-								endforeach;
-								$on_draught = join(', ', $subject_links);
-							endif;
-						?>
-                        <p><a href="<?php the_permalink(); ?>" class="clearfix"><?php the_title(); ?></a>
-                        <a class="category" href=""><?php echo $on_draught; ?></a>
+            <div class="search-bar">
+                <form action="">
+                    <button type="submit"><i class="fa fa-search fa-2x"></i></button>
+                    <input type="search" name="search-build" id="search-build" placeholder="Search">
+                </form>
+            </div>
 
-                        <?php 
-                        	$dateformatstring = 'd F Y';
-                        	$unixtimestamp = strtotime(get_field('date_de_publication'));
-                        ?>
-                        <p>Date : <?php echo date_i18n($dateformatstring, $unixtimestamp); ?></p>
-                        </p>
+            <div class="build-list">
+                <div class="build-list-header">
+                    <ul class="panel-choice">
+                        <li class="active"><a href="#panel-1">Newest</a></li>
+                        <li><a href="#panel-2">Top rated</a></li>
+                        <li><a href="#panel-3">Debated</a></li>
+                    </ul>
+                    <ul class="page-number">
+                        <li class="active"><a href="">1</a></li>
+                        <li><a href="">2</a></li>
+                        <li><a href="">3</a></li>
+                        <li><a href="">31</a></li>
+                        <li><a href="">Next</a></li>
+                    </ul>
+                </div>
+                <div class="build-list-content">
+                    <div class="panel show" id="panel-1"><?php if(have_posts()) :  ?>
+                        <ul>
+
+                        <?php while ( have_posts() ) : the_post(); ?>
+                            <!-- Si j'ai des posts, j'affiche cette partie -->
+
+                            <li class="blog-build-item">
+                                <img class="champion-portrait" src="<?php echo get_template_directory_uri(); ?>/img/champion/Azir.png" alt="">
+
+                                <div class="author-and-date">
+                                    <a class="build-link" href="<?php the_permalink(); ?>" class="clearfix"><?php the_title(); ?></a>
+                                    
+                                    <?php 
+                                        $dateformatstring = 'd F Y';
+                                        $unixtimestamp = strtotime(get_field('date_de_publication'));
+                                    ?>
+                                    <p>by <a href="">Popolopo26</a> - <?php echo date_i18n($dateformatstring, $unixtimestamp); ?></p>
+                                </div>
+                                <div class="items-list">
+                                    <ul>
+                                        <li><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Elise.png" alt=""></a></li>
+                                        <li><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Draven.png" alt=""></a></li>
+                                        <li><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Ezreal.png" alt=""></a></li>
+                                        <li><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Anivia.png" alt=""></a></li>
+                                        <li><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Annie.png" alt=""></a></li>
+                                        <li><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Brand.png" alt=""></a></li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="likes-and-comments">
+                                    <span><img src="<?php echo get_template_directory_uri(); ?>/img/heart.png" alt=""><p>15</p></span>
+                                    <span><img src="<?php echo get_template_directory_uri(); ?>/img/comment-bubble.png" alt=""><p>6</p></span>
+                                </div>
+                            </li>
+                            
+                            
+                        <?php endwhile; ?>
+
+                        </ul>
+
+                        <?php else: ?>
+                            <p>Rien à afficher</p>
+                        <?php endif; ?>
                     </div>
-                    <a href="project-single.htm"><?php the_post_thumbnail('img_liste'); ?></a>
-                </li>
-            <?php endwhile; ?>
-
-        	<?php else: ?>
-        		<p>Rien à afficher</p>
-        	<?php endif; ?>
+                    <div class="panel" id="panel-2">Top rated builds list</div>
+                    <div class="panel" id="panel-3">Debated build list</div>
+                </div>
+            </div>
         </div>
 
     </div>

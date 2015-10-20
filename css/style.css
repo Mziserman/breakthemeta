@@ -8,13 +8,20 @@ Tags: black, brown, orange
 */
 
 /*******	GENERAL		*******/
+
+@import url(https://fonts.googleapis.com/css?family=PT+Sans|Roboto);
+
 html, body {
 	font-size:12px; 
 	line-height:18px;
 	height: 100%;
-	font-family: "PT Sans";
+	font-family: "PT Sans", sans-serif;
 	background-color: #212327;
 	color: #fff;
+ }
+
+ div {
+ 	box-sizing: border-box;
  }
 
 .main-container {
@@ -35,11 +42,12 @@ a{
 /* @group HEADER */
 
 	.header {
-		position: relative;
+		position: fixed;
 		width: 100%;
 		height: 80px;
 		background-color: #212327;
 		box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5);
+		z-index: 20;
 	}
 
 		.header .logo {
@@ -47,6 +55,12 @@ a{
 			margin-top: 20px;
 			margin-left: 35px;
 		}
+
+			.header .logo a {
+				font-weight: bold;
+				font-size: 2.3em;
+				text-transform: uppercase;
+			}
 
 		.header .navigation {
 			position: relative;
@@ -91,8 +105,23 @@ a{
 /* @group CONTAINERS */
 
 	.container {
-		max-width: 1280px;
-		
+		padding-top: 80px;
+	}
+
+	.archive-container {
+		-webkit-box-flex: 1;
+			-webkit-flex: 1;
+				-ms-flex: 1;
+					flex: 1;
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: normal;
+		-webkit-flex-direction: row;
+			-ms-flex-direction: row;
+				flex-direction: row;
 	}
 
 /* @end CONTAINERS */
@@ -103,6 +132,15 @@ a{
 	.container .aside {
 		width: 480px;
 		box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
+	}
+
+	.container .main-archive {
+		display: block;
+		-webkit-box-flex: 1;
+			-webkit-flex: 1;
+		    	-ms-flex: 1;
+		    		flex: 1;
+		padding: 20px 40px;
 	}
 
 	/* Filters */
@@ -220,6 +258,7 @@ a{
 
 					.aside .champ-list li {
 						display: inline-block;
+						position: relative;
 						text-transform: uppercase;
 						width: 70px;
 						text-align: center;
@@ -245,8 +284,25 @@ a{
 								border: 2px solid transparent;
 							}
 
-							.aside .champ-list a span {
+							.aside .champ-list a span.champ-name {
 								margin-top: -4px;
+							}
+
+					.aside .champ-list li.active a span.shadow {
+						display: none;
+					}
+
+						.aside .champ-list a:hover span.shadow {
+							display: none;
+						}
+
+							.aside .champ-list a span.shadow {
+								position: absolute;
+								width: 70px;
+								height: 70px;
+								left: 2px;
+								top: 2px;
+								background: rgba(0, 0, 0, 0.5);
 							}
 
 		/* Lanes */
@@ -307,6 +363,9 @@ a{
 					.aside-list-items .lanes .filter-list li a:hover {
 						border: 2px solid #5174CB;
 					}
+					.aside-list-items .lanes .filter-list li.active a {
+						border: 2px solid #5174CB;
+					}
 
 					.aside-list-items .roles .filter-list li a {
 						color: #E8A336;
@@ -317,10 +376,255 @@ a{
 					.aside-list-items .roles .filter-list li a:hover {
 						border: 2px solid #E8A336;
 					}
+					.aside-list-items .roles .filter-list li.active a {
+						border: 2px solid #E8A336;
+					}
 
 			.aside-list-items a.active + .filter-list {
 				display: block;
 			}
+
+
+	/* Main Search Bar */
+
+		.search-bar {
+			position: relative;
+			margin: auto;
+			max-width: 720px;
+			height: 70px;
+			background-color: #272A30;
+			box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.50);
+			line-height: 20px;
+		}
+
+			.search-bar input {
+				background: transparent;
+				border: none;
+				height: 70px;
+				width: 100%;
+				padding-left: 80px;
+				outline: none;
+				font-family: PTSans-Regular;
+				font-size: 16px;
+				color: #FFFFFF;
+			}
+
+			.search-bar button {
+				position: absolute;
+				height: 70px;
+				width: 70px;
+				border: 0;
+				background: #BB3A3A;
+				cursor: pointer;
+			}
+
+				.search-bar button i {
+					color: #fff;
+				}
+
+		/* Search : */
+
+
+	/* Build List Conatiner */
+		
+		.build-list {
+			position: relative;
+			width: 100%;
+			margin-top: 40px;
+			box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
+		}
+
+			.build-list-header {
+				height: 60px;
+				width: 100%;
+			}
+
+				.build-list-header .panel-choice {
+					display: inline-block;
+					font-size: 1.17em;
+					text-transform: uppercase;
+				}
+
+					.build-list-header .panel-choice li {
+						position: relative;
+						display: inline-block;
+						height: 60px;
+						line-height: 4.5em;
+						margin-right: -4px;
+					}
+
+					.build-list-header .panel-choice li:hover {
+						background: #26282D;
+						transition: background .3s;
+					}
+
+					.build-list-header .panel-choice li.active {
+						background: #26282D;
+					}
+
+					.build-list-header .panel-choice li.active::before {
+						position: absolute;
+						content: '';
+						top: 0;
+						left: 0;
+						right: 0;
+						height: 5px;
+						background-color: #BB3A3A;
+					}
+
+						.build-list-header .panel-choice li a {
+							display: block;
+							padding: 0 35px;
+						}
+
+				.build-list-header .page-number {
+					float: right;
+					margin-top: 18px;
+					margin-right: 20px;
+				}
+
+					.build-list-header .page-number li {
+						display: inline-block;
+						background: #272A30;
+						border: 1px solid #3A3C42;
+					}
+
+						.build-list-header .page-number li a {
+							display: block;
+							font-family: PTSans-Bold;
+							font-size: 1em;
+							color: #BBBCBD;
+							line-height: 15px;
+							padding: 3px 6px;
+						}
+
+						.build-list-header .page-number li.active a,
+						.build-list-header .page-number li a:hover {
+							color: #BB3A3A;
+						}
+
+
+			.build-list-content {
+				background-color: #26282D;
+				padding: 20px 15px;
+			}
+
+				.build-list-content .panel {
+					display: none;
+				}
+
+				.build-list-content .panel.show {
+					display: inline-block;
+				}
+
+					.build-list-content .blog-build-item {
+						background: #212327;
+						box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.50);
+						height: 60px;
+						margin-bottom: 5px;
+					}
+
+						.blog-build-item .champion-portrait {
+							display: inline-block;
+							vertical-align: top;
+							width: 60px;
+							height: 60px;
+							margin-right: 15px;
+						}
+
+						.blog-build-item .build-link {
+							font-weight: bold;
+							font-size: 1.17em;
+							color: #FFFFFF;
+							line-height: 19px;
+						}
+
+						.blog-build-item .build-link:hover {
+							text-decoration: underline;
+						}
+
+						.blog-build-item .author-and-date {
+							display: inline-block;							
+							vertical-align: top;
+							width: 35%;
+							white-space: nowrap;
+							overflow: hidden;
+							text-overflow: ellipsis;
+							padding-top: 10px;
+							margin-right: 20px;
+						}
+
+							.blog-build-item .author-and-date p {
+								
+							}
+
+								.blog-build-item .author-and-date p a {
+									color: #BB3A3A;
+									line-height: 15px;
+								}
+
+								.blog-build-item .author-and-date p a:hover {
+									text-decoration: underline;
+								}
+
+						.blog-build-item .items-list {
+							display: inline-block;
+						}
+
+							.blog-build-item .items-list {
+								padding-top: 10px;
+							}
+
+								.blog-build-item .items-list li {
+									display: inline-block;
+								}
+
+									.blog-build-item .items-list a {
+										display: block;
+									}
+
+										.blog-build-item .items-list img {
+											width: 35px;
+											height: 35px;
+											border: 2px solid #3A3C42;
+										}
+
+						.blog-build-item .likes-and-comments {
+							float: right;
+							width: 60px;
+							height: 100%;
+							background: #26282D;
+							font-size: 1.08em;
+							line-height: 17px;
+							padding: 12px 0 0 10px;
+						}
+
+							.likes-and-comments span {
+								display: block;
+								margin-bottom: 4px;
+							}
+
+								.likes-and-comments span img {
+									margin-right: 5px;
+								}
+
+								.likes-and-comments span p {
+									display: inline-block;
+									vertical-align: top;
+								}
+
+
+		@media screen and (max-width: 1240px) {
+
+			.build-list-content .blog-build-item {
+				height: auto;
+			}
+
+			.blog-build-item .likes-and-comments {
+				display: none;
+			}
+		}
+
 
 /* @end BUILD LIST */
 
