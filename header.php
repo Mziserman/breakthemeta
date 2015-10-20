@@ -22,7 +22,6 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/img/favicon.ico">
 
-<<<<<<< HEAD
 </head>
 
 <body class="home">

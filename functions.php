@@ -13,37 +13,14 @@ function init_js() {
 
 add_action( 'init', 'create_post_type');
 function create_post_type() {
-	// __ traduisible
-	register_post_type( 'projet',
+	register_post_type( 'build',
 		array(
 			'labels' => array(
-				'name' => __('Projets'),
-				'singular_name' => __('Projet')
+				'name' => __('Builds'),
+				'singular_name' => __('Build')
 			),
 			'public' => true,
 			'supports' => array('title', 'editor', 'thumbnail'),
-			'has_archive' => true
-		)
-	);
-	register_post_type( 'film',
-		array(
-			'labels' => array(
-				'name' => __('Films'),
-				'singular_name' => __('Film')
-			),
-			'public' => true,
-			'supports' => array('title', 'editor', 'thumbnail', 'excerpt'),
-			'has_archive' => false
-		)
-	);
-	register_post_type( 'acteur',
-		array(
-			'labels' => array(
-				'name' => __('Acteurs'),
-				'singular_name' => __('Acteur')
-			),
-			'public' => true,
-			'supports' => array('title', 'editor', 'thumbnail', 'excerpt'),
 			'has_archive' => false
 		)
 	);
@@ -51,20 +28,10 @@ function create_post_type() {
 
 /*Custom taxonomy*/
 register_taxonomy(
-	'type',
-	'projet',
+	'lane',
+	'build',
 	array(
-		'label' => __( 'type' ),
-		'hierarchical' => true,
-	)
-);
-
-/*Custom taxonomy*/
-register_taxonomy(
-	'sujet',
-	'film',
-	array(
-		'label' => __( 'Sujet' ),
+		'label' => __( 'lane' ),
 		'hierarchical' => true,
 	)
 );
