@@ -12,7 +12,7 @@
 
 	<?php else :  ?>
 			<!-- Si pas de posts, j'affiche cette partie -->
-			<p>Je n'ai rien à afficher</p>
+			<p>HIUZIUVPIONZUTOIEVUNPCEIZYI</p>
 	<?php endif; ?>
 
  <?php get_footer(); ?>
