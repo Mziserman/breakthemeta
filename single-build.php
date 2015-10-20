@@ -11,11 +11,11 @@
 	                <?php the_post_thumbnail('img_liste'); ?>
 	            </div>
 	            <div class="span6">
-	                <h2><?php the_title(); ?></h2>
+	                <h2 style="color: #fff;"><?php the_title(); ?></h2>
 	                <p><?php get_the_content(); ?></p>
 
 	                <ul class="project-info">
-	                    <li><h6>Date de publication :</h6> 09/12/15</li>
+	                    <li>Coucou c'est bien un build de Lol</li>
 	                </ul>
 
 	                <a href="projects.htm" class="pull-right"><i class="icon-arrow-left"></i>Retour aux projets</a>
