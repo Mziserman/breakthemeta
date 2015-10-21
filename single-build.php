@@ -17,7 +17,7 @@
 				    <p><?php the_content(); ?></p>
 
 				    <ul class="project-info">
-				        <li>Coucou c'est bien un build de Lol</li>
+				        
 				    </ul>
 
 				   
@@ -27,7 +27,7 @@
     			<p>Rien à afficher</p>
     		<?php endif; ?>
 
-	         <a href="projects.htm" class="pull-right"><i class="icon-arrow-left"></i>Retour aux projets</a>
+	         <a href="<?php echo get_site_url(); ?>/build/" class="pull-right"><i class="icon-arrow-left"></i>Retour aux projets</a>
 
 	    </div><!-- End gallery-single-->
 
