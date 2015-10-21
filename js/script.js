@@ -39,6 +39,7 @@ jQuery(document).ready(function($) {
 		$(this).parent().find('li').removeClass('active');
 
 		$(this).toggleClass('active');
+		$('.lanes .title').toggleClass('active');
 
 		// Get value of selected lane and display it as a filter
 		var lane = $(this).find('a').html();
@@ -60,6 +61,7 @@ jQuery(document).ready(function($) {
 		$(this).parent().find('li').removeClass('active');
 
 		$(this).toggleClass('active');
+		$('.roles .title').toggleClass('active');
 
 		// Get value of selected lane and display it as a filter
 		var role = $(this).find('a').html();
