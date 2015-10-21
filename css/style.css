@@ -130,8 +130,8 @@ a{
 /* @group BUILD LIST */
 
 	.container .aside {
-		width: 480px;
-		box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
+		width: 470px;
+		box-shadow: 2px 0px 2px 0px rgba(0, 0, 0, 0.5);
 	}
 
 	.container .main-archive {
@@ -189,6 +189,10 @@ a{
 			.aside-list-items .lanes,
 			.aside-list-items .roles {
 				border-top: 1px solid #3A3C42;
+			}
+
+			.aside-list-items .roles {
+				border-bottom: 1px solid #3A3C42;
 			}
 
 			.aside-list-items .champions {
@@ -279,8 +283,8 @@ a{
 						}
 
 							.aside .champ-list a img {
-								width: 70px;
-								height: 70px;
+								width: 66px;
+								height: 66px;
 								border: 2px solid transparent;
 							}
 
@@ -330,6 +334,43 @@ a{
 					float: right;
 					margin-right: 25px;
 				}
+
+				.aside-list-items .lanes a .plus,
+				.aside-list-items .roles a .plus {
+					position: relative;
+					float: right;
+					margin-right: 25px;
+					width: 16px;
+					height: 16px;
+				}
+
+					.aside-list-items .lanes a.active .plus::before,
+					.aside-list-items .roles a.active .plus::before {
+						transform: rotate(-90deg);
+					}
+
+					.aside-list-items .lanes a .plus::before,
+					.aside-list-items .roles a .plus::before {
+						position: absolute;
+						content: '';
+						width: 3px;
+						height: 15px;
+						left: 7px;
+						background-color: #fff;
+						border-radius: 4px;
+						transition: transform .3s;
+					}
+
+					.aside-list-items .lanes a .plus::after,
+					.aside-list-items .roles a .plus::after {
+						position: absolute;
+						content: '';
+						width: 16px;
+						height: 3px;
+						top: 6px;
+						background-color: #fff;
+						border-radius: 4px;
+					}
 
 				.aside-list-items .title {
 					display: inline-block;
@@ -390,7 +431,6 @@ a{
 		.search-bar {
 			position: relative;
 			margin: auto;
-			max-width: 720px;
 			height: 70px;
 			background-color: #272A30;
 			box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.50);
@@ -403,6 +443,7 @@ a{
 				height: 70px;
 				width: 100%;
 				padding-left: 80px;
+				padding-right: 10px;
 				outline: none;
 				font-family: PTSans-Regular;
 				font-size: 16px;
@@ -430,6 +471,8 @@ a{
 		.build-list {
 			position: relative;
 			width: 100%;
+			max-width: 1280px;
+			margin: auto;
 			margin-top: 40px;
 			box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
 		}
@@ -477,7 +520,7 @@ a{
 							padding: 0 35px;
 						}
 
-				.build-list-header .page-number {
+				/*.build-list-header .page-number {
 					float: right;
 					margin-top: 18px;
 					margin-right: 20px;
@@ -501,7 +544,7 @@ a{
 						.build-list-header .page-number li.active a,
 						.build-list-header .page-number li a:hover {
 							color: #BB3A3A;
-						}
+						}*/
 
 
 			.build-list-content {
@@ -514,7 +557,7 @@ a{
 				}
 
 				.build-list-content .panel.show {
-					display: inline-block;
+					display: block;
 				}
 
 					.build-list-content .blog-build-item {
@@ -612,6 +655,30 @@ a{
 									display: inline-block;
 									vertical-align: top;
 								}
+
+					.build-list-content .nav-below {
+						margin-top: 20px;
+					}
+
+						.build-list-content .nav-below .page-numbers {
+							display: inline-block;
+							font-family: PTSans-Bold;
+							font-size: 1em;
+							color: #BBBCBD;
+							background-color: #272A30;
+							line-height: 15px;
+							padding: 3px 6px;
+							border: 1px solid #3A3C42;
+						}
+
+						.build-list-content .nav-below .page-numbers.next {
+
+						}
+
+						.build-list-content .nav-below .page-numbers.current,
+						.build-list-content .nav-below .page-numbers:hover {
+							color: #BB3A3A;
+						}
 
 
 		@media screen and (max-width: 1240px) {
