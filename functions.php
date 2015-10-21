@@ -35,3 +35,19 @@ register_taxonomy(
 		'hierarchical' => true,
 	)
 );
+register_taxonomy(
+	'champion',
+	'build',
+	array(
+		'label' => __( 'champion' ),
+		'hierarchical' => true,
+	)
+);
+register_taxonomy(
+	'role',
+	'build',
+	array(
+		'label' => __( 'role' ),
+		'hierarchical' => true,
+	)
+);
