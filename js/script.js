@@ -1,6 +1,5 @@
 jQuery(document).ready(function($) {
 
-
 	// Expand filters list
 	$('.aside-list-items a.title').on('click', function(e) {
 		e.preventDefault();
@@ -39,7 +38,7 @@ jQuery(document).ready(function($) {
 		$(this).parent().find('li').removeClass('active');
 
 		$(this).toggleClass('active');
-		$('.lanes .title').toggleClass('active');
+		// $('.lanes .title').toggleClass('active');
 
 		// Get value of selected lane and display it as a filter
 		var lane = $(this).find('a').html();
@@ -61,7 +60,7 @@ jQuery(document).ready(function($) {
 		$(this).parent().find('li').removeClass('active');
 
 		$(this).toggleClass('active');
-		$('.roles .title').toggleClass('active');
+		// $('.roles .title').toggleClass('active');
 
 		// Get value of selected lane and display it as a filter
 		var role = $(this).find('a').html();
@@ -83,7 +82,27 @@ jQuery(document).ready(function($) {
 
 		$('.build-list-content .panel').removeClass('show');
 		$($(this).attr('href')).addClass('show');
+	});
 
+	// Switch to panels on BUILD DETAIL !
+	$('.panel-choice-detail a').on('click', function(e) {
+		e.preventDefault();
+
+		$(this).parent().parent().find('li').removeClass('active');
+		$(this).parent().addClass('active');
+
+		$('.build-content .main .panel').removeClass('show');
+		$($(this).attr('href')).addClass('show');
+	});
+
+	// Sticky aside menu for BUILD DETAIL
+	$(window).on('scroll', function(e){
+
+        if($(this).scrollTop > 350){
+             $('.build-content .aside').addClass('sticky');
+        } else {
+            $('.build-content .aside').removeClass('sticky');
+        }    
 	});
 
 });
