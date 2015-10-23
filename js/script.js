@@ -34,11 +34,12 @@ jQuery(document).ready(function($) {
 	$('.lanes li').on('click', function(e) {
 		e.preventDefault();
 
-		// Remove all other previous selected lanes
-		$(this).parent().find('li').removeClass('active');
-
-		$(this).toggleClass('active');
-		// $('.lanes .title').toggleClass('active');
+		if($(this).hasClass('active')) {
+			$(this).removeClass('active');
+		}else {
+			$(this).parent().find('li').removeClass('active');
+			$(this).addClass('active');
+		}
 
 		// Get value of selected lane and display it as a filter
 		var lane = $(this).find('a').html();
@@ -56,11 +57,12 @@ jQuery(document).ready(function($) {
 	$('.roles li').on('click', function(e) {
 		e.preventDefault();
 
-		// Remove all other previous selected lanes
-		$(this).parent().find('li').removeClass('active');
-
-		$(this).toggleClass('active');
-		// $('.roles .title').toggleClass('active');
+		if($(this).hasClass('active')) {
+			$(this).removeClass('active');
+		}else {
+			$(this).parent().find('li').removeClass('active');
+			$(this).addClass('active');
+		}
 
 		// Get value of selected lane and display it as a filter
 		var role = $(this).find('a').html();
