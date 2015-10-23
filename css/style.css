@@ -786,6 +786,7 @@ a{
 				position: absolute;
 				top: -80px;
 				z-index: 0;
+				width: 100%;
 			}
 
 			.build-header .shadow {
@@ -804,10 +805,12 @@ a{
 				z-index: 2;
 			}
 
-				.build-header-content .creator-infos {
+				.creator-infos {
 					position: absolute;
 					width: 260px;
 					padding-left: 35px;
+					top: 80px;
+					z-index:3;
 				}
 
 					.creator-infos .creator-image {
@@ -899,18 +902,21 @@ a{
 							padding: 10px;
 						}
 
-							.title-and-build  .items-list li {
+							.items-list li {
 								display: inline-block;
+								text-align: center;
 							}
 
-								.title-and-build  .items-list a {
+								.items-list a {
 									display: block;
 								}
 
-									.title-and-build  .items-list img {
+									.items-list img {
 										width: 46px;
 										height: 46px;
 										border: 2px solid #3A3C42;
+										outline: 3px solid #26282D;
+  										outline-offset: -4px;
 									}
 
 			.build-header .back-link {
@@ -966,7 +972,7 @@ a{
 						margin-bottom: 15px;
 						border: 0;
 						background: #BB3A3A;
-						font-weight: bold;
+						font-family: PTSans-bold;
 						font-size: 1em;
 						text-transform: uppercase;
 						color: #FFFFFF;
@@ -1001,20 +1007,25 @@ a{
 						font-family: PTSans-Bold;
 						font-size: 18px;
 						text-align: center;
+						text-transform: uppercase;
 						color: #3A3C42;
 						line-height: 65px;
+						transition: all .3s ease 0s;
 					}
 
 						.build-content .aside ul li a {
 							display: block;
+							color: #3A3C42;
 						}
 
 						.build-content .aside ul li.active a {
 							background-color: #212327;
+							color: #fff;
 						}
 
 						.build-content .aside ul li a:hover {
 							background-color: #BB3A3A;
+							color: #fff;
 						}
 
 			.build-content .main {
@@ -1039,15 +1050,327 @@ a{
 						text-transform: uppercase;
 						color: #FFFFFF;
 						line-height: 26px;
+						margin-bottom: 10px;
 					}
 
-				.build-content .main .panel.summary {
-					
+			/* Summary panel */
+
+				.build-content .main .panel.summary.show {
+					display: flex;
 				}
+
+						.panel.summary .left {
+							margin-right: 60px;
+						}
+
+							.panel.summary .panel-section {
+								margin-bottom: 30px;
+							}
+
+								.panel.summary .panel-section .items-list {
+									
+								}
+
+									.panel.summary .panel-section .items-list li {
+										width: 50px;
+										margin-right: 10px;
+										vertical-align: top;
+									}
+
+							.panel.summary .left .panel-section:nth-child(2) {
+								
+							}
+
+								.panel.summary .left .panel-section:nth-child(2) li {
+									display: -webkit-flex;
+											display: flex;
+									margin-bottom: 20px;
+								}
+
+									.panel.summary .left .panel-section:nth-child(2) li img {
+										margin-right: 15px;
+									}
+
+									.panel.summary .left .panel-section:nth-child(2) li span {
+										font-size: 36px;
+										color: #FFFFFF;
+										line-height: 60px;
+										margin-right: 15px;
+									}
+
+									.panel.summary .left .panel-section:nth-child(2) li p {
+										font-size: 14px;
+										color: #3A3C42;
+									}
+
+									.panel.summary .quint, 
+									.panel.summary .mark, 
+									.panel.summary .seal, 
+									.panel.summary .glyph {
+										font-size: 20px;
+										margin-top: 15px;
+									}
+									.quint {color: #8329AF;}
+									.mark {color: #BB3A3A;}
+									.seal {color: #E8A336;}
+									.glyph {color: #5174CB;}
+									
+						.right .masteries-head {
+							width: 200px;
+						}
+
+						.masteries-head {
+							display: -webkit-flex;
+									display: flex;
+							position: relative;
+							height: 40px;
+							margin-bottom: 5px;
+							background-color: #26282D;
+						}
+
+						.masteries-head::after {
+							position: absolute;
+							content: '';
+							width: 100%;
+							bottom: 0;
+							left: 0;
+							height: 1px;
+						}
+
+							.masteries-head span {
+								width: 40px;
+								height: 100%;
+								font-family: PTSans-Bold;
+								font-size: 18px;
+								text-align: center;
+								line-height: 40px;
+							}
+
+							.masteries-head.offense::after,
+							.masteries-head.offense span {
+								background-color: #BB3A3A;
+							}
+
+							.masteries-head.defense::after,
+							.masteries-head.defense span {
+								background-color: #5174CB;
+							}
+
+							.masteries-head.utility::after,
+							.masteries-head.utility span {
+								background-color: #E8A336;
+							}
+
+							.masteries-head p {
+								display: inline-block;
+								font-size: 14px;
+								line-height: 40px;
+								margin-left: 40px;
+							}
+
+			/* Runes panel */
 
 				.build-content .main .panel.runes {
 					
 				}
+
+					.build-content .main .panel.runes .panel-section:nth-child(2) {
+						display: -webkit-flex;
+								display: flex;
+						margin-bottom: 50px;
+					}
+
+					.build-content .main .panel.runes .left,
+					.build-content .main .panel.runes .right {
+						flex: 1;
+					}
+
+						.panel.runes  li {
+							display: -webkit-flex;
+									display: flex;
+							margin-bottom: 20px;
+						}
+
+							.panel.runes  li img {
+								margin-right: 15px;
+							}
+
+							.panel.runes li span {
+								font-size: 36px;
+								color: #FFFFFF;
+								line-height: 60px;
+								margin-right: 15px;
+							}
+
+								.panel.runes h4 + p {
+									font-size: 14px;
+									color: #3A3C42;
+								}
+
+					.build-content .panel.runes .panel-section:last-child {
+						text-align: justify;
+						font-size: 14px;
+					}
+
+						.build-content .panel.runes .panel-section:last-child p {
+							margin-bottom: 20px;
+						}
+			
+			/* Masteries panel */
+
+				.build-content .panel.masteries {
+					
+				}
+
+					.build-content .panel.masteries h3 {
+						margin-bottom: 15px;
+					}
+
+					.build-content .panel.masteries .panel-section:nth-child(2) {
+						display: -webkit-flex;
+								display: flex;
+					}
+
+					.panel.masteries .panel-section .offense-section,
+					.panel.masteries .panel-section .defense-section,
+					.panel.masteries .panel-section .utility-section {
+						flex: 1;
+						margin-right: 40px;
+					}
+
+					.panel.masteries .panel-section .utility-section {
+						margin-right: 0;
+					}
+
+						.panel.masteries .masteries-head {
+							margin-bottom: 20px;
+						}
+
+						.panel.masteries .panel-section .masteries-table {
+							display: table;
+							width: 100%;
+						}
+
+						.panel.masteries .panel-section .masteries-table .row {
+							display: table-row;
+						}
+
+							.panel.masteries .panel-section .masteries-table .col {
+								display: table-cell;
+								text-align: center;
+							}
+								
+								.panel.masteries .panel-section .masteries-table a {
+									display: block;
+									position: relative;
+								}
+
+								.panel.masteries .panel-section .masteries-table a.active .shadow {
+									right: 10px;
+									bottom: 15px;
+									left: auto;
+									top: auto;
+									width: 22px;
+									height: 14px;
+									background-color: rgba(0, 0, 0, 0.9);
+								}
+
+									.panel.masteries .panel-section .masteries-table img {
+										position: relative;
+										width: 46px;
+										margin-bottom: 5px;
+										border: 1px solid #3A3C42;
+									    outline: 2px solid #26282D;
+									    outline-offset: -4px;
+									    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.69);
+									}
+
+									.panel.masteries .panel-section .masteries-table .shadow {
+										position: absolute;
+										width: 40px;
+										height: 38px;
+										left: 10px;
+										top: 3px;
+										background: rgba(0, 0, 0, 0.5);
+									}
+
+									.panel.masteries .panel-section .masteries-table .points {
+										position: absolute;
+										width: 40px;
+										height: 30px;
+										right: 0;
+										bottom: 0;
+										font-size: 10px;
+									}
+
+									.panel.masteries .panel-section .masteries-table .points::before {
+										position: absolute;
+										width: 40px;
+										height: 30px;
+										right: 0;
+										bottom: 0;
+										background: rgba(0, 0, 0, 0.5);
+									}
+
+					.build-content .panel.masteries .panel-section:last-child {
+						margin-top: 40px;
+						margin-bottom: 40px;
+					}
+
+						.build-content .panel.masteries .panel-section:last-child p {
+							font-size: 14px;
+							margin-bottom: 10px;
+						}
+
+
+
+				.build-content .main .panel.skill-order {
+					
+				}
+
+				.build-content .main .panel.gameplay {
+					
+				}
+
+				.build-content .main .panel.comments{
+					
+				}
+
+
+
+	@media screen and (max-width: 1200px) {
+
+		.creator-infos {
+			bottom: 60px;
+			top: auto;
+		}
+
+		.build-content .main .panel {
+			margin-left: 20px;
+		}
+
+			.panel.summary .left {
+				margin-right: 20px;
+			}
+	}
+
+	@media screen and (max-width: 980px) {
+
+		.build-header-content {
+			padding-top: 40px;
+		}
+
+		.creator-infos {
+			bottom: 10px;
+			width: auto;
+			display: flex;
+			align-items: flex-end;
+		}
+
+			.creator-infos .creator-division {
+				margin: 0 10px;
+			}
+	}
 
 /* @end BUILD DETAIL */
 
