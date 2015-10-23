@@ -105,6 +105,15 @@ jQuery(document).ready(function($) {
         }    
 	});
 
+	// Add active to masteries with points
+	var points = $('.points');
+	points.each(function() {
+		
+		if($(this).attr('data-point') > 0) {
+			$(this).parent().addClass('active');
+		}
+	});
+
 });
 
 
