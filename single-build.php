@@ -13,7 +13,7 @@
 				    <div class="build-header-content">
 				    	<div class="title-and-build">
 				    		<h2 style="color: #fff;"><?php the_title(); ?></h2>
-				    		<p><?php echo the_excerpt(); ?></p>
+				    		<p class="build-excerpt"><?php echo the_excerpt(); ?></p>
 				    		<div class="items-list">
 				    			<ul>
 				    				<li><img src="<?php echo get_template_directory_uri(); ?>/img/sum_clarity.png" alt=""></li>
