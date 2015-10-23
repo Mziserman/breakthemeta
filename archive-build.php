@@ -101,12 +101,12 @@
                                             </div>
                                             <div class="items-list">
                                                 <ul>
-                                                    <li><img src="<?php echo get_template_directory_uri(); ?>/img/item_1.png" alt=""></li>
-                                                    <li><img src="<?php echo get_template_directory_uri(); ?>/img/item_2.png" alt=""></li>
                                                     <li><img src="<?php echo get_template_directory_uri(); ?>/img/item_3.png" alt=""></li>
-                                                    <li><img src="<?php echo get_template_directory_uri(); ?>/img/item_4.png" alt=""></li>
-                                                    <li><img src="<?php echo get_template_directory_uri(); ?>/img/item_5.png" alt=""></li>
-                                                    <li><img src="<?php echo get_template_directory_uri(); ?>/img/item_6.png" alt=""></li>
+                                                    <li><img src="<?php echo get_template_directory_uri(); ?>/img/item_3.png" alt=""></li>
+                                                    <li><img src="<?php echo get_template_directory_uri(); ?>/img/item_3.png" alt=""></li>
+                                                    <li><img src="<?php echo get_template_directory_uri(); ?>/img/item_3.png" alt=""></li>
+                                                    <li><img src="<?php echo get_template_directory_uri(); ?>/img/item_3.png" alt=""></li>
+                                                    <li><img src="<?php echo get_template_directory_uri(); ?>/img/item_3.png" alt=""></li>
                                                 </ul>
                                             </div>
                                             
