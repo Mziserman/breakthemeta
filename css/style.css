@@ -777,6 +777,7 @@ a{
 	}
 
 		.build-header {
+			min-width: 1280px;
 			height: 350px;
 			position: relative;
 			overflow: hidden;
@@ -1040,8 +1041,9 @@ a{
 				.build-content .main .panel {
 					max-width: 800px;
 					min-width: 700px;
-					margin-left: 80px;
 					display: none;
+					margin: 0 auto;
+					padding: 0 20px;
 				}
 
 				.build-content .main .panel.show {
@@ -1223,7 +1225,7 @@ a{
 			/* Masteries panel */
 
 				.build-content .panel.masteries {
-					
+					min-width: 800px;
 				}
 
 					.build-content .panel.masteries h3 {
@@ -1293,9 +1295,9 @@ a{
 										position: absolute;
 										width: 40px;
 										height: 38px;
-										left: 10px;
-										top: 3px;
-										background: rgba(0, 0, 0, 0.5);
+										left: 8px;
+										top: 4px;
+										background: rgba(0, 0, 0, 0.75);
 									}
 
 									.panel.masteries .panel-section .masteries-table .points {
@@ -1344,14 +1346,6 @@ a{
 
 	@media screen and (max-width: 1200px) {
 
-		.creator-infos {
-			bottom: 60px;
-			top: auto;
-		}
-
-		.build-content .main .panel {
-			margin-left: 20px;
-		}
 
 			.panel.summary .left {
 				margin-right: 20px;
@@ -1359,17 +1353,6 @@ a{
 	}
 
 	@media screen and (max-width: 980px) {
-
-		.build-header-content {
-			padding-top: 40px;
-		}
-
-		.creator-infos {
-			bottom: 10px;
-			width: auto;
-			display: flex;
-			align-items: flex-end;
-		}
 
 			.creator-infos .creator-division {
 				margin: 0 10px;

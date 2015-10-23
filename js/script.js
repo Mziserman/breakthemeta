@@ -35,7 +35,6 @@ jQuery(document).ready(function($) {
 		e.preventDefault();
 
 		// Remove all other previous selected lanes
-		$(this).parent().find('li').removeClass('active');
 
 		$(this).toggleClass('active');
 		// $('.lanes .title').toggleClass('active');
