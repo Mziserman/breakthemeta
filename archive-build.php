@@ -174,7 +174,7 @@
                                     if (  $loop->max_num_pages > 1 ) : ?>
                                         <div class="nav-below" class="navigation">
                                             <?php echo paginate_links(array(
-                                                'total' => 2,
+                                                'total' => $builds_per_page,
                                                 'prev_next' => true,
                                                 'next_next' => __('Next'),
                                                 'total' => $wp_query->max_num_pages
