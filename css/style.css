@@ -461,7 +461,7 @@ a{
 
 					.aside-list-items .lanes .filter-list li a {
 						color: #5174CB;
-						padding: 5px 15px 5px 10px;
+						padding: 5px 20px 5px 15px;
 						border: 2px solid transparent;
 					}
 
@@ -476,14 +476,15 @@ a{
 						.aside-list-items .lanes .filter-list li.active a::after {
 							position: absolute;
 							content: 'x';
-							right: 6px;
+							right: 8px;
 							top: 7px;
 							font-size: 0.9em;
+							color: #fff;
 						}
 
 					.aside-list-items .roles .filter-list li a {
 						color: #E8A336;
-						padding: 5px 10px;
+						padding: 5px 20px 5px 15px;
 						border: 2px solid transparent;
 					}
 
@@ -493,6 +494,15 @@ a{
 					.aside-list-items .roles .filter-list li.active a {
 						border: 2px solid #E8A336;
 					}
+
+						.aside-list-items .roles .filter-list li.active a::after {
+							position: absolute;
+							content: 'x';
+							right: 8px;
+							top: 7px;
+							font-size: 0.9em;
+							color: #fff;
+						}
 
 			.aside-list-items a.active + .filter-list {
 				display: block;
@@ -978,6 +988,7 @@ a{
 						color: #FFFFFF;
 						line-height: 15px;
 						box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.50);
+						outline: none;
 					}
 
 					.build-content .aside .recommend-button button:hover {
@@ -1021,6 +1032,7 @@ a{
 						.build-content .aside ul li.active a {
 							background-color: #212327;
 							color: #fff;
+							box-shadow: inset 0px -1px 2px 0px rgba(0,0,0,0.30), inset 0px 1px 2px 0px rgba(0,0,0,0.30);
 						}
 
 						.build-content .aside ul li a:hover {
@@ -1107,7 +1119,7 @@ a{
 									.panel.summary .mark, 
 									.panel.summary .seal, 
 									.panel.summary .glyph {
-										font-size: 20px;
+										font-size: 18px;
 										margin-top: 15px;
 									}
 									.quint {color: #8329AF;}
@@ -1207,6 +1219,11 @@ a{
 									color: #3A3C42;
 								}
 
+								.panel.runes h4 {
+									font-size: 18px;
+									margin-top: 15px;
+								}
+
 					.build-content .panel.runes .panel-section:last-child {
 						text-align: justify;
 						font-size: 14px;
@@ -1214,6 +1231,7 @@ a{
 
 						.build-content .panel.runes .panel-section:last-child p {
 							margin-bottom: 20px;
+							line-height: 21px;
 						}
 			
 			/* Masteries panel */
