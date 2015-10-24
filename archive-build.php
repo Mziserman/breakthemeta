@@ -79,8 +79,8 @@
             <div class="build-list">
                 <div class="build-list-header">
                     <ul class="panel-choice">
-                        <li class="active"><a href="#date">Newest</a></li>
-                        <li><a href="#rating">Top rated</a></li>
+                        <li class="active"><a href="date">Newest</a></li>
+                        <li><a href="rand">Top rated</a></li>
                         <li><a href="#panel-3">Debated</a></li>
                     </ul>
                 </div>

@@ -58,20 +58,20 @@ register_taxonomy(
 	)
 );
 
-add_action( 'wp_ajax_mon_action', 'mon_action' );
-add_action( 'wp_ajax_nopriv_mon_action', 'mon_action' );
+add_action( 'wp_ajax_get_builds', 'get_builds' );
+add_action( 'wp_ajax_nopriv_get_builds', 'get_builds' );
 
 function get_builds() {
 	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+	$orderby = $_POST['orderby'];
 	$args = array(
 	    'posts_per_page' => 10, 
 	    'paged' => $paged, 
 	    'post_type' => 'build', 
-	    'orderby' => 'date' 
+	    'orderby' => $orderby
 	);
 
 	$ajax_query = new WP_Query($args);
-
 	if ( $ajax_query->have_posts() ) : while ( $ajax_query->have_posts() ) : $ajax_query->the_post();
 		get_template_part( 'template_archive_build' );
 	endwhile;
