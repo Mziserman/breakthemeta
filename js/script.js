@@ -25,7 +25,6 @@ jQuery(document).ready(function($) {
 		}else {
 			$('.filters .filter-champ').html(champ);
 		}
-		
 	});
 
 	//
@@ -48,7 +47,6 @@ jQuery(document).ready(function($) {
 		}else {
 			$('.filters .filter-lane').html(lane);
 		}
-		
 	});
 
 	//
@@ -71,7 +69,6 @@ jQuery(document).ready(function($) {
 		}else {
 			$('.filters .filter-role').html(role);
 		}
-		
 	});
 
 

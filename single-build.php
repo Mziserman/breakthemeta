@@ -198,10 +198,9 @@
 								<p><span class="glyph">Greater Glyph of Scaling Cooldown Reduction</span> x6 - The main point of those is to allow us to build other boots than  Ionian Boots of Lucidity and still get 40% cdr. Since patch 5.14 having maxed out cdr isn't so important anymore on  Azir but having 30% cdr or more is very useful anyway. I decided that it is not worth to get x9 scaling MR glyphs because, after all, getting some early game damage (quints) on  Azir can be very beneficial. I really recommend running cdr runes on  Rod of Ages build because there isn't really any other source of cdr in there. You could also use it in the  Morellonomicon build if you want to have 40% cdr in there too, which is really nice.</p>
 								<p><span class="quint">Greater Quintessence of Scaling Cooldown Reduction</span> x1 - Just to hit 40% cdr, same reasoning as for <span class="glyph">Greater Glyph of Scaling Cooldown Reduction.</span></p>
 							</div>
-
 						</div>
 
-						<div class="panel masteries show" id="panel-3">
+						<div class="panel masteries" id="panel-3">
 							<h3>Masteries</h3>
 							<div class="panel-section">
 								<div class="offense-section">
@@ -539,28 +538,28 @@
 										<div class="row">
 											<div class="col">
 												<a href="">
-													<img src="<?php echo get_template_directory_uri(); ?>/img/masteries/offense/1-1.png" alt="">
+													<img src="<?php echo get_template_directory_uri(); ?>/img/masteries/utility/1-1.png" alt="">
 													<span class="shadow"></span>
 													<span class="points" data-point="0"></span>
 												</a>
 											</div>
 											<div class="col">
 												<a href="" class="">
-													<img src="<?php echo get_template_directory_uri(); ?>/img/masteries/offense/2-1.png" alt="">
+													<img src="<?php echo get_template_directory_uri(); ?>/img/masteries/utility/1-2.png" alt="">
 													<span class="shadow"></span>
 													<span class="points" data-point="0"></span>
 												</a>
 											</div>
 											<div class="col">
 												<a href="" class="">
-													<img src="<?php echo get_template_directory_uri(); ?>/img/masteries/offense/3-1.png" alt="">
+													<img src="<?php echo get_template_directory_uri(); ?>/img/masteries/utility/1-3.png" alt="">
 													<span class="shadow"></span>
 													<span class="points" data-point="0"></span>
 												</a>
 											</div>
 											<div class="col">
 												<a href="">
-													<img src="<?php echo get_template_directory_uri(); ?>/img/masteries/offense/4-5.png" alt="">
+													<img src="<?php echo get_template_directory_uri(); ?>/img/masteries/utility/1-4.png" alt="">
 													<span class="shadow"></span>
 													<span class="points" data-point="0"></span>
 												</a>
@@ -570,21 +569,21 @@
 											<div class="col"></div>
 											<div class="col">
 												<a href="">
-													<img src="<?php echo get_template_directory_uri(); ?>/img/masteries/offense/2-2.png" alt="">
+													<img src="<?php echo get_template_directory_uri(); ?>/img/masteries/utility/2-2.png" alt="">
 													<span class="shadow"></span>
 													<span class="points" data-point="0"></span>
 												</a>
 											</div>
 											<div class="col">
 												<a href="" class="">
-													<img src="<?php echo get_template_directory_uri(); ?>/img/masteries/offense/3-2.png" alt="">
+													<img src="<?php echo get_template_directory_uri(); ?>/img/masteries/utility/2-3.png" alt="">
 													<span class="shadow"></span>
 													<span class="points" data-point="0"></span>
 												</a>
 											</div>
 											<div class="col">
 												<a href="">
-													<img src="<?php echo get_template_directory_uri(); ?>/img/masteries/offense/4-4.png" alt="">
+													<img src="<?php echo get_template_directory_uri(); ?>/img/masteries/utility/2-4.png" alt="">
 													<span class="shadow"></span>
 													<span class="points" data-point="0"></span>
 												</a>
@@ -593,28 +592,28 @@
 										<div class="row">
 											<div class="col">
 												<a href="">
-													<img src="<?php echo get_template_directory_uri(); ?>/img/masteries/offense/1-3.png" alt="">
+													<img src="<?php echo get_template_directory_uri(); ?>/img/masteries/utility/3-1.png" alt="">
 													<span class="shadow"></span>
 													<span class="points" data-point="0"></span>
 												</a>
 											</div>
 											<div class="col">
 												<a href="">
-													<img src="<?php echo get_template_directory_uri(); ?>/img/masteries/offense/2-3.png" alt="">
+													<img src="<?php echo get_template_directory_uri(); ?>/img/masteries/utility/3-2.png" alt="">
 													<span class="shadow"></span>
 													<span class="points" data-point="0"></span>
 												</a>
 											</div>
 											<div class="col">
 												<a href="">
-													<img src="<?php echo get_template_directory_uri(); ?>/img/masteries/offense/3-3.png" alt="">
+													<img src="<?php echo get_template_directory_uri(); ?>/img/masteries/utility/3-3.png" alt="">
 													<span class="shadow"></span>
 													<span class="points" data-point="0"></span>
 												</a>
 											</div>
 											<div class="col">
 												<a href="">
-													<img src="<?php echo get_template_directory_uri(); ?>/img/masteries/offense/4-3.png" alt="">
+													<img src="<?php echo get_template_directory_uri(); ?>/img/masteries/utility/3-4.png" alt="">
 													<span class="shadow"></span>
 													<span class="points" data-point="0"></span>
 												</a>
@@ -623,57 +622,56 @@
 										<div class="row">
 											<div class="col">
 												<a href="">
-													<img src="<?php echo get_template_directory_uri(); ?>/img/masteries/offense/1-4.png" alt="">
+													<img src="<?php echo get_template_directory_uri(); ?>/img/masteries/utility/4-1.png" alt="">
 													<span class="shadow"></span>
 													<span class="points" data-point="0"></span>
 												</a>
 											</div>
 											<div class="col">
 												<a href="">
-													<img src="<?php echo get_template_directory_uri(); ?>/img/masteries/offense/2-4.png" alt="">
+													<img src="<?php echo get_template_directory_uri(); ?>/img/masteries/utility/4-2.png" alt="">
 													<span class="shadow"></span>
 													<span class="points" data-point="0"></span>
 												</a>
 											</div>
 											<div class="col">
 												<a href="">
-													<img src="<?php echo get_template_directory_uri(); ?>/img/masteries/offense/3-4.png" alt="">
+													<img src="<?php echo get_template_directory_uri(); ?>/img/masteries/utility/4-3.png" alt="">
 													<span class="shadow"></span>
 													<span class="points" data-point="0"></span>
 												</a>
 											</div>
 											<div class="col">
 												<a href="">
-													<img src="<?php echo get_template_directory_uri(); ?>/img/masteries/offense/4-2.png" alt="">
+													<img src="<?php echo get_template_directory_uri(); ?>/img/masteries/utility/4-4.png" alt="">
 													<span class="shadow"></span>
 													<span class="points" data-point="0"></span>
 												</a>
 											</div>
+										</div>
+										<div class="row">
+											<div class="col"></div>
+											<div class="col">
+												<a href="">
+													<img src="<?php echo get_template_directory_uri(); ?>/img/masteries/utility/5-2.png" alt="">
+													<span class="shadow"></span>
+													<span class="points" data-point="0"></span>
+												</a>
+											</div>
+											<div class="col">
+												<a href="">
+													<img src="<?php echo get_template_directory_uri(); ?>/img/masteries/utility/5-3.png" alt="">
+													<span class="shadow"></span>
+													<span class="points" data-point="0"></span>
+												</a>
+											</div>
+											<div class="col"></div>
 										</div>
 										<div class="row">
 											<div class="col"></div>
 											<div class="col">
 												<a href="">
-													<img src="<?php echo get_template_directory_uri(); ?>/img/masteries/offense/2-5.png" alt="">
-													<span class="shadow"></span>
-													<span class="points" data-point="0"></span>
-												</a>
-											</div>
-											<div class="col">
-												<a href="">
-													<img src="<?php echo get_template_directory_uri(); ?>/img/masteries/offense/4-1.png" alt="">
-													<span class="shadow"></span>
-													<span class="points" data-point="0"></span>
-												</a>
-											</div>
-											<div class="col"></div>
-										</div>
-										<div class="row">
-											<div class="col"></div>
-											
-											<div class="col">
-												<a href="">
-													<img src="<?php echo get_template_directory_uri(); ?>/img/masteries/offense/2-6.png" alt="">
+													<img src="<?php echo get_template_directory_uri(); ?>/img/masteries/utility/6-2.png" alt="">
 													<span class="shadow"></span>
 													<span class="points" data-point="0"></span>
 												</a>
@@ -693,11 +691,14 @@
 						<div class="panel skill-order" id="panel-4">
 							<p>Roll your face it will work, TRUST ME</p>
 						</div>
-						<div class="panel gameplay" id="panel-5">
-							<p>Non mais vraiment du gameplay pour jouer GP ?</p>
+						<div class="panel gameplay show" id="panel-5">	
+							<h3>Gameplay</h3>					
+							<div class="the-content">
+								<?php the_content(); ?>
+							</div>
 						</div>
 						<div class="panel comments" id="panel-6">
-							<p>Hum des commentaires ici</p>
+							<h3>Comments (6)</h3>	
 						</div>
 						
 					</div>
