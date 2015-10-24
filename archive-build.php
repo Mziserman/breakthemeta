@@ -88,9 +88,13 @@
                     <div class="panel show" id="panel-1">
                         <ul>
                             <?php
-                                $loop = new WP_Query( array( 'posts_per_page' => 10, 'post_type' => 'build', 'orderby' => 'date') );
+                                //il faut mettre le meme nombre dans le champ admin > réglage > Les pages du site doivent afficher au plux ...
+                                $builds_per_page = 2;
+                                $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+                                $loop = new WP_Query( array( 'posts_per_page' => $builds_per_page, 'paged' => $paged, 'post_type' => 'build', 'orderby' => 'date') );
                                 if ( $loop->have_posts() ) :
                                     while ( $loop->have_posts() ) : $loop->the_post(); ?>
+                            
                                          <li class="blog-build-item">
                                             <img class="champion-portrait" src="<?php echo get_template_directory_uri(); ?>/img/champion/Azir.png" alt="">
 
@@ -116,13 +120,18 @@
                                             </div>
                                         <li>
                                     <?php endwhile;
-                                    if (  $loop->max_num_pages > 1 ) : ?>
+
+                                    $published_builds = wp_count_posts('build')->publish;
+                                    $page_number_max = ceil($published_builds / $builds_per_page);
+
+                                    if (  $page_number_max > 1 ) : ?>
                                         <div class="nav-below" class="navigation">
-                                            <?php echo paginate_links(array(
+                                            <?php 
+                                            echo paginate_links(array(
                                                 'total' => 2,
                                                 'prev_next' => true,
                                                 'next_next' => __('Next'),
-                                                'total' => $wp_query->max_num_pages
+                                                'total' => $page_number_max
                                             )); ?>
                                         </div>
                                     <?php endif;
@@ -134,7 +143,7 @@
                     <div class="panel" id="panel-2">
                         <ul>
                             <?php
-                                $loop = new WP_Query( array( 'posts_per_page' => 10, 'post_type' => 'build', 'orderby' => 'rand') );
+                                $loop = new WP_Query( array( 'posts_per_page' => 2, 'post_type' => 'build', 'orderby' => 'rand') );
                                 if ( $loop->have_posts() ) :
                                     while ( $loop->have_posts() ) : $loop->the_post(); ?>
                                          <li class="blog-build-item">
