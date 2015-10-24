@@ -90,9 +90,11 @@ a{
 
 				.header .navbar li.active {
 					background-color: #BB3A3A;
-
 				}
 
+				.header .navbar li:hover {
+					box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5) inset,
+				}
 
 					.header .navbar li a {
 						display: block;
