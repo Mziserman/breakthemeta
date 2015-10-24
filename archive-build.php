@@ -87,62 +87,16 @@
                 <div class="build-list-content">
                     <div class="panel show" id="panel-1">
                         <ul>
-                            <?php
-                                //il faut mettre le meme nombre dans le champ admin > réglage > Les pages du site doivent afficher au plux ...
-                                $builds_per_page = 10;
-                             
-                            
-                                     if ( have_posts() ) : while ( have_posts() ) : the_post();
-                                        get_template_part('article');
-                                    endwhile; endif;
-                     
+                            <?php                             
+                                if ( have_posts() ) : while ( have_posts() ) : the_post();
+                                    get_template_part('template_archive_build');
+                                endwhile; endif;
                             ?>
                         </ul>
                     </div>
                     <div class="panel" id="panel-2">
                         <ul>
-                            <?php
-                                $loop = new WP_Query( array( 'posts_per_page' => 10, 'post_type' => 'build', 'orderby' => 'rand') );
-                                if ( $loop->have_posts() ) :
-                                    while ( $loop->have_posts() ) : $loop->the_post(); ?>
-                                         <li class="blog-build-item">
-                                            <img class="champion-portrait" src="<?php echo get_template_directory_uri(); ?>/img/champion/Azir.png" alt="">
-
-                                            <div class="author-and-date">
-                                                <a class="build-link" href="<?php the_permalink(); ?>" class="clearfix"><?php the_title(); ?></a>
-
-                                                <p>by <a href="">Popolopo26</a> - <?php echo get_the_date(); ?></p>
-                                            </div>
-                                            <div class="items-list">
-                                                <ul>
-                                                    <li><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Elise.png" alt=""></li>
-                                                    <li><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Draven.png" alt=""></li>
-                                                    <li><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Ezreal.png" alt=""></li>
-                                                    <li><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Anivia.png" alt=""></li>
-                                                    <li><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Annie.png" alt=""></li>
-                                                    <li><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Brand.png" alt=""></li>
-                                                </ul>
-                                            </div>
-                                            
-                                            <div class="likes-and-comments">
-                                                <span><img src="<?php echo get_template_directory_uri(); ?>/img/heart.png" alt=""><p>15</p></span>
-                                                <span><img src="<?php echo get_template_directory_uri(); ?>/img/comment-bubble.png" alt=""><p>6</p></span>
-                                            </div>
-                                        <li>
-                                    <?php endwhile;
-                                    if (  $loop->max_num_pages > 1 ) : ?>
-                                        <div class="nav-below" class="navigation">
-                                            <?php echo paginate_links(array(
-                                                'total' => $builds_per_page,
-                                                'prev_next' => true,
-                                                'next_next' => __('Next'),
-                                                'total' => $wp_query->max_num_pages
-                                            )); ?>
-                                        </div>
-                                    <?php endif;
-                                endif;
-                                wp_reset_postdata();
-                            ?>
+                            
                         </ul>
                     </div>
                     <div class="panel" id="panel-3">Debated build list</div>
