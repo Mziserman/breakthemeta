@@ -9,8 +9,14 @@ function init_js() {
 	wp_enqueue_script( 'jquery', 'http://code.jquery.com/jquery-1.8.3.min.js');
 	wp_enqueue_script( 'bootstrap', get_template_directory_uri().'/js/bootstrap.js');
 	wp_enqueue_script( 'custom', get_template_directory_uri().'/js/script.js');
-}
+	wp_enqueue_script( 'script', get_template_directory_uri().'/js/ajax_script.js', array('jquery'), '1.0', true );
 
+	// pass Ajax Url to script.js
+	wp_localize_script('script', 'ajaxurl', admin_url( 'admin-ajax.php' ) );
+}
+add_action('wp_enqueue_scripts', 'add_js_scripts');
+
+//Custom post
 add_action( 'init', 'create_post_type');
 function create_post_type() {
 	register_post_type( 'build',
@@ -51,3 +57,26 @@ register_taxonomy(
 		'hierarchical' => true,
 	)
 );
+
+add_action( 'wp_ajax_mon_action', 'mon_action' );
+add_action( 'wp_ajax_nopriv_mon_action', 'mon_action' );
+
+function get_builds() {
+	$args = array(
+	    'posts_per_page' => $builds_per_page, 
+	    'paged' => $paged, 
+	    'post_type' => 'build', 
+	    'orderby' => 'date' 
+	);
+
+	$ajax_query = new WP_Query($args);
+
+	if ( $ajax_query->have_posts() ) : while ( $ajax_query->have_posts() ) : $ajax_query->the_post();
+		get_template_part( 'template_archive_build' );
+	endwhile;
+	endif;
+
+
+	die();
+
+}

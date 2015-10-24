@@ -90,53 +90,12 @@
                             <?php
                                 //il faut mettre le meme nombre dans le champ admin > réglage > Les pages du site doivent afficher au plux ...
                                 $builds_per_page = 10;
-                                $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-                                $loop = new WP_Query( array( 'posts_per_page' => $builds_per_page, 'paged' => $paged, 'post_type' => 'build', 'orderby' => 'date') );
-                                if ( $loop->have_posts() ) :
-                                    while ( $loop->have_posts() ) : $loop->the_post(); ?>
+                             
                             
-                                         <li class="blog-build-item">
-                                            <img class="champion-portrait" src="<?php echo get_template_directory_uri(); ?>/img/champion/Azir.png" alt="">
-
-                                            <div class="author-and-date">
-                                                <a class="build-link" href="<?php the_permalink(); ?>" class="clearfix"><?php the_title(); ?></a>
-                              
-                                                <p>by <a href="">Popolopo26</a> - <?php echo get_the_date(); ?></p>
-                                            </div>
-                                            <div class="items-list">
-                                                <ul>
-                                                    <li><img src="<?php echo get_template_directory_uri(); ?>/img/item_3.png" alt=""></li>
-                                                    <li><img src="<?php echo get_template_directory_uri(); ?>/img/item_3.png" alt=""></li>
-                                                    <li><img src="<?php echo get_template_directory_uri(); ?>/img/item_3.png" alt=""></li>
-                                                    <li><img src="<?php echo get_template_directory_uri(); ?>/img/item_3.png" alt=""></li>
-                                                    <li><img src="<?php echo get_template_directory_uri(); ?>/img/item_3.png" alt=""></li>
-                                                    <li><img src="<?php echo get_template_directory_uri(); ?>/img/item_3.png" alt=""></li>
-                                                </ul>
-                                            </div>
-                                            
-                                            <div class="likes-and-comments">
-                                                <span><img src="<?php echo get_template_directory_uri(); ?>/img/heart.png" alt=""><p>15</p></span>
-                                                <span><img src="<?php echo get_template_directory_uri(); ?>/img/comment-bubble.png" alt=""><p>6</p></span>
-                                            </div>
-                                        <li>
-                                    <?php endwhile;
-
-                                    $published_builds = wp_count_posts('build')->publish;
-                                    $page_number_max = ceil($published_builds / $builds_per_page);
-
-                                    if (  $page_number_max > 1 ) : ?>
-                                        <div class="nav-below" class="navigation">
-                                            <?php 
-                                            echo paginate_links(array(
-                                                'total' => 2,
-                                                'prev_next' => true,
-                                                'next_next' => __('Next'),
-                                                'total' => $page_number_max
-                                            )); ?>
-                                        </div>
-                                    <?php endif;
-                                endif;
-                                wp_reset_postdata();
+                                     if ( have_posts() ) : while ( have_posts() ) : the_post();
+                                        get_template_part('article');
+                                    endwhile; endif;
+                     
                             ?>
                         </ul>
                     </div>
