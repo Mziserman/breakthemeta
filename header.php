@@ -38,9 +38,10 @@
         <div class="navigation">
             <div class="navbar">
                 <ul class="">
-                    <li class="active"><a href="">Create a new build</a></li>
-                    <li class="underline"><a href="<?php echo wp_login_url(); ?>">Login</a></li>
+                    <li class="active"><a href="<?php echo get_site_url(); ?>/create-a-new-build/">Create a new build</a></li>
+                    <li class="underline login"><a href="">Login</a></li>
                 </ul>
             </div>
         </div>
+        <?php wp_login_form(); ?>
     </div><!-- End Header -->

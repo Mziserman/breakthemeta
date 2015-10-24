@@ -100,6 +100,80 @@ a{
 						line-height: 80px;
 					}
 
+		/* LOGIN FORM */
+
+			#loginform {
+				display: none;
+				position: absolute;
+				right: 0;
+				bottom: -187px;
+				padding: 20px 20px 10px;
+				background-color: #212327;
+			}
+
+			#loginform.show {
+				display: inline-block;
+			}
+
+				#loginform p {
+					margin-bottom: 10px;
+					position: relative;
+				}
+
+					#loginform .login-username label,
+					#loginform .login-password label {
+						position: absolute;
+						top: 6px;
+						left: 11px;
+						z-index:0;
+						font-size: 11px;
+						display: block;
+					}
+
+					#loginform .login-username label:hover,
+					#loginform .login-password label:hover {
+						cursor: text;
+					}
+
+					#loginform .login-username label.hide,
+					#loginform .login-password label.hide {
+						display: none;
+					}
+
+					#loginform .login-remember label {
+						font-size: 11px;
+					}
+
+						#loginform label {
+							display: block;
+						}
+
+						#loginform input[type=text],
+						#loginform input[type=password] {
+							width: 200px;
+							padding-left: 10px;
+							border: none;
+							outline: none;
+							line-height: 30px;
+							color: #fff;
+							background-color: #3A3C42;
+							box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
+							z-index:2;
+						}
+
+						#loginform input[type=submit] {
+							padding: 10px;
+							border: 0;
+							background: #BB3A3A;
+							font-family: PTSans-bold;
+							font-size: 11px;
+							text-transform: uppercase;
+							color: #FFFFFF;
+							line-height: 15px;
+							box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.50);
+							outline: none;
+						}
+
 
 /* @end HEADER */
 
