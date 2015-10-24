@@ -89,7 +89,7 @@
                         <ul>
                             <?php
                                 //il faut mettre le meme nombre dans le champ admin > réglage > Les pages du site doivent afficher au plux ...
-                                $builds_per_page = 2;
+                                $builds_per_page = 10;
                                 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                                 $loop = new WP_Query( array( 'posts_per_page' => $builds_per_page, 'paged' => $paged, 'post_type' => 'build', 'orderby' => 'date') );
                                 if ( $loop->have_posts() ) :
@@ -143,7 +143,7 @@
                     <div class="panel" id="panel-2">
                         <ul>
                             <?php
-                                $loop = new WP_Query( array( 'posts_per_page' => 2, 'post_type' => 'build', 'orderby' => 'rand') );
+                                $loop = new WP_Query( array( 'posts_per_page' => 10, 'post_type' => 'build', 'orderby' => 'rand') );
                                 if ( $loop->have_posts() ) :
                                     while ( $loop->have_posts() ) : $loop->the_post(); ?>
                                          <li class="blog-build-item">
