@@ -62,8 +62,9 @@ add_action( 'wp_ajax_mon_action', 'mon_action' );
 add_action( 'wp_ajax_nopriv_mon_action', 'mon_action' );
 
 function get_builds() {
+	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 	$args = array(
-	    'posts_per_page' => $builds_per_page, 
+	    'posts_per_page' => 10, 
 	    'paged' => $paged, 
 	    'post_type' => 'build', 
 	    'orderby' => 'date' 
