@@ -76,15 +76,15 @@ jQuery(document).ready(function($) {
 
 
 	// Switch to panels on Build List
-	$('.panel-choice a').on('click', function(e) {
-		e.preventDefault();
+	// $('.panel-choice a').on('click', function(e) {
+	// 	e.preventDefault();
 
-		$(this).parent().parent().find('li').removeClass('active');
-		$(this).parent().addClass('active');
+	// 	$(this).parent().parent().find('li').removeClass('active');
+	// 	$(this).parent().addClass('active');
 
-		$('.build-list-content .panel').removeClass('show');
-		$($(this).attr('href')).addClass('show');
-	});
+	// 	$('.build-list-content .panel').removeClass('show');
+	// 	$($(this).attr('href')).addClass('show');
+	// });
 
 	// Switch to panels on BUILD DETAIL !
 	$('.panel-choice-detail a').on('click', function(e) {

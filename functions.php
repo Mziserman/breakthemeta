@@ -82,10 +82,10 @@ function get_builds() {
 	die();
 
 }
-add_action( 'wp_ajax_get_number_of_posts', 'get_number_of_posts' );
-add_action( 'wp_ajax_nopriv_get_number_of_posts', 'get_number_of_posts' );
+add_action( 'wp_ajax_get_number_of_builds', 'get_number_of_builds' );
+add_action( 'wp_ajax_nopriv_get_number_of_builds', 'get_number_of_builds' );
 
-function get_number_of_posts() {
+function get_number_of_builds() {
 	$count_posts = wp_count_posts('build');
 
 	$published_posts = $count_posts->publish;
