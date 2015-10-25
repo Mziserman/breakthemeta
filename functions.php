@@ -62,11 +62,12 @@ add_action( 'wp_ajax_get_builds', 'get_builds' );
 add_action( 'wp_ajax_nopriv_get_builds', 'get_builds' );
 
 function get_builds() {
-	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+	$posts_per_page = $_POST['posts_per_page'];
+	$offset = $_POST['offset'];
 	$orderby = $_POST['orderby'];
 	$args = array(
-	    'posts_per_page' => 10, 
-	    'paged' => $paged, 
+		'posts_per_page' => $posts_per_page,
+		'offset' => $offset,
 	    'post_type' => 'build', 
 	    'orderby' => $orderby
 	);
@@ -77,6 +78,18 @@ function get_builds() {
 	endwhile;
 	endif;
 
+
+	die();
+
+}
+add_action( 'wp_ajax_get_number_of_posts', 'get_number_of_posts' );
+add_action( 'wp_ajax_nopriv_get_number_of_posts', 'get_number_of_posts' );
+
+function get_number_of_posts() {
+	$count_posts = wp_count_posts('build');
+
+	$published_posts = $count_posts->publish;
+	echo $published_posts;
 
 	die();
 

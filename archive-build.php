@@ -81,7 +81,7 @@
                     <ul class="panel-choice">
                         <li class="active"><a href="date">Newest</a></li>
                         <li><a href="rand">Top rated</a></li>
-                        <li><a href="#panel-3">Debated</a></li>
+                        <li><a href="debated">Debated</a></li>
                     </ul>
                 </div>
                 <div class="build-list-content">
@@ -94,12 +94,6 @@
                             ?>
                         </ul>
                     </div>
-                    <div class="panel" id="panel-2">
-                        <ul>
-                            
-                        </ul>
-                    </div>
-                    <div class="panel" id="panel-3">Debated build list</div>
                 </div>
             </div>
         </div>
