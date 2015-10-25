@@ -91,20 +91,7 @@
                                 if ( have_posts() ) : while ( have_posts() ) : the_post();
                                     get_template_part('template_archive_build');
                                 endwhile; endif;
-                                $posts_per_page = 10;
-                                $published_builds = wp_count_posts('build')->publish;
-                                $page_number_max = ceil($published_builds / $posts_per_page);
-                                if (  $page_number_max >= 1 ) : ?>
-                                    <div class="nav-below" class="navigation">
-                                        <?php 
-                                        echo paginate_links(array(
-                                            'prev_next' => true,
-                                            'next_next' => __('Next'),
-                                            'total' => $page_number_max
-                                        )); 
-                                        ?>
-                                    </div>
-                            <?php endif?>
+                            ?>
                         </ul>
                     </div>
                 </div>
