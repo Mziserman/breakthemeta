@@ -94,6 +94,16 @@
                             ?>
                         </ul>
                     </div>
+                    <div class="panel show" id="panel-2">
+                        <ul>
+                            
+                        </ul>
+                    </div>
+                    <div class="panel show" id="panel-3">
+                        <ul>
+
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
