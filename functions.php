@@ -179,11 +179,13 @@ function get_builds() {
 	$posts_per_page = $_POST['posts_per_page'];
 	$offset = $_POST['offset'];
 	$orderby = $_POST['orderby'];
+	$search = $_POST['search'];
 	$args = array(
 		'posts_per_page' => $posts_per_page,
 		'offset' => $offset,
 	    'post_type' => 'build', 
-	    'orderby' => $orderby
+	    'orderby' => $orderby,
+	    's' => $search
 	);
 
 	$ajax_query = new WP_Query($args);

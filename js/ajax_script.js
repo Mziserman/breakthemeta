@@ -5,6 +5,7 @@ var Options = function(){
 Options.prototype = {
 	init: function() {
 		this.order = 'date'
+		this.search = '';
 	}
 }
 var Pagination = function(postsPerPage){
@@ -64,6 +65,7 @@ var printPagination = function($, pagination){
 	container.append(nav_container);
 }
 var addInteractions = function($, pagination, options){
+	//Switch panel
 	$('.panel-choice').on('click', 'a', function(e){
 		e.preventDefault();
 
@@ -78,6 +80,7 @@ var addInteractions = function($, pagination, options){
 		getBuilds($, pagination, options)
 	})
 
+	//Switch page
 	$('.nav-below').on('click', 'a', function(e){
 		e.preventDefault()
 		pagination.setPage($(this).html());
@@ -86,12 +89,25 @@ var addInteractions = function($, pagination, options){
 		exCurrentPage.replaceWith($('<a>').addClass('page-numbers').attr('href', exCurrentPage.html()).html(exCurrentPage.html()));
 		var currentPage = $('.nav-below').find("a[href=" + pagination.currentPage + "]")
 		currentPage.replaceWith($('<span>').addClass('page-numbers').addClass('current').html(pagination.currentPage))
+
 		getBuilds($, pagination, options);
 	})
-}
 
+	//Search
+	$('.search-bar').on('click', 'button', function(e){
+		e.preventDefault();
+		options.search = $(this).parent().find('input').val();
+		removePagination($)
+		getBuilds($, pagination, options);
+		options.search = '';
+	})
+}
+var removePagination = function($) {
+	$('.nav-below').remove();
+}
 var getBuilds = function($, pagination, options){
-	var orderBy = options.order
+	var orderBy = options.order;
+	var search = options.search;
 	var offset = pagination.offset;
 	var posts_per_page = pagination.postsPerPage;
 	$.post(
@@ -100,7 +116,8 @@ var getBuilds = function($, pagination, options){
 	        'action': 'get_builds',
 	        'offset': offset,
 	        'posts_per_page': posts_per_page,
-	        'orderby': orderBy
+	        'orderby': orderBy,
+	        'search': search
 	    },
 	    function(response){
 	    	$('.build-list-content').find('.blog-build-item').each(function(){
