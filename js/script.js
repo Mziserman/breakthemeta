@@ -95,7 +95,7 @@ jQuery(document).ready(function($) {
         }    
 	});
 
-	// Add active to masteries with points
+	// Add active to masteries with points !
 	var points = $('.points');
 	points.each(function() {
 		
