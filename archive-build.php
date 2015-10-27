@@ -79,27 +79,35 @@
             <div class="build-list">
                 <div class="build-list-header">
                     <ul class="panel-choice">
-                        <li class="active"><a href="date">Newest</a></li>
-                        <li><a href="rand">Top rated</a></li>
-                        <li><a href="debated">Debated</a></li>
+                        <li class="date active"><a href="date">Newest</a></li>
+                        <li class="rand"><a href="rand">Top rated</a></li>
+                        <li class="debated"><a href="debated">Debated</a></li>
+                        <li class="search-result"><a href="search-result">Search Result</a></li>
                     </ul>
                 </div>
                 <div class="build-list-content">
                     <div class="panel show" id="panel-1">
                         <ul>
                             <?php                             
-                                if ( have_posts() ) : while ( have_posts() ) : the_post();
-                                    get_template_part('template_archive_build');
-                                endwhile; endif;
+                                if ( have_posts() ) : 
+                                    while ( have_posts() ) : the_post();
+                                        get_template_part('template_archive_build');
+                                    endwhile; 
+                                endif;
                             ?>
                         </ul>
                     </div>
-                    <div class="panel show" id="panel-2">
+                    <div class="panel hide" id="panel-2">
                         <ul>
                             
                         </ul>
                     </div>
-                    <div class="panel show" id="panel-3">
+                    <div class="panel hide" id="panel-3">
+                        <ul>
+
+                        </ul>
+                    </div>
+                    <div class="panel hide" id="panel-4">
                         <ul>
 
                         </ul>
