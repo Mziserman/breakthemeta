@@ -82,7 +82,7 @@
                         <li class="date active"><a href="date">Newest</a></li>
                         <li class="rand"><a href="rand">Top rated</a></li>
                         <li class="debated"><a href="debated">Debated</a></li>
-                        <li class="search-result"><a href="search-result">Search Result</a></li>
+                        <li class="search-result" style="display: none"><a href="search-result">Search Result</a></li>
                     </ul>
                 </div>
                 <div class="build-list-content">

@@ -51,7 +51,16 @@ CurrentState.prototype = {
 				that.getBuilds();
 			}
 		});
-
+		this.panels.search.button.on('click', function(e){
+			e.preventDefault();
+			that.switchPanel(that.currentPanel, that.panels.search);
+		})
+		this.$('.search-bar').on('click', 'button', function(e){
+			e.preventDefault()
+			that.search = that.$(this).parent().find('input').val();
+			console.log(that.search);
+			that.getSearchResults();
+		})
 
 	},
 	getBuilds: function(){
@@ -71,7 +80,26 @@ CurrentState.prototype = {
 		    	that.currentPanel.container.prepend(response);
 	        }
 		);
-	}
+	},
+	getSearchResults: function() {
+		var search = this.search;
+		var that = this;
+		this.$.post(
+		    ajaxurl,
+		    {
+		        'action': 'get_builds',
+		        'search': search
+		    },
+		    function(response){
+   				that.switchPanel(that.currentPanel, that.panels.search);
+   				if (!that.currentPanel.visited){
+					that.currentPanel.visited = true;
+					that.currentPanel.button.css('display', 'inline-block');
+				}
+		    	that.$('#panel-4').empty().prepend(response);
+	        }
+		);
+	},
 }
 
 var Panel = function($, name, button, container) {
@@ -199,59 +227,7 @@ jQuery(document).ready(function($){
 	})
 
 })
-var printPagination = function($, pagination){
-	var container = $('.build-list-content').find('.panel');
-	var nav_container = $('<div>').addClass('nav-below')
-	for (var i = 1; i <= pagination.pageMax; i++){
-		if (i == pagination.currentPage){
-			nav_container.append($('<span>').addClass('page-numbers').addClass('current').html(i))
-		} else {
-			nav_container.append($('<a>').addClass('page-numbers').attr('href', i).html(i));	
-		}
-	}
-	container.append(nav_container);
-}
-var addInteractions = function($, pagination, currentState){
-	//Switch panel
-	$('.panel-choice').on('click', 'a', function(e){
-		e.preventDefault();
 
-		$(this).parent().parent().find('li').removeClass('active');
-		$(this).parent().addClass('active');
-
-		$('.build-content .main .panel').removeClass('show');
-		$($(this).attr('href')).addClass('show');
-
-		currentState.order = $(this).attr('href');
-		
-		getBuilds($, pagination, currentState)
-	})
-
-	//Switch page
-	$('.nav-below').on('click', 'a', function(e){
-		e.preventDefault()
-		pagination.setPage($(this).html());
-
-		var exCurrentPage = $('.nav-below').find('span');
-		exCurrentPage.replaceWith($('<a>').addClass('page-numbers').attr('href', exCurrentPage.html()).html(exCurrentPage.html()));
-		var currentPage = $('.nav-below').find("a[href=" + pagination.currentPage + "]")
-		currentPage.replaceWith($('<span>').addClass('page-numbers').addClass('current').html(pagination.currentPage))
-
-		getBuilds($, pagination, currentState);
-	})
-
-	//Search
-	$('.search-bar').on('click', 'button', function(e){
-		e.preventDefault();
-		currentState.search = $(this).parent().find('input').val();
-		removePagination($)
-		getBuilds($, pagination, currentState);
-		currentState.search = '';
-	})
-}
-var removePagination = function($) {
-	$('.nav-below').remove();
-}
 var getBuilds = function($, pagination, currentState){
 	var orderBy = currentState.order;
 	var search = currentState.search;
