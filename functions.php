@@ -20,17 +20,131 @@ add_action('wp_enqueue_scripts', 'add_js_scripts');
 add_action( 'init', 'create_post_type');
 function create_post_type() {
 	register_post_type( 'build',
-		array(
-			'labels' => array(
-				'name' => __('Builds'),
-				'singular_name' => __('Build')
-			),
-			'public' => true,
-			'supports' => array('title', 'editor', 'thumbnail'),
-			'has_archive' => true
-		)
+	    array(
+	        'labels' => array(
+	            'name' => __('Builds'),
+	            'singular_name' => __('Build')
+	        ),
+	        'public' => true,
+	        'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'comment'),
+	        'has_archive' => true
+	    )
 	);
 }
+
+
+register_post_type( 'champion',
+    array(
+        'labels' => array(
+            'name' => __('Champions'),
+            'singular_name' => __('Champion')
+        ),
+        'public' => true,
+        'supports' => array('title', 'editor', 'thumbnail'),
+        'has_archive' => true
+    )
+);
+
+register_post_type( 'champion_spell',
+    array(
+        'labels' => array(
+            'name' => __('Champion spells'),
+            'singular_name' => __('Champion spell')
+        ),
+        'public' => true,
+        'supports' => array('title', 'editor', 'thumbnail'),
+        'has_archive' => true
+    )
+);
+
+/* Custom taxonomy */
+register_taxonomy(
+    'champ',
+    'champion_spell',
+    array(
+        'label' => __('Champ'),
+        'hierarchical' => true,
+    )
+);  
+
+register_post_type( 'summoner_spell',
+    array(
+        'labels' => array(
+            'name' => __('Summoner spells'),
+            'singular_name' => __('Summoner spell')
+        ),
+        'public' => true,
+        'supports' => array('title', 'editor', 'thumbnail'),
+        'has_archive' => true
+    )
+);
+
+
+register_post_type( 'item',
+    array(
+        'labels' => array(
+            'name' => __('Items'),
+            'singular_name' => __('Item')
+        ),
+        'public' => true,
+        'supports' => array('title', 'editor', 'thumbnail'),
+        'has_archive' => true
+    )
+);
+
+/* Custom taxonomy */
+register_taxonomy(
+    'time',
+    'item',
+    array(
+        'label' => __('Time'),
+        'hierarchical' => true,
+    )
+);  
+
+register_post_type( 'maitrise',
+    array(
+        'labels' => array(
+            'name' => __('Maitrises'),
+            'singular_name' => __('Maitrise')
+        ),
+        'public' => true,
+        'supports' => array('title', 'editor', 'thumbnail'),
+        'has_archive' => true
+    )
+);
+
+/* Custom taxonomy */
+register_taxonomy(
+    'tree',
+    'maitrise',
+    array(
+        'label' => __('Tree'),
+        'hierarchical' => true,
+    )
+);   
+
+register_post_type( 'rune',
+    array(
+        'labels' => array(
+            'name' => __('Runes'),
+            'singular_name' => __('Rune')
+        ),
+        'public' => true,
+        'supports' => array('title', 'editor', 'thumbnail'),
+        'has_archive' => true
+    )
+);
+
+/* Custom taxonomy */
+register_taxonomy(
+    'kind',
+    'rune',
+    array(
+        'label' => __('Kind'),
+        'hierarchical' => true,
+    )
+); 
 
 /*Custom taxonomy*/
 register_taxonomy(
