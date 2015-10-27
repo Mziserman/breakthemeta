@@ -691,22 +691,21 @@
 						<div class="panel skill-order" id="panel-4">
 							<p>Roll your face it will work, TRUST ME</p>
 						</div>
-						<div class="panel gameplay show" id="panel-5">	
+						<div class="panel gameplay" id="panel-5">	
 							<h3>Gameplay</h3>					
 							<div class="the-content">
 								<?php the_content(); ?>
 							</div>
 						</div>
-						<div class="panel comments" id="panel-6">
-							<h3>Comments (6)</h3>	
+						<div class="panel comments show" id="panel-6">
+							<h3>Comments (6)</h3>
+							<?php comments_template('/comments.php'); ?>
 						</div>
 						
 					</div>
 				   
 
 				</div>
-
-				<?php comments_template(); ?>
 
     		<?php endwhile; else: ?>
     			<p>Rien à afficher</p>

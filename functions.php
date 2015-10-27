@@ -26,7 +26,7 @@ function create_post_type() {
 	            'singular_name' => __('Build')
 	        ),
 	        'public' => true,
-	        'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'comment'),
+	        'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'comments'),
 	        'has_archive' => true
 	    )
 	);
