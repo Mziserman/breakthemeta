@@ -706,6 +706,8 @@
 
 				</div>
 
+				<?php comments_template(); ?>
+
     		<?php endwhile; else: ?>
     			<p>Rien à afficher</p>
     		<?php endif; ?>
