@@ -104,6 +104,37 @@ jQuery(document).ready(function($) {
 		}
 	});
 
+	// Center video in post
+	var contentVideo = $('.the-content iframe');
+	contentVideo.parent().css('text-align','center');
+
+	// Remove text in login form when the user start writing 
+	var loginForm = $('#loginform');
+	$(loginForm).find('input[type="text"], input[type=password]').on('keyup', function(e) {
+
+		var that = $(this),
+			label = that.prev('label');
+
+		if(that.val() === '') {
+			label.removeClass('hide');
+		} else {
+			label.addClass('hide');
+		}
+	});
+
+	// Display login panel clicking on menu item
+	$('.navbar .login a').on('click', function(e) {
+		e.preventDefault();
+
+		if(loginForm.hasClass('show')) {
+			loginForm.removeClass('show');
+			loginForm.fadeOut();
+		} else {
+			loginForm.fadeIn();
+			loginForm.addClass('show');
+		}
+	});
+
 });
 
 
