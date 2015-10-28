@@ -698,8 +698,7 @@
 							</div>
 						</div>
 						<div class="panel comments show" id="panel-6">
-							<h3>Comments (6)</h3>
-							<?php comments_template('/comments.php'); ?>
+							<?php comments_template(); ?>
 						</div>
 						
 					</div>
