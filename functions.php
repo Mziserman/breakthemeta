@@ -210,6 +210,14 @@ function get_number_of_builds() {
 	die();
 }
 
+function theme_queue_js(){
+  if (!is_admin()){
+    if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1))
+      wp_enqueue_script( 'comment-reply' );
+  }
+}
+add_action('get_header', 'theme_queue_js');
+
 function mytheme_comment($comment, $args, $depth) {
    $GLOBALS['comment'] = $comment; ?>
    <li <?php comment_class(); ?> id="li-comment-<?php comment_ID() ?>">
