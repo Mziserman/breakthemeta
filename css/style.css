@@ -1425,6 +1425,7 @@ a{
 						}
 
 
+
 				.build-content .main .panel.skill-order {
 					
 				}
@@ -1433,9 +1434,109 @@ a{
 					
 				}
 
+				
+
+
 				.build-content .main .panel.comments{
 					
+					
 				}
+
+
+					.build-content .comment-respond {
+						margin-bottom: 20px;
+					}
+
+						.build-content .comment-respond h3 {
+							display: none;
+						}
+
+					.build-content ol.commentlist {
+						
+					}
+
+						.build-content ol.commentlist li {
+							margin-bottom: 20px;
+						}
+
+							.build-content ol.commentlist li .div-container {
+								display: flex;
+							}
+
+							.build-content ol.commentlist li .children {
+								margin-left: 80px;
+								margin-top: 20px;
+							}
+
+								.build-content ol.commentlist li .children img {
+									width: 36px;
+									height: 36px;
+								}
+
+								.build-content ol.commentlist li .children li {
+									margin-bottom: 20px;
+								}
+
+							.build-content ol.commentlist img {
+								border: 1px solid #3A3C42;
+							    outline: 2px solid #26282D;
+							    outline-offset: -3px;
+							    box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.50);
+							    margin-right: 30px;
+							}
+
+							.build-content ol.commentlist .custom-comment {
+								position: relative;
+								width: 100%;
+								padding: 10px 20px;
+								background-color: #26282D;
+								box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.50);
+							}
+
+							.build-content ol.commentlist .custom-comment::before {
+								position: absolute;
+								content: '';
+								left: -14px;
+								top: 6px;
+								width: 0;
+								height: 0;
+								border-style: solid;
+								border-color: transparent #26282D transparent transparent;
+								border-width: 7px 14px 7px 0;
+							}
+
+								.build-content ol.commentlist .comment-author {
+									
+								}
+
+									.build-content ol.commentlist .comment-author cite {
+										color: #BB3A3A;
+										font-size: 14px;
+										margin-right: 20px;
+									}
+
+									.build-content ol.commentlist .comment-author .comment-meta {
+										display: inline-block;
+									}
+
+										.build-content ol.commentlist .comment-author .comment-meta a {
+											color: #3A3C42;
+										}
+
+										.build-content ol.commentlist .comment-author .comment-meta a.comment-edit-link {
+											color: #fff;
+											margin-left: 10px;
+										}
+
+								.build-content ol.commentlist .comment-text {
+									color: #fff;
+									margin-top: 5px;
+									margin-bottom: 10px;
+								}
+
+								.build-content ol.commentlist .reply a{
+									color: #BB3A3A;
+								}
 
 
 
