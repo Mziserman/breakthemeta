@@ -1442,58 +1442,66 @@ a{
 					
 				}
 
-
-					.build-content .comment-respond {
-						margin-bottom: 20px;
+					.build-content .comments-area h3 + img {
+						float: left;
 					}
 
-						.build-content .comment-respond h3 {
-							display: none;
+						.build-content .comment-respond {
+							
 						}
 
-					.build-content ol.commentlist {
-						
-					}
-
-						.build-content ol.commentlist li {
-							margin-bottom: 20px;
-						}
-
-							.build-content ol.commentlist li .div-container {
-								display: flex;
-							}
-
-							.build-content ol.commentlist li .children {
-								margin-left: 80px;
-								margin-top: 20px;
-							}
-
-								.build-content ol.commentlist li .children img {
-									width: 36px;
-									height: 36px;
-								}
-
-								.build-content ol.commentlist li .children li {
-									margin-bottom: 20px;
-								}
-
-							.build-content ol.commentlist img {
-								border: 1px solid #3A3C42;
-							    outline: 2px solid #26282D;
-							    outline-offset: -3px;
-							    box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.50);
-							    margin-right: 30px;
-							}
-
-							.build-content ol.commentlist .custom-comment {
-								position: relative;
+							.build-content .comment-respond textarea {
 								width: 100%;
-								padding: 10px 20px;
+								height: 80px;
 								background-color: #26282D;
+								border: 2px solid #3A3C42;
 								box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.50);
 							}
 
-							.build-content ol.commentlist .custom-comment::before {
+							.build-content .comment-respond .form-submit {
+								text-align: right;
+							}
+
+								.build-content .comment-respond input[type="submit"] {
+									width: 80px;
+									height: 30px;
+									line-height: 30px;
+									background: #BB3A3A;
+									color: #fff;
+									border: 0;
+									box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.50);
+								}
+
+
+						.build-content .comment-respond {
+							margin-bottom: 20px;
+							display: -webkit-flex;
+									display: flex;
+						}
+
+							.build-content .comment-respond h3 {
+								margin-right: 30px;
+							}
+
+								.build-content .comment-respond h3 small {
+									display: none;
+								}
+
+								.build-content .comment-respond h3 img {
+									width: 48px;
+									height: 48px;
+									border: 1px solid #3A3C42;
+								    outline: 2px solid #26282D;
+								    outline-offset: -3px;
+								    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.69);
+								}
+
+							.build-content .comment-respond form {
+								flex: 1;
+								position: relative;
+							}
+
+							.build-content .comment-respond form::before {
 								position: absolute;
 								content: '';
 								left: -14px;
@@ -1501,42 +1509,123 @@ a{
 								width: 0;
 								height: 0;
 								border-style: solid;
-								border-color: transparent #26282D transparent transparent;
-								border-width: 7px 14px 7px 0;
+								border-color: transparent #3A3C42 transparent transparent;
+								border-width: 8px 16px 8px 0;
 							}
 
-								.build-content ol.commentlist .comment-author {
-									
-								}
+							.build-content .comment-respond form::after {
+								position: absolute;
+								content: '';
+								left: -9px;
+								top: 8px;
+								width: 0;
+								height: 0;
+								border-style: solid;
+								border-color: transparent #26282D transparent transparent;
+								border-width: 6px 12px 6px 0;
+							}
 
-									.build-content ol.commentlist .comment-author cite {
-										color: #BB3A3A;
-										font-size: 14px;
-										margin-right: 20px;
-									}
-
-									.build-content ol.commentlist .comment-author .comment-meta {
-										display: inline-block;
-									}
-
-										.build-content ol.commentlist .comment-author .comment-meta a {
-											color: #3A3C42;
-										}
-
-										.build-content ol.commentlist .comment-author .comment-meta a.comment-edit-link {
-											color: #fff;
-											margin-left: 10px;
-										}
-
-								.build-content ol.commentlist .comment-text {
+								.build-content .comment-respond form textarea {
+									padding: 10px 20px;
+									box-sizing: border-box;
 									color: #fff;
-									margin-top: 5px;
-									margin-bottom: 10px;
+									font-family: PTSans-Regular;
+									outline: none;
 								}
 
-								.build-content ol.commentlist .reply a{
-									color: #BB3A3A;
+						.build-content ol.commentlist {
+							
+						}
+
+							.build-content ol.commentlist li {
+								margin-bottom: 20px;
+							}
+
+								.build-content ol.commentlist li .div-container {
+									display: flex;
 								}
+
+								.build-content ol.commentlist .children,
+								.build-content ol.commentlist li .children {
+									margin-left: 80px;
+									margin-top: 20px;
+								}
+
+									.build-content ol.commentlist .children img,
+									.build-content ol.commentlist li .children img {
+										width: 36px;
+										height: 36px;
+									}
+
+									.build-content ol.commentlist li .children li {
+										margin-bottom: 20px;
+									}
+
+								.build-content ol.commentlist img {
+									border: 1px solid #3A3C42;
+								    outline: 2px solid #26282D;
+								    outline-offset: -3px;
+								    box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.50);
+								    margin-right: 30px;
+								}
+
+								.build-content ol.commentlist .custom-comment {
+									position: relative;
+									width: 100%;
+									padding: 10px 20px;
+									background-color: #26282D;
+									box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.50);
+								}
+
+								.build-content ol.commentlist .custom-comment::before {
+									position: absolute;
+									content: '';
+									left: -14px;
+									top: 6px;
+									width: 0;
+									height: 0;
+									border-style: solid;
+									border-color: transparent #26282D transparent transparent;
+									border-width: 7px 14px 7px 0;
+								}
+
+									.build-content ol.commentlist .comment-author {
+										
+									}
+
+										.build-content ol.commentlist .comment-author cite {
+											color: #BB3A3A;
+											font-size: 14px;
+											margin-right: 20px;
+										}
+
+										.build-content ol.commentlist .comment-author .comment-meta {
+											display: inline-block;
+										}
+
+											.build-content ol.commentlist .comment-author .comment-meta a {
+												color: #3A3C42;
+											}
+
+											.build-content ol.commentlist .comment-author .comment-meta a.comment-edit-link {
+												color: #fff;
+												margin-left: 10px;
+											}
+
+									.build-content ol.commentlist .comment-text {
+										color: #fff;
+										margin-top: 5px;
+										margin-bottom: 10px;
+									}
+
+									.build-content ol.commentlist .reply a{
+										color: #BB3A3A;
+									}
+							
+							.build-content ol.commentlist li .comment-respond {
+								margin-top: 20px;
+							}
+
 
 
 
