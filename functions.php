@@ -230,7 +230,7 @@ function mytheme_comment($comment, $args, $depth) {
             </div>
         </div>
      </div>
+    </li>
 <?php
         }
 ?>
-
