@@ -29,7 +29,28 @@
     <?php if ( have_comments() ) : ?>
         <h3>Comments (&nbsp;<?php echo get_comments_number(); ?>&nbsp;)</h3>
 
-        <?php comment_form(); ?>
+        <?php 
+
+        global $current_user; 
+        $userProfileIcon = get_avatar( $current_user->ID, 64 );
+
+        $comments_args = array(
+                // change the title of send button 
+                'label_submit'=>'SEND',
+                // Cancel reply link
+                 'cancel_reply_link' => __( 'CANCEL' ),
+                // change the title of the reply section
+                'title_reply'=> $userProfileIcon,
+                // remove "Text or HTML to be displayed after the set of comment fields"
+                'comment_notes_after' => '',
+                'comment_notes_before' => '',
+                'logged_in_as' => '',
+                // redefine your own textarea (the comment body)
+                'comment_field' => '<textarea id="comment" name="comment" aria-required="true" placeholder="Type your comment here..."></textarea>',
+                'fields' => apply_filters( 'comment_form_default_fields', $fields ),
+        ); 
+
+        comment_form($comments_args); ?>
         
         <h4 class="comments-title">
             <?php
