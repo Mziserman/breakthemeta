@@ -16,18 +16,12 @@
 				    		<p class="build-excerpt"><?php echo the_excerpt(); ?></p>
 				    		<div class="items-list">
 				    			<ul>
-				    				<li><img src="<?php echo get_template_directory_uri(); ?>/img/sum_clarity.png" alt=""></li>
-				    				<li><img src="<?php echo get_template_directory_uri(); ?>/img/sum_clarity.png" alt=""></li>
+				    				<?php get_template_part('template-summary-header-summoner') ?>
 				    			</ul>
 				    		</div>
 				    		<div class="items-list">
 				    		    <ul>
-				    		        <li><img src="<?php echo get_template_directory_uri(); ?>/img/item_3.png" alt=""></li>
-				    		        <li><img src="<?php echo get_template_directory_uri(); ?>/img/item_3.png" alt=""></li>
-				    		        <li><img src="<?php echo get_template_directory_uri(); ?>/img/item_3.png" alt=""></li>
-				    		        <li><img src="<?php echo get_template_directory_uri(); ?>/img/item_3.png" alt=""></li>
-				    		        <li><img src="<?php echo get_template_directory_uri(); ?>/img/item_3.png" alt=""></li>
-				    		        <li><img src="<?php echo get_template_directory_uri(); ?>/img/item_3.png" alt=""></li>
+				    		        <?php get_template_part('template-summary-header-stuff') ?>
 				    		    </ul>
 				    		</div>
 				    	</div>
@@ -68,18 +62,16 @@
 									<h3>Full item build</h3>
 									<div class="items-list">
 										<ul>
-											<li><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/item_3.png" alt=""><span class="champ-name">Boots of mobility</span></a></li>
-											<li><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/item_3.png" alt=""><span class="champ-name">Trinity force</span></a></li>
-											<li><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/item_3.png" alt=""><span class="champ-name">Zephyr</span></a></li>
-											<li><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/item_3.png" alt=""><span class="champ-name">Thornmail</span></a></li>
-											<li><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/item_3.png" alt=""><span class="champ-name">Titanic Hydra</span></a></li>
-											<li><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/item_3.png" alt=""><span class="champ-name">Warmog's armor</span></a></li>
+											<?php get_template_part('template-summary-stuff'); ?>
 										</ul>
 									</div>
 								</div>
 								
 								<div class="panel-section">
-									<?php get_template_part('template-summary-runes') ?>
+									<h3>Runes</h3>
+									<ul>
+										<?php get_template_part('template-summary-runes'); ?>
+									</ul>
 								</div>
 							</div>
 							<div class="right">
@@ -87,8 +79,7 @@
 									<h3>Summoner spells</h3>
 									<div class="items-list">
 										<ul>
-											<li><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/sum_clarity.png" alt=""><span class="champ-name">Exhaust</span></a></li>
-											<li><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/sum_clarity.png" alt=""><span class="champ-name">Flash</span></a></li>
+											<?php get_template_part('template-summary-summoner') ?>	
 										</ul>
 									</div>
 								</div>
@@ -96,9 +87,7 @@
 									<h3>Starting build</h3>
 									<div class="items-list">
 										<ul>
-											<li><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/item_start.png" alt=""><span class="champ-name">Crystal vial</span></a></li>
-											<li><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/item_start.png" alt=""><span class="champ-name">Heal potion</span></a></li>
-											<li><a href=""><img src="<?php echo get_template_directory_uri(); ?>/img/item_start.png" alt=""><span class="champ-name">Warding totem</span></a></li>
+											<?php get_template_part('template-summary-beginStuff') ?>	
 										</ul>
 									</div>
 								</div>
@@ -124,49 +113,10 @@
 						<div class="panel runes" id="panel-2">
 							<h3>Runes</h3>
 							<div class="panel-section">
-								<div class="left">
-									<ul>
-										<li>
-											<img src="<?php echo get_template_directory_uri(); ?>/img/rune.png" alt=""><span>3</span>
-											<div>
-												<h4 class="quint">Quint of Movement Speed </h4>
-												<p>+ 4,5% movement speed </p>
-											</div>
-										</li>
-										<li>
-											<img src="<?php echo get_template_directory_uri(); ?>/img/rune.png" alt=""><span>9</span>
-											<div>
-												<h4 class="mark">Mark of Armor</h4>
-												<p>+ 9 armor</p>
-											</div>
-										</li>
-									</ul>
-								</div>
-								<div class="right">
-									<ul>
-										<li>
-											<img src="<?php echo get_template_directory_uri(); ?>/img/rune.png" alt=""><span>9</span>
-											<div>
-												<h4 class="seal">Seal of Scaling Armor</h4>
-												<p>+ 18.5 armor level 18 </p>
-											</div>
-										</li>
-										<li>
-											<img src="<?php echo get_template_directory_uri(); ?>/img/rune.png" alt=""><span>9</span>
-											<div>
-												<h4 class="glyph">Glyph of scaling Magic Resist</h4>
-												<p>+ 18,5 magic resist level 18 </p>
-											</div>
-										</li>
-									</ul>
-								</div>
+								<?php get_template_part('template-rune'); ?>
 							</div>
 							<div class="panel-section">
-								<p><span class="mark">Greater Mark of Armor</span> x9 - I've done some math and it looks like  <span class="mark">Greater Mark of Magic Penetration</span> gives more damage than  <span class="mark">Greater Mark of Attack Speed<span class="mark"> on  Azir. There is no better choice than that, really.</p>
-								<p><span class="seal">Greater Seal of Scaling Armor</span>  need armor before that.  <span class="seal">Greater Seal of Armor</span> doesn't give us enough armor in my opinion and is outscaled by  <span class="seal">Greater Seal of Scaling Armor</span> already on level 7. We have hp from  Rod of Ages so it's not necessary to get  <span class="seal">Greater Seal of Scaling Health.</span></p>
-								<p><span class="glyph">Greater Glyph of Scaling Magic Resist</span> x3 - Unfortunately in this build you also wont get much magic resist other than  Mercury's Treads and you need to survive magic damage through the entire game. The +9 MR can help you greatly in mitigating some magic penetration of your opponents just so you wont actually be hit as if you had 0 MR.</p>
-								<p><span class="glyph">Greater Glyph of Scaling Cooldown Reduction</span> x6 - The main point of those is to allow us to build other boots than  Ionian Boots of Lucidity and still get 40% cdr. Since patch 5.14 having maxed out cdr isn't so important anymore on  Azir but having 30% cdr or more is very useful anyway. I decided that it is not worth to get x9 scaling MR glyphs because, after all, getting some early game damage (quints) on  Azir can be very beneficial. I really recommend running cdr runes on  Rod of Ages build because there isn't really any other source of cdr in there. You could also use it in the  Morellonomicon build if you want to have 40% cdr in there too, which is really nice.</p>
-								<p><span class="quint">Greater Quintessence of Scaling Cooldown Reduction</span> x1 - Just to hit 40% cdr, same reasoning as for <span class="glyph">Greater Glyph of Scaling Cooldown Reduction.</span></p>
+								<?php get_template_part('template-rune-explaination'); ?>
 							</div>
 						</div>
 

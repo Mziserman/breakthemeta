@@ -1,6 +1,10 @@
-<li class="blog-build-item">
-    <img class="champion-portrait" src="<?php echo get_template_directory_uri(); ?>/img/champion/Azir.png" alt="">
+<?php 
+    $champion = get_field_object('champion')['value'];
 
+?>
+
+<li class="blog-build-item">
+    <?php echo get_the_post_thumbnail($champion->ID, 'full',['class' => 'champion-portrait']) ?>
     <div class="author-and-date">
         <a class="build-link" href="<?php the_permalink(); ?>" class="clearfix"><?php the_title(); ?></a>
 
@@ -8,12 +12,7 @@
     </div>
     <div class="items-list">
         <ul>
-            <li><img src="<?php echo get_template_directory_uri(); ?>/img/item_3.png" alt=""></li>
-            <li><img src="<?php echo get_template_directory_uri(); ?>/img/item_3.png" alt=""></li>
-            <li><img src="<?php echo get_template_directory_uri(); ?>/img/item_3.png" alt=""></li>
-            <li><img src="<?php echo get_template_directory_uri(); ?>/img/item_3.png" alt=""></li>
-            <li><img src="<?php echo get_template_directory_uri(); ?>/img/item_3.png" alt=""></li>
-            <li><img src="<?php echo get_template_directory_uri(); ?>/img/item_3.png" alt=""></li>
+            <?php get_template_part('template-summary-header-stuff') ?>
         </ul>
     </div>
     
