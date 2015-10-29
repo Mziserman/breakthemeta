@@ -9,7 +9,7 @@ Tags: black, brown, orange
 
 /*******	GENERAL		*******/
 
-@import url(https://fonts.googleapis.com/css?family=PT+Sans|Roboto);
+@import url(https://fonts.googleapis.com/css?family=PT+Sans|PT+Sans:700|Roboto);
 
 html, body {
 	font-size:12px; 
@@ -168,7 +168,7 @@ a{
 							padding: 10px;
 							border: 0;
 							background: #BB3A3A;
-							font-family: PTSans-bold;
+							font-weight: 700;
 							font-size: 11px;
 							text-transform: uppercase;
 							color: #FFFFFF;
@@ -203,7 +203,7 @@ a{
 	}
 
 	.home-container{
-		font-family: PTSans-Bold;
+		font-weight: 700;
 		background-image: url("../img/home-bg.png");
 		-webkit-background-size: cover;
 		background-size: cover;
@@ -695,7 +695,7 @@ a{
 
 						.build-list-header .page-number li a {
 							display: block;
-							font-family: PTSans-Bold;
+							font-weight: 700;
 							font-size: 1em;
 							color: #BBBCBD;
 							line-height: 15px;
@@ -824,7 +824,7 @@ a{
 
 						.build-list-content .nav-below .page-numbers {
 							display: inline-block;
-							font-family: PTSans-Bold;
+							font-weight: 700;
 							font-size: 1em;
 							color: #BBBCBD;
 							background-color: #272A30;
