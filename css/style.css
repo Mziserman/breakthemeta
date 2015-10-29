@@ -1465,11 +1465,16 @@ a{
 								.build-content .comment-respond input[type="submit"] {
 									width: 80px;
 									height: 30px;
-									line-height: 30px;
+									line-height: 25px;
 									background: #BB3A3A;
 									color: #fff;
 									border: 0;
 									box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.50);
+									margin-top: 5px;
+								}
+
+								.build-content .comment-respond input[type="submit"]:hover {
+									cursor: pointer;
 								}
 
 

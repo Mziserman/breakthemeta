@@ -23,14 +23,12 @@
 ?>
  
     <div id="comments" class="comments-area">
- 
-    <?php // You can start editing here -- including this comment! ?>
- 
+
     <?php if ( have_comments() ) : ?>
         <h3>Comments (&nbsp;<?php echo get_comments_number(); ?>&nbsp;)</h3>
+    <?php endif; ?>
 
-        <?php 
-
+    <?php 
         global $current_user; 
         $userProfileIcon = get_avatar( $current_user->ID, 64 );
 
@@ -48,10 +46,13 @@
                 // redefine your own textarea (the comment body)
                 'comment_field' => '<textarea id="comment" name="comment" aria-required="true" placeholder="Type your comment here..."></textarea>',
                 'fields' => apply_filters( 'comment_form_default_fields', $fields ),
-        ); 
+        );
 
-        comment_form($comments_args); ?>
-        
+        comment_form($comments_args); 
+     ?>
+ 
+    <?php if ( have_comments() ) : ?>
+
         <h4 class="comments-title">
             <?php
               //  printf( _n( 'One comment on &ldquo;%2$s&rdquo;', '%1$s comments on &ldquo;%2$s&rdquo;', get_comments_number(), 'shape' ),
@@ -87,7 +88,11 @@
         </nav><!-- #comment-nav-below .site-navigation .comment-navigation -->
         <?php endif; // check for comment navigation ?>
  
-    <?php endif; // have_comments() ?>
+    <?php else: // have_comments() ?>
+
+        <p>Be the first to comment on this article</p>
+
+    <?php endif; ?>
  
     <?php
         // If comments are closed and there are comments, let's leave a little note, shall we?
@@ -97,3 +102,6 @@
     <?php endif; ?>
  
 </div><!-- #comments .comments-area -->
+ 
+
+
