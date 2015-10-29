@@ -26,6 +26,8 @@
 
     <?php if ( have_comments() ) : ?>
         <h3>Comments (&nbsp;<?php echo get_comments_number(); ?>&nbsp;)</h3>
+    <?php else: ?>
+        <h3>Comments</h3>
     <?php endif; ?>
 
     <?php 

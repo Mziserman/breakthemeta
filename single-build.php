@@ -57,7 +57,7 @@
 							<li><a href="#panel-3">Masteries</a></li>
 							<li><a href="#panel-4">Skill order</a></li>
 							<li><a href="#panel-5">Gameplay</a></li>
-							<li><a href="#panel-6">Comments</a></li>
+							<li><a href="#panel-6">Comments <?php echo get_comments_number(); ?></a></li>
 						</ul>
 					</div>
 
@@ -697,7 +697,7 @@
 								<?php the_content(); ?>
 							</div>
 						</div>
-						<div class="panel comments show" id="panel-6">
+						<div class="panel comments" id="panel-6">
 							<?php comments_template(); ?>
 						</div>
 						
