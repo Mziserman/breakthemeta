@@ -14,7 +14,7 @@ function init_js() {
 	// pass Ajax Url to script.js
 	wp_localize_script('script', 'ajaxurl', admin_url( 'admin-ajax.php' ) );
 }
-add_action('wp_enqueue_scripts', 'add_js_scripts');
+// add_action('wp_enqueue_scripts', 'add_js_scripts');
 
 //Custom post
 add_action( 'init', 'create_post_type');
