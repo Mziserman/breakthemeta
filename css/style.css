@@ -15,7 +15,7 @@ html, body {
 	font-size:12px; 
 	line-height:18px;
 	height: 100%;
-	font-family: "PT Sans", sans-serif;
+	font-family: "PTSans", sans-serif;
 	background-color: #212327;
 	color: #fff;
  }
@@ -57,7 +57,7 @@ a{
 		}
 
 			.header .logo a {
-				font-weight: bold;
+				font-weight: 700;
 				font-size: 2.3em;
 				text-transform: uppercase;
 				line-height: 80px;
@@ -83,7 +83,7 @@ a{
 					height: 100%;
 					min-width: 120px;
 					text-align: center;
-					font-weight: bold;
+					font-weight: 700;
 					font-size: 1.17em;
 					margin-left: -3px;
 				}
@@ -529,7 +529,7 @@ a{
 					display: inline-block;
 					text-transform: uppercase;
 					font-size: 1.5em;
-					font-weight: bold;
+					font-weight: 700;
 				}
 
 		/* Filter list for Lanes and Roles */
@@ -654,6 +654,7 @@ a{
 			.build-list-header {
 				height: 60px;
 				width: 100%;
+				font-weight: 700;
 			}
 
 				.build-list-header .panel-choice {
@@ -751,7 +752,7 @@ a{
 						}
 
 						.blog-build-item .build-link {
-							font-weight: bold;
+							font-weight: 700;
 							font-size: 1.17em;
 							color: #FFFFFF;
 							line-height: 19px;
@@ -1155,7 +1156,7 @@ a{
 
 					.build-content .panel h3 {
 						font-size: 20px;
-						font-weight: bold;
+						font-weight: 700;
 						text-transform: uppercase;
 						color: #FFFFFF;
 						line-height: 26px;
