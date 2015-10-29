@@ -79,37 +79,7 @@
 								</div>
 								
 								<div class="panel-section">
-									<h3>Runes</h3>
-									<ul>
-										<li>
-											<img src="<?php echo get_template_directory_uri(); ?>/img/rune.png" alt=""><span>3</span>
-											<div>
-												<h4 class="quint">Quint of Movement Speed </h4>
-												<p>+ 4,5% movement speed </p>
-											</div>
-										</li>
-										<li>
-											<img src="<?php echo get_template_directory_uri(); ?>/img/rune.png" alt=""><span>9</span>
-											<div>
-												<h4 class="mark">Mark of Armor</h4>
-												<p>+ 9 armor</p>
-											</div>
-										</li>
-										<li>
-											<img src="<?php echo get_template_directory_uri(); ?>/img/rune.png" alt=""><span>9</span>
-											<div>
-												<h4 class="seal">Seal of Scaling Armor</h4>
-												<p>+ 18.5 armor level 18 </p>
-											</div>
-										</li>
-										<li>
-											<img src="<?php echo get_template_directory_uri(); ?>/img/rune.png" alt=""><span>9</span>
-											<div>
-												<h4 class="glyph">Glyph of scaling Magic Resist</h4>
-												<p>+ 18,5 magic resist level 18 </p>
-											</div>
-										</li>
-									</ul>
+									<?php get_template_part('template-summary-runes') ?>
 								</div>
 							</div>
 							<div class="right">

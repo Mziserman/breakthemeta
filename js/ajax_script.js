@@ -13,8 +13,7 @@ CurrentState.prototype = {
 		this.panels = {
 			date: new Panel($, 'date', this.choiceContainer.find('.date'), this.panelContainer.find('#panel-1')),
 			rand: new Panel($, 'rand', this.choiceContainer.find('.rand'), this.panelContainer.find('#panel-2')),
-			debated: new Panel($, 'debated', this.choiceContainer.find('.debated'), this.panelContainer.find('#panel-3')),
-			search: new Panel($, 'search', this.choiceContainer.find('.search-result'), this.panelContainer.find('#panel-4')),
+			search: new Panel($, 'search', this.choiceContainer.find('.search-result'), this.panelContainer.find('#panel-3')),
 		}
 
 		this.currentPanel = this.panels.date;
@@ -43,14 +42,6 @@ CurrentState.prototype = {
 				that.getBuilds();
 			}
 		});
-		this.panels.debated.button.on('click', function(e){
-			e.preventDefault();
-			that.switchPanel(that.currentPanel, that.panels.debated);
-			if (!that.currentPanel.visited){
-				that.currentPanel.visited = true;
-				that.getBuilds();
-			}
-		});
 		this.panels.search.button.on('click', function(e){
 			e.preventDefault();
 			that.switchPanel(that.currentPanel, that.panels.search);
@@ -58,7 +49,6 @@ CurrentState.prototype = {
 		this.$('.search-bar').on('click', 'button', function(e){
 			e.preventDefault()
 			that.search = that.$(this).parent().find('input').val();
-			console.log(that.search);
 			that.getSearchResults();
 		})
 
@@ -96,7 +86,8 @@ CurrentState.prototype = {
 					that.currentPanel.visited = true;
 					that.currentPanel.button.css('display', 'inline-block');
 				}
-		    	that.$('#panel-4').empty().prepend(response);
+		    	that.panels.search.container.empty().prepend(response);
+		    	console.log(response);
 	        }
 		);
 	},
@@ -203,50 +194,17 @@ Pagination.prototype = {
 }
 
 jQuery(document).ready(function($){
-	var builds_per_page = 10;
-	var pagination = new Pagination(builds_per_page);
 	var currentState = new CurrentState($);
 
-	$.when(
-		$.post(
-		    ajaxurl,
-		    {
-		        'action': 'get_number_of_builds',
-		    },
-		    function(response){
-		    	pagination.pageMax = Math.ceil(response / pagination.postsPerPage);
-		    	currentState.panels.date.setPageMaxAndPrintPagination(Math.ceil(response / pagination.postsPerPage));
-		    	currentState.panels.rand.setPageMaxAndPrintPagination(Math.ceil(response / pagination.postsPerPage));
-		    	currentState.panels.debated.setPageMaxAndPrintPagination(Math.ceil(response / pagination.postsPerPage));
-		    }
-	    )
-	).then(function(){
-		// printPagination($, pagination, currentState);
-		// addInteractions($, pagination, currentState);
-		console.log(currentState)
-	})
-
-})
-
-var getBuilds = function($, pagination, currentState){
-	var orderBy = currentState.order;
-	var search = currentState.search;
-	var offset = pagination.offset;
-	var posts_per_page = pagination.postsPerPage;
 	$.post(
 	    ajaxurl,
 	    {
-	        'action': 'get_builds',
-	        'offset': offset,
-	        'posts_per_page': posts_per_page,
-	        'orderby': orderBy,
-	        'search': search
+	        'action': 'get_number_of_builds',
 	    },
 	    function(response){
-	    	$('.build-list-content').find('.blog-build-item').each(function(){
-	    		$(this).remove();
-	    	});
-	    	$('.build-list-content').prepend(response);
-        }
-	);	
-}
+	    	currentState.panels.date.setPageMaxAndPrintPagination(Math.ceil(response / currentState.panels.date.pagination.postsPerPage));
+	    	currentState.panels.rand.setPageMaxAndPrintPagination(Math.ceil(response / currentState.panels.rand.pagination.postsPerPage));
+	    }
+    )
+
+})
