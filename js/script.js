@@ -13,10 +13,18 @@ jQuery(document).ready(function($) {
 	$('.champ-list-item').on('click', function(e) {
 		e.preventDefault();
 
-		// Remove all other previous selected champions
-		$(this).parent().find('.champ-list-item').removeClass('active');
+		// if($(this).hasClass('active')) {
+		// 	$(this).removeClass();
+		// }else {
+		// 	$(this).addClass();
+		// }
 
 		$(this).toggleClass('active');
+
+		// Remove all other previous selected champions
+		// $(this).parent().find('.champ-list-item').removeClass('active');
+
+		
 
 		// Get value of selected champion and display it as a filter
 		var champ = $(this).find('.champ-name').html();
