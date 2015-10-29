@@ -13,26 +13,23 @@ jQuery(document).ready(function($) {
 	$('.champ-list-item').on('click', function(e) {
 		e.preventDefault();
 
-		// if($(this).hasClass('active')) {
-		// 	$(this).removeClass();
-		// }else {
-		// 	$(this).addClass();
-		// }
-
-		$(this).toggleClass('active');
-
-		// Remove all other previous selected champions
-		// $(this).parent().find('.champ-list-item').removeClass('active');
-
-		
+		if($(this).hasClass('active')) {
+			$(this).removeClass('active');
+		}else {
+			$('.champ-list .active').removeClass('active');
+			$(this).addClass('active');
+		}
 
 		// Get value of selected champion and display it as a filter
 		var champ = $(this).find('.champ-name').html();
+		
 		if($('.filter-champ').length == 0) {
-			$('.filters').append('<div class="filter-button filter-champ red">'+ champ +'</div>');
+			$('.filters').append('<div class="filter-button filter-champ red">'+ champ +'<i class="fa fa-times"></i></div>');
 		} else {
-			$('.filters .filter-champ').html(champ);
+			$('.filters .filter-champ').html(champ+'<i class="fa fa-times"></i>');
 		}
+
+		removeFilter('champ');
 		
 	});
 
@@ -52,11 +49,12 @@ jQuery(document).ready(function($) {
 		// Get value of selected lane and display it as a filter
 		var lane = $(this).find('a').html();
 		if($('.filter-lane').length == 0){
-			$('.filters').append('<div class="filter-button filter-lane blue">'+ lane +'</div>');
+			$('.filters').append('<div class="filter-button filter-lane blue">'+ lane +'<i class="fa fa-times"></i></div>');
 		}else {
-			$('.filters .filter-lane').html(lane);
+			$('.filters .filter-lane').html(lane+'<i class="fa fa-times"></i>');
 		}
 		
+		removeFilter('lane');
 	});
 
 	//
@@ -75,23 +73,46 @@ jQuery(document).ready(function($) {
 		// Get value of selected lane and display it as a filter
 		var role = $(this).find('a').html();
 		if($('.filter-role').length == 0){
-			$('.filters').append('<div class="filter-button filter-role yellow">'+ role +'</div>');
+			$('.filters').append('<div class="filter-button filter-role yellow">'+ role +'<i class="fa fa-times"></i></div>');
 		}else {
-			$('.filters .filter-role').html(role);
+			$('.filters .filter-role').html(role+'<i class="fa fa-times"></i>');
 		}
-		
+
+		removeFilter('role');
 	});
 
-	// Switch to panels on Build List
-	$('.panel-choice a').on('click', function(e) {
-		e.preventDefault();
 
-		$(this).parent().parent().find('li').removeClass('active');
-		$(this).parent().addClass('active');
+	//
+	// Remove filters
+	function removeFilter(type) {
 
-		$('.build-list-content .panel').removeClass('show');
-		$($(this).attr('href')).addClass('show');
-	});
+		var itemSelected = '';		
+
+		$('.filters .filter-button').on('click', function() {
+
+			var brutValue = $(this).html(),
+				cleanValue = brutValue.replace('<i class="fa fa-times"></i>','');
+			
+			switch(type) {
+				case 'champ' : 
+					itemSelected = $('.champ-name:contains('+cleanValue+')');
+					itemSelected.parent().parent().removeClass('active');
+					break;
+
+				case 'lane' :
+					itemSelected = $('.lanes a:contains('+cleanValue+')');
+					itemSelected.parent().removeClass('active');
+					break;
+
+				case 'role' : 
+					itemSelected = $('.roles a:contains('+cleanValue+')');
+					itemSelected.parent().removeClass('active');
+					break; 
+			}
+
+			$(this).remove();
+		});	
+	}
 
 	// Switch to panels on BUILD DETAIL !
 	$('.panel-choice-detail a').on('click', function(e) {
