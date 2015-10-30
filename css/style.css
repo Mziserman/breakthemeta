@@ -353,6 +353,7 @@ a{
 				padding-left: 40px;
 				padding-top: 25px;
 				overflow-y: scroll;
+				overflow-x: hidden;
 			}
 
 			/* Scrollbar */
