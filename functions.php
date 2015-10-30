@@ -234,7 +234,10 @@ function mytheme_comment($comment, $args, $depth) {
                 <?php endif; ?>
             <div class="comment-text"><?php comment_text() ?></div> 
             <div class="reply">
-                <?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
+                <?php
+                    // Change 'max_depth' to $args['max_depth'] if you want to let the user directly change the number 
+                    comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => 2))) 
+                ?>
             </div>
         </div>
      </div>
