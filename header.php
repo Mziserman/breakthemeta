@@ -41,6 +41,11 @@
                 <ul class="">
                     <li class="active"><a href="<?php echo get_site_url(); ?>/create-a-new-build/">Create a new build</a></li>
                     <li class="underline login"><a href="">Login</a></li>
+                    <?php if(!is_user_logged_in()) :
+                        if (get_option('users_can_register')) : ?>
+                            <li class="underline register"><a href="#">Register</a></li>
+                        <?php endif;
+                    endif; ?>
                 </ul>
             </div>
         </div>
