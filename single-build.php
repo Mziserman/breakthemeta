@@ -57,12 +57,12 @@
 							<li><a href="#panel-3">Masteries</a></li>
 							<li><a href="#panel-4">Skill order</a></li>
 							<li><a href="#panel-5">Gameplay</a></li>
-							<li><a href="#panel-6">Comments <?php echo get_comments_number(); ?></a></li>
+							<li><a href="#panel-6"><?php echo get_comments_number(); ?> Comments</a></li>
 						</ul>
 					</div>
 
 					<div class="main">
-						<div class="panel summary" id="panel-1">
+						<div class="panel summary show" id="panel-1">
 							<div class="left">
 								<div class="panel-section">
 									<h3>Full item build</h3>
