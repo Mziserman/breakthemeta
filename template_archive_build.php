@@ -19,6 +19,6 @@
     
     <div class="likes-and-comments">
         <span><img src="<?php echo get_template_directory_uri(); ?>/img/heart.png" alt=""><p>15</p></span>
-        <span><img src="<?php echo get_template_directory_uri(); ?>/img/comment-bubble.png" alt=""><p>6</p></span>
+        <span><img src="<?php echo get_template_directory_uri(); ?>/img/comment-bubble.png" alt=""><p><?php echo get_comments_number(); ?></p></span>
     </div>
 </li>
