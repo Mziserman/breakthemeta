@@ -78,7 +78,7 @@
                  * define shape_comment() and that will be used instead.
                  * See shape_comment() in inc/template-tags.php for more.
                  */
-                wp_list_comments('type=comment&callback=mytheme_comment');
+                wp_list_comments('callback=mytheme_comment');
             ?>
         </ol><!-- .commentlist -->
  
@@ -90,11 +90,7 @@
         </nav><!-- #comment-nav-below .site-navigation .comment-navigation -->
         <?php endif; // check for comment navigation ?>
  
-    <?php else: // have_comments() ?>
-
-        <p>Be the first to comment on this article</p>
-
-    <?php endif; ?>
+    <?php endif; // have_comments() ?>
  
     <?php
         // If comments are closed and there are comments, let's leave a little note, shall we?
