@@ -1,0 +1,64 @@
+
+
+			/* Champion picture select */
+				.create-build .champ-list {
+					margin-top: 25px;
+				}
+
+					.create-build .champ-list li {
+						display: inline-block;
+						position: relative;
+						text-transform: uppercase;
+						width: 70px;
+						text-align: center;
+						margin-right: 8px;
+						margin-bottom: 4px;
+					}
+
+					.create-build .champ-list li.active img {
+						border: 2px solid #BB3A3A;
+					}
+
+						.create-build .champ-list a {
+							display: block;
+						}
+
+						.create-build .champ-list a:hover img {
+							border: 2px solid #BB3A3A;
+						}
+
+							.create-build .champ-list a img {
+								width: 66px;
+								height: 66px;
+								border: 2px solid transparent;
+							}
+
+							.create-build .champ-list a span.champ-name {
+								margin-top: -4px;
+							}
+
+					.create-build .champ-list li.active a span.shadow {
+						display: none;
+					}
+
+						.create-build .champ-list a:hover span.shadow {
+							display: none;
+						}
+
+							.create-build .champ-list a span.shadow {
+								position: absolute;
+								width: 70px;
+								height: 70px;
+								left: 2px;
+								top: 2px;
+								background: rgba(0, 0, 0, 0.5);
+							}
+
+
+
+.item-chosen{
+	display: inline-block;
+	height: 66px;
+	width: 66px;
+	border: solid #ff0 1px;
+}

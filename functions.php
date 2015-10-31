@@ -2,6 +2,7 @@
 
 add_theme_support('post-thumbnails');
 add_image_size('img_liste', 270, 220, array('center', 'top'));
+add_image_size('icon_liste', 66, 66, true);
 
 // Add javascript  
 add_action('wp_footer', 'init_js');
@@ -10,6 +11,11 @@ function init_js() {
 	wp_enqueue_script( 'bootstrap', get_template_directory_uri().'/js/bootstrap.js');
 	wp_enqueue_script( 'custom', get_template_directory_uri().'/js/script.js');
 	wp_enqueue_script( 'script', get_template_directory_uri().'/js/ajax_script.js', array('jquery'), '1.0', true );
+
+    if ( is_page_template( 'create-build.php' ) )
+    {
+        wp_enqueue_script( 'create-build', get_template_directory_uri().'/js/create-build.js', array('jquery'), '1.0', true );
+    }
 
 	// pass Ajax Url to script.js
 	wp_localize_script('script', 'ajaxurl', admin_url( 'admin-ajax.php' ) );

@@ -14,6 +14,10 @@
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/prettyPhoto.css" />
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css">
 
+    <?php if ( is_page_template( 'create-build.php' ) ) : ?>
+        <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/create_build.css">
+    <?php endif ?>
+
 
     <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -39,7 +43,7 @@
         <div class="navigation">
             <div class="navbar">
                 <ul class="">
-                    <li class="active"><a href="<?php echo get_site_url(); ?>/create-a-new-build/">Create a new build</a></li>
+                    <li class="active"><a href="<?php echo get_site_url(); ?>/create-build/">Create a new build</a></li>
                     <li class="underline login"><a href="">Login</a></li>
                     <?php if(!is_user_logged_in()) :
                         if (get_option('users_can_register')) : ?>
