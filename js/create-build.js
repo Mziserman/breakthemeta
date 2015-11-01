@@ -19,6 +19,7 @@ jQuery(document).ready(function($) {
 			this.input = this.main.find('[champion-input]');	
 			this.select = this.main.find('[champion-select]');
 			this.chosen = this.main.find('[champion-chosen]');
+			this.chosenName = this.main.find('[champion-chosen-name]');
 
 			this.setEvent();	
 		},
@@ -32,8 +33,10 @@ jQuery(document).ready(function($) {
 
 				var id = $(this).find('input').val();
 				var src = $(this).find('img').attr('src');
+				var name = $(this).find('.champion-name').html();
 
 				that.chosen.attr('src',src);
+				that.chosenName.html(name);
 				that.input.val(id);
 
 			})
@@ -70,13 +73,15 @@ jQuery(document).ready(function($) {
 			this.begin = {
 				chosen: that.main.find('[begin-item-chosen]'),
 				input: that.main.find('[begin-item-input]'),	
-				select: that.main.find('[begin-item-select]')
+				select: that.main.find('[begin-item-select]'),
+				chosenName: that.main.find('[begin-item-name]')
 			}
 
 			this.end = {
 				chosen: that.main.find('[end-item-chosen]'),
 				input: that.main.find('[end-item-input]'),	
-				select: that.main.find('[end-item-select]')
+				select: that.main.find('[end-item-select]'),
+				chosenName: that.main.find('[end-item-name]')
 			}
 
 			this.setEvent(this.begin);
@@ -95,8 +100,9 @@ jQuery(document).ready(function($) {
 
 				var id = $(this).find('input').val();
 				var src = $(this).find('img').attr('src');
+				var name = $(this).find('.item-name').html();
 
-				that.addItem(objet,id,src);
+				that.addItem(objet,id,src,name);
 			});
 
 			chosen.on('click',function(e){
@@ -105,7 +111,7 @@ jQuery(document).ready(function($) {
 			});
 		},
 
-		addItem : function(objet,newId,newSrc)
+		addItem : function(objet,newId,newSrc, newName)
 		{
 			var that = this,
 				data = objet.chosen;
@@ -114,10 +120,13 @@ jQuery(document).ready(function($) {
 			{
 				var input = $(data[i]).find('input');
 				var img = $(data[i]).find('img');
+				var span = $(data[i]).find('.item-chosen-name');
 				if ( input.val() == '' && img.attr('src') == '' )
 				{
+					console.log(newName);
 					input.val(newId);
 					img.attr('src',newSrc);
+					span.html(newName);
 					break;
 				}
 			}
@@ -127,6 +136,7 @@ jQuery(document).ready(function($) {
 		{
 			$(chosen).find('input').val('');
 			$(chosen).find('img').attr('src','');
+			$(chosen).find('.item-chosen-name').empty() ;
 		},
 			
 	};
