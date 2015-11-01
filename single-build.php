@@ -132,8 +132,183 @@
 						</div>
 
 						<div class="panel skill-order" id="panel-4">
-							<p>Roll your face it will work, TRUST ME</p>
+							<h3>Skill Order</h3>
+							<div class="panel-section">
+								<div class="so-header">
+									<p class="so-level">Player level</p>
+									<p class="so-skill-level">1</p>
+									<p class="so-skill-level">2</p>
+									<p class="so-skill-level">3</p>
+									<p class="so-skill-level">4</p>
+									<p class="so-skill-level">5</p>
+									<p class="so-skill-level">6</p>
+									<p class="so-skill-level">7</p>
+									<p class="so-skill-level">8</p>
+									<p class="so-skill-level">9</p>
+									<p class="so-skill-level">10</p>
+									<p class="so-skill-level">11</p>
+									<p class="so-skill-level">12</p>
+									<p class="so-skill-level">13</p>
+									<p class="so-skill-level">14</p>
+									<p class="so-skill-level">15</p>
+									<p class="so-skill-level">16</p>
+									<p class="so-skill-level">17</p>
+									<p class="so-skill-level">18</p>
+								</div>
+								<div class="so-table">
+									<div class="table-line">
+										<span class="table-line-control">Q</span>
+										<span class="table-line-image">
+											<img src="<?php echo get_template_directory_uri(); ?>/img/skill-order.png" alt="ability image">
+										</span>
+										<div data-level="1" data-display-order="1" class="table-line-skill"></div>
+										<div data-level="2" data-display-order="1" class="table-line-skill active"></div>
+										<div data-level="3" data-display-order="1" class="table-line-skill"></div>
+										<div data-level="4" data-display-order="1" class="table-line-skill active"></div>
+										<div data-level="5" data-display-order="1" class="table-line-skill active"></div>
+										<div data-level="6" data-display-order="1" class="table-line-skill"></div>
+										<div data-level="7" data-display-order="1" class="table-line-skill active"></div>
+										<div data-level="8" data-display-order="1" class="table-line-skill"></div>
+										<div data-level="9" data-display-order="1" class="table-line-skill active"></div>
+										<div data-level="10" data-display-order="1" class="table-line-skill"></div>
+										<div data-level="11" data-display-order="1" class="table-line-skill"></div>
+										<div data-level="12" data-display-order="1" class="table-line-skill"></div>
+										<div data-level="13" data-display-order="1" class="table-line-skill"></div>
+										<div data-level="14" data-display-order="1" class="table-line-skill"></div>
+										<div data-level="15" data-display-order="1" class="table-line-skill"></div>
+										<div data-level="16" data-display-order="1" class="table-line-skill"></div>
+										<div data-level="17" data-display-order="1" class="table-line-skill"></div>
+										<div data-level="18" data-display-order="1" class="table-line-skill last"></div>
+									</div>
+									<div class="table-line">
+										<span class="table-line-control">W</span>
+										<span class="table-line-image">
+											<img src="<?php echo get_template_directory_uri(); ?>/img/skill-order.png" alt="ability image">
+										</span>
+										<div data-level="1" data-display-order="2" class="table-line-skill active"></div>
+										<div data-level="2" data-display-order="2" class="table-line-skill"></div>
+										<div data-level="3" data-display-order="2" class="table-line-skill"></div>
+										<div data-level="4" data-display-order="2" class="table-line-skill"></div>
+										<div data-level="5" data-display-order="2" class="table-line-skill"></div>
+										<div data-level="6" data-display-order="2" class="table-line-skill"></div>
+										<div data-level="7" data-display-order="2" class="table-line-skill"></div>
+										<div data-level="8" data-display-order="2" class="table-line-skill active"></div>
+										<div data-level="9" data-display-order="2" class="table-line-skill"></div>
+										<div data-level="10" data-display-order="2" class="table-line-skill active"></div>
+										<div data-level="11" data-display-order="2" class="table-line-skill"></div>
+										<div data-level="12" data-display-order="2" class="table-line-skill active"></div>
+										<div data-level="13" data-display-order="2" class="table-line-skill active"></div>
+										<div data-level="14" data-display-order="2" class="table-line-skill"></div>
+										<div data-level="15" data-display-order="2" class="table-line-skill"></div>
+										<div data-level="16" data-display-order="2" class="table-line-skill"></div>
+										<div data-level="17" data-display-order="2" class="table-line-skill"></div>
+										<div data-level="18" data-display-order="2" class="table-line-skill last"></div>
+									</div>
+									<div class="table-line">
+										<span class="table-line-control">E</span>
+										<span class="table-line-image">
+											<img src="<?php echo get_template_directory_uri(); ?>/img/skill-order.png" alt="ability image">
+										</span>
+										<div data-level="1" data-display-order="3" class="table-line-skill"></div>
+										<div data-level="2" data-display-order="3" class="table-line-skill"></div>
+										<div data-level="3" data-display-order="3" class="table-line-skill active"></div>
+										<div data-level="4" data-display-order="3" class="table-line-skill"></div>
+										<div data-level="5" data-display-order="3" class="table-line-skill"></div>
+										<div data-level="6" data-display-order="3" class="table-line-skill"></div>
+										<div data-level="7" data-display-order="3" class="table-line-skill"></div>
+										<div data-level="8" data-display-order="3" class="table-line-skill"></div>
+										<div data-level="9" data-display-order="3" class="table-line-skill"></div>
+										<div data-level="10" data-display-order="3" class="table-line-skill"></div>
+										<div data-level="11" data-display-order="3" class="table-line-skill"></div>
+										<div data-level="12" data-display-order="3" class="table-line-skill"></div>
+										<div data-level="13" data-display-order="3" class="table-line-skill"></div>
+										<div data-level="14" data-display-order="3" class="table-line-skill active"></div>
+										<div data-level="15" data-display-order="3" class="table-line-skill active"></div>
+										<div data-level="16" data-display-order="3" class="table-line-skill"></div>
+										<div data-level="17" data-display-order="3" class="table-line-skill active"></div>
+										<div data-level="18" data-display-order="3" class="table-line-skill active last"></div>
+									</div>
+									<div class="table-line">
+										<p class="table-line-control">R</p>
+										<span class="table-line-image">
+											<img src="<?php echo get_template_directory_uri(); ?>/img/skill-order.png" alt="ability image">
+										</span>
+										<div data-level="1" data-display-order="4" class="table-line-skill"></div>
+										<div data-level="2" data-display-order="4" class="table-line-skill"></div>
+										<div data-level="3" data-display-order="4" class="table-line-skill"></div>
+										<div data-level="4" data-display-order="4" class="table-line-skill"></div>
+										<div data-level="5" data-display-order="4" class="table-line-skill"></div>
+										<div data-level="6" data-display-order="4" class="table-line-skill active"></div>
+										<div data-level="7" data-display-order="4" class="table-line-skill"></div>
+										<div data-level="8" data-display-order="4" class="table-line-skill"></div>
+										<div data-level="9" data-display-order="4" class="table-line-skill"></div>
+										<div data-level="10" data-display-order="4" class="table-line-skill"></div>
+										<div data-level="11" data-display-order="4" class="table-line-skill active"></div>
+										<div data-level="12" data-display-order="4" class="table-line-skill"></div>
+										<div data-level="13" data-display-order="4" class="table-line-skill"></div>
+										<div data-level="14" data-display-order="4" class="table-line-skill"></div>
+										<div data-level="15" data-display-order="4" class="table-line-skill"></div>
+										<div data-level="16" data-display-order="4" class="table-line-skill active"></div>
+										<div data-level="17" data-display-order="4" class="table-line-skill"></div>
+										<div data-level="18" data-display-order="4" class="table-line-skill last"></div>
+									</div>
+									<div class="table-line">
+										<span class="table-line-control">∞</span>
+										<span class="table-line-image">
+											<img src="<?php echo get_template_directory_uri(); ?>/img/skill-order.png" alt="ability image">
+										</span>
+										<div data-level="1" data-display-order="5" class="table-line-skill"></div>
+										<div data-level="2" data-display-order="5" class="table-line-skill"></div>
+										<div data-level="3" data-display-order="5" class="table-line-skill"></div>
+										<div data-level="4" data-display-order="5" class="table-line-skill"></div>
+										<div data-level="5" data-display-order="5" class="table-line-skill"></div>
+										<div data-level="6" data-display-order="5" class="table-line-skill"></div>
+										<div data-level="7" data-display-order="5" class="table-line-skill"></div>
+										<div data-level="8" data-display-order="5" class="table-line-skill"></div>
+										<div data-level="9" data-display-order="5" class="table-line-skill"></div>
+										<div data-level="10" data-display-order="5" class="table-line-skill"></div>
+										<div data-level="11" data-display-order="5" class="table-line-skill"></div>
+										<div data-level="12" data-display-order="5" class="table-line-skill"></div>
+										<div data-level="13" data-display-order="5" class="table-line-skill"></div>
+										<div data-level="14" data-display-order="5" class="table-line-skill"></div>
+										<div data-level="15" data-display-order="5" class="table-line-skill"></div>
+										<div data-level="16" data-display-order="5" class="table-line-skill"></div>
+										<div data-level="17" data-display-order="5" class="table-line-skill"></div>
+										<div data-level="18" data-display-order="5" class="table-line-skill last"></div>
+									</div>
+								</div>
+							</div>
+							<div class="panel-section">
+								<div class="table-expl">
+									<p class="table-expl-control">Q</p>
+									<span class="table-expl-image">
+										<img src="<?php echo get_template_directory_uri(); ?>/img/skill-order.png" alt="ability image">
+									</span>
+									<span class="table-expl-name">Conquering Sands</span>
+									<p class="table-expl-text">The turret is a very useful ability when used correctly. 
+									It's damage doesn't scale with your ap but it still can hit really hard, surprising your opponents. 
+									It's cd is 180 seconds and starts after the turret is destroyed. 
+									Also this value is not reduced by cdr so just make sure to not waste your turret on stupid stuff.</p>
+									<p class="table-expl-text">Your main skill which allows you to create your soldiers. 
+									Notice that  Arise! has the biggest ap scaling out of all Azir's abilities. 
+									Now notice that this damage is dealt every time your soldier base attacks. 
+									So basically the cd for this damage is your attack speed. 
+									This is the main reason for why attack speed is very valuable statistic for  Azir. 
+									However there is only one viable item with both ap and attack speed,  Nashor's Tooth. 
+									The DPS increase with it is REALLY noticeable in late game if we are trying to dps down a tank, 
+									however it's not really needed when the enemy team is squishy because we get a lot of attack speed just from our passive on W. 
+									We max this ability second because the reduce of it's cd is very important and noticeable during fights and we gain more attack speed. 
+									Making the windows of time when you cannot attack with your soldiers as short as possible is one of the most important part of  Azir gameplay. 
+									Having said that it's still not worth maxing before Q so just don't do it. For more concrete usage of this skill, check Tips&Tricks</p>
+								</div>
+								
+							</div>
 						</div>
+
+
+
+
+
 						<div class="panel gameplay" id="panel-5">	
 							<h3>Gameplay</h3>					
 							<div class="the-content">
