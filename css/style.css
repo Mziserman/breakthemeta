@@ -1442,8 +1442,120 @@ a{
 
 
 				.build-content .main .panel.skill-order {
-					
+					min-width: 800px
 				}
+
+				.so-header{
+					padding: 10px 0;
+				}
+
+				.so-level{
+					font-size: 14px;
+					font-family: "PTSans-bold";
+					margin-right: 10px;
+					display: inline-block;
+				}
+
+				.so-skill-level{
+					margin-left: 21px;
+					width: 13px;
+					display: inline-block;
+				}
+
+				.table-line{
+					padding-bottom: 2px;
+					height: 56px;
+				}
+
+				.table-line:hover{
+					background-color: #26282D;
+				}
+
+				.table-line-control{
+					font-size: 18px;
+					font-family: "PTSans-bold";
+					padding: 0 7px 0 13px;
+					vertical-align: middle;
+					width: 15px;
+					display: inline-block;
+				}
+
+				.table-line-image{
+					margin-right: 12px;	
+				}
+
+				.table-line-image img{
+					vertical-align: middle;
+				}	
+
+				.table-line-skill{
+					background: transparent;
+					margin-top: 20px;
+					margin-right: 19px;
+					width: 15px;
+					height: 15px;
+					display: inline-block;
+					vertical-align: sub;
+				}
+
+				.table-line-skill{
+					background: transparent;
+					margin-top: 20px;
+					margin-right: 19.05px;
+					width: 15px;
+					height: 15px;
+					display: inline-block;
+					vertical-align: sub;
+				}
+
+				.table-line-skill.active{
+					background: #BB3A3A;
+					box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.50), inset 0px 1px 3px 0px rgba(0,0,0,0.50);
+				}
+				
+				.table-line-skill.last{
+					margin-right: 0;
+				}
+
+
+				.table-expl{
+					margin-top: 50px;
+				}
+
+					.table-expl-control{
+						font-size: 14px;
+						font-family: "PTSans-bold";
+						vertical-align: middle;
+						width: 15px;
+						display: inline-block;
+						margin-right: 3px;
+					}
+
+					.table-expl-image{
+						margin-right: 12px;	
+					}
+
+						.table-expl-image img{
+							vertical-align: middle;
+							width: 40px;
+							height: 40px;
+						}	
+
+					.table-expl-name{
+						font-size: 14px;
+						font-family: "PTSans-bold";
+						vertical-align: middle;
+					}
+
+					.table-expl-text{
+						font-size: 14px;
+						line-height: 21px;
+						margin-top: 12.5px;
+						margin-bottom: 12.5px;
+					}
+
+
+
 
 				.build-content .main .panel.gameplay {
 					
@@ -1669,6 +1781,9 @@ a{
 
 /* @group FOOTER */
 	
+	.footer-contain{
+		min-width: 1280px;
+	}
 		.footer-logo{
 			text-transform: uppercase;
 			font-size: 24px;
