@@ -131,7 +131,7 @@
 							</div>
 						</div>
 
-						<div class="panel skill-order show" id="panel-4">
+						<div class="panel skill-order" id="panel-4">
 							<h3>Skill Order</h3>
 							<div class="panel-section">
 								<div class="so-header">
