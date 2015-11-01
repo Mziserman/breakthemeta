@@ -1,15 +1,113 @@
+.create-build {
+
+}
+
+	.validate-button {
+		margin-top: 30px;
+		margin-bottom: 15px;
+		text-align: center;
+	}
+
+		.validate-button input {
+			padding: 10px;
+		    margin-bottom: 15px;
+		    border: 0;
+		    background: #BB3A3A;
+		    font-weight: 700;
+		    font-size: 1em;
+		    text-transform: uppercase;
+		    color: #FFFFFF;
+		    line-height: 15px;
+		    box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.50);
+		    outline: none;
+		}
+
+		.validate-button input:hover {
+			cursor: pointer;
+		}
+
+		.create-build input[type="text"],
+		.create-build textarea {
+			background-color: #272A30;
+			border: none;
+			padding-left: 20px;
+			padding-right: 10px;
+			outline: none;
+			font-family: "PT Sans";
+			font-size: 16px;
+			color: #FFFFFF;
+			width: 100%;
+			box-sizing: border-box;
+		}
+
+		.create-build input[type="text"] {
+			height: 60px;
+		}
+
+		.create-build textarea {
+			padding-top: 20px;
+			height: 120px;
+		}
+
+		.create-build button {
+			position: absolute;
+			height: 70px;
+			width: 70px;
+			border: 0;
+			background: #BB3A3A;
+			cursor: pointer;
+		}
+
+	/* Title - Description - Champion */
+		.create-build #panel-1 {
+			margin-bottom: 20px;
+		}
+
+			.create-build #panel-1 .panel-section,
+			.create-build #panel-1 .description {
+				margin-bottom: 20px;
+			}
+
+			.create-build #panel-1 .champions {
+
+			}
+
+				.item-chosen{
+					display: inline-block;
+					vertical-align: top;
+					height: 66px;
+					width: 66px;
+					border: solid #BB3A3A 2px;
+					margin-right: 10px;
+				}
+
+				.create-build #panel-1 .item-chosen-name {
+					display: inline-block;
+					vertical-align: top;
+					margin-top: 25px;
+					text-transform: uppercase;
+					font-size: 1.6em;
+				}
 
 
 			/* Champion picture select */
 				.create-build .champ-list {
 					margin-top: 25px;
+					margin-bottom: 20px;
+					height: 500px;
+					padding: 10px 0 0 10px;
+					background-color: #272A30;
+					overflow-x: hidden;
+					overflow-y: scroll;  
 				}
 
 					.create-build .champ-list li {
 						display: inline-block;
+						vertical-align: top;
 						position: relative;
 						text-transform: uppercase;
 						width: 70px;
+						height: 110px;
 						text-align: center;
 						margin-right: 8px;
 						margin-bottom: 4px;
@@ -54,11 +152,171 @@
 								background: rgba(0, 0, 0, 0.5);
 							}
 
+	/* Items */
+
+		.create-build #panel-2 {
+			margin-bottom: 20px;
+		}
+
+			.create-build #panel-2 .begin-item, 
+			.create-build #panel-2 .end-item {
+				display: -webkit-flex;
+						display: flex;
+			}
+
+				.create-build #panel-2 .begin-item  ul.begin-end,
+				.create-build #panel-2 .end-item  ul.begin-end {
+					flex: 1;
+				}
+
+				.create-build .begin-item .champ-list,
+				.create-build .end-item .champ-list {
+					vertical-align: top;
+					height: 400px;
+					width: 590px;
+					margin-top: 0;
+				}
+
+					.create-build .champ-list li {
+						display: inline-block;
+						vertical-align: top;
+						position: relative;
+						text-transform: uppercase;
+						width: 70px;
+						height: auto;
+						text-align: center;
+						margin-right: 8px;
+						margin-bottom: 4px;
+					}
+
+						/*.create-build .champ-list a img {
+							width: 60px;
+							height: 60px;
+							border: 2px solid transparent;
+						}
+
+						.create-build .champ-list a span.shadow {
+							width: 60px;
+							height: 60px;
+						}*/
 
 
-.item-chosen{
-	display: inline-block;
-	height: 66px;
-	width: 66px;
-	border: solid #ff0 1px;
-}
+				.create-build #panel-2 .item-chosen {
+					vertical-align: top;
+					margin-bottom: 10px;
+				}
+				
+					.create-build #panel-2 .item-chosen-name {
+						
+					}
+
+	/* Spells Order */
+
+		.create-build #panel-3 {
+			margin-bottom: 20px;
+		}
+
+
+	/* Summoner Spells */
+
+		.create-build #panel-4 {
+			margin-bottom: 20px;
+		}
+
+			.create-build #panel-4 .champ-list {
+				height: auto;
+				overflow: hidden;
+			}
+
+	/* Runes */
+
+		.create-build #panel-6 {
+			margin-bottom: 20px;
+		}
+
+			.create-build #panel-6 .item-chosen {
+				height: 60px;
+				width: 60px;
+				margin-bottom: 10px;
+			}
+
+				.create-build #panel-6 .item-chosen img {
+					height: 60px;
+					width: 60px;
+				}
+			
+			.runes-marks, 
+			.runes-seal, 
+			.runes-glyph, 
+			.runes-quinte {
+				display: -webkit-flex;
+				display: flex;
+			}
+
+				.runes-marks ul.chosen-runes, 
+				.runes-seal ul.chosen-runes, 
+				.runes-glyph ul.chosen-runes, 
+				.runes-quinte  ul.chosen-runes {
+					flex: 1;
+				}
+
+				.runes-marks .runes-list, 
+				.runes-seal .runes-list, 
+				.runes-glyph .runes-list, 
+				.runes-quinte  .runes-list {
+					width: 400px;
+					height: 400px;
+					overflow-x: hidden;
+					overflow-y: scroll;
+					background-color: #272A30;
+				}
+
+					.create-build .runes-list li {
+						padding: 5px 10px;
+						border-bottom: 1px solid #212327;
+						transition: all .3s;
+					}
+
+					.create-build .runes-list li:hover {
+						background-color: #212327;
+					}
+					.create-build .runes-list li:hover a {
+						color: #fff;
+					}
+
+						.create-build .runes-list li a{
+							display: block;
+							color: #676767;
+						}
+
+							.create-build .runes-list li a img{
+								width: 35px;
+								height: 35px;
+								margin-right: 10px;
+							}
+
+							.create-build .runes-list li a span:nth-child(2) {
+								display: inline-block;
+								vertical-align: top;
+								margin-top: 10px;
+							}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

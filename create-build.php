@@ -133,8 +133,8 @@
 			<div class="build-content">
 			
 				<div class="aside">
-					<div class="recommend-button">
-						<input type="submit">
+					<div class="validate-button">
+						<input type="submit" value="Submit the build">
 					</div>
 					<ul class="panel-choice-detail">
 						<li class="active"><a href="#panel-1">Champion</a></li>
@@ -147,7 +147,7 @@
 					</ul>
 				</div>
 				<div class="main create-build"  >
-					<div class="panel show" id="panel-1" champion>
+					<div class="panel" id="panel-1" champion>
 						<div class="panel-section">
 							<h3>Guide title</h3>
 							<input type="text" name="title">
@@ -162,6 +162,7 @@
 
 
 	    					<img class="item-chosen" src="" champion-chosen>
+	    					<span class="item-chosen-name" champion-chosen-name></span>
 	    					<input type="hidden" name="champ" champion-input>
 
 		    				<div class="champ-list">
@@ -177,7 +178,7 @@
 				                            <?php if ( has_post_thumbnail() ) : ?>
 				                            	<span class="shadow"></span>
 				                            	<span><?php the_post_thumbnail('icon_liste'); ?></span>
-				                            	<span><?php the_title() ?></span>
+				                            	<span class="champion-name"><?php the_title() ?></span>
 				                            	<input type="hidden" value="<?php echo the_ID(); ?>"> 
 				                        	<?php endif ?>
 				                        </a></li>
@@ -189,34 +190,38 @@
 	    				</div>
 					</div>
 
-					<div class="panel " id="panel-2" item>
+					<div class="panel" id="panel-2" item>
+						<h3>Starter item</h3>
 						<div class="begin-item">
-							<h3>Starter item</h3>
-							<ul>
+							<ul class="begin-end">
 								<li class="item-chosen" begin-item-chosen>
 									<img src="">
+									<span class="item-chosen-name" begin-item-name></span>
 									<input type="hidden" name="begin-item-1" begin-item-input>
 								</li>
 								<li class="item-chosen" begin-item-chosen>
 									<img src="">
+									<span class="item-chosen-name" begin-item-name></span>
 									<input type="hidden" name="begin-item-2" begin-item-input>
 								</li>
 								<li class="item-chosen" begin-item-chosen>
 									<img src="">
+									<span class="item-chosen-name" begin-item-name></span>
 									<input type="hidden" name="begin-item-3" begin-item-input>
 								</li>
 								<li class="item-chosen" begin-item-chosen>
 									<img src="">
+									<span class="item-chosen-name" begin-item-name></span>
 									<input type="hidden" name="begin-item-4" begin-item-input>
 								</li>
-								<li class="item-chosen" begin-item-chosen>
+								<!-- <li class="item-chosen" begin-item-chosen>
 									<img src="">
 									<input type="hidden" name="begin-item-5" begin-item-input>
 								</li>
 								<li class="item-chosen" begin-item-chosen>
 									<img src="">
 									<input type="hidden" name="begin-item-6" begin-item-input>
-								</li>
+								</li> -->
 							</ul>
 							<div class="champ-list">
 			    				<?php
@@ -231,7 +236,7 @@
 				                            <?php if ( has_post_thumbnail() ) : ?>
 				                            	<span class="shadow"></span>
 				                            	<span><?php the_post_thumbnail('icon_liste'); ?></span>
-				                            	<span><?php the_title() ?></span>
+				                            	<span class="item-name"><?php the_title() ?></span>
 				                            	<input type="hidden" value="<?php echo the_ID(); ?>"> 
 				                        	<?php endif ?>
 				                        </a></li>
@@ -242,31 +247,37 @@
 		    				</div>
 
 						</div>
+						<h3>Core item</h3>
 						<div class="end-item">
-							<h3>Starter item</h3>
-							<ul>
+							<ul class="begin-end">
 								<li class="item-chosen" end-item-chosen>
 									<img src="">
+									<span class="item-chosen-name" end-item-name></span>
 									<input type="hidden" name="end-item-1" end-item-input>
 								</li>
 								<li class="item-chosen" end-item-chosen>
 									<img src="">
+									<span class="item-chosen-name" end-item-name></span>
 									<input type="hidden" name="end-item-2" end-item-input>
 								</li>
 								<li class="item-chosen" end-item-chosen>
 									<img src="">
+									<span class="item-chosen-name" end-item-name></span>
 									<input type="hidden" name="end-item-3" end-item-input>
 								</li>
 								<li class="item-chosen" end-item-chosen>
 									<img src="">
+									<span class="item-chosen-name" end-item-name></span>
 									<input type="hidden" name="end-item-4" end-item-input>
 								</li>
 								<li class="item-chosen" end-item-chosen>
 									<img src="">
+									<span class="item-chosen-name" end-item-name></span>
 									<input type="hidden" name="end-item-5" end-item-input>
 								</li>
 								<li class="item-chosen" end-item-chosen>
 									<img src="">
+									<span class="item-chosen-name" end-item-name></span>
 									<input type="hidden" name="end-item-6" end-item-input>
 								</li>
 							</ul>
@@ -283,7 +294,7 @@
 				                            <?php if ( has_post_thumbnail() ) : ?>
 				                            	<span class="shadow"></span>
 				                            	<span><?php the_post_thumbnail('icon_liste'); ?></span>
-				                            	<span><?php the_title() ?></span>
+				                            	<span class="item-name"><?php the_title() ?></span>
 				                            	<input type="hidden" value="<?php echo the_ID(); ?>"> 
 				                        	<?php endif ?>
 				                        </a></li>
@@ -342,10 +353,10 @@
 						<h3>Test</h3>
 					</div>
 
-					<div class="panel " id="panel-6" runes>
+					<div class="panel" id="panel-6" runes>
+						<h3>Marks</h3>
 						<div class="runes-marks">
-							<h3>Marks</h3>
-							<ul>
+							<ul class="chosen-runes">
 								<li class="item-chosen" red-runes-chosen>
 									<img src="">
 									<input type="hidden" name="red-runes-1" red-runes-input>
@@ -383,7 +394,7 @@
 									<input type="hidden" name="red-runes-9" red-runes-input>
 								</li>
 							</ul>
-							<div class="champ-list">
+							<div class="runes-list">
 			    				<?php
 			                	$args = array('post_type' => 'rune','posts_per_page' => -1,'kind' => 'red','orderby' => 'title', 'order' => 'ASC');
 			                	$the_query = new WP_Query( $args );
@@ -394,7 +405,6 @@
 				                        <!-- Gallery Item -->
 				                        <li class="champ-list-item" red-runes-select><a href="#">
 				                            <?php if ( has_post_thumbnail() ) : ?>
-				                            	<span class="shadow"></span>
 				                            	<span><?php the_post_thumbnail('icon_liste'); ?></span>
 				                            	<span><?php the_title() ?></span>
 				                            	<input type="hidden" value="<?php echo the_ID(); ?>"> 
@@ -407,9 +417,9 @@
 		    				</div>
 
 						</div>
+						<h3>Seal</h3>
 						<div class="runes-seal">
-							<h3>Seal</h3>
-							<ul>
+							<ul class="chosen-runes">
 								<li class="item-chosen" yellow-runes-chosen>
 									<img src="">
 									<input type="hidden" name="yellow-runes-1" yellow-runes-input>
@@ -447,7 +457,7 @@
 									<input type="hidden" name="yellow-runes-9" yellow-runes-input>
 								</li>
 							</ul>
-							<div class="champ-list">
+							<div class="runes-list">
 			    				<?php
 			                	$args = array('post_type' => 'rune','posts_per_page' => -1,'kind' => 'yellow','orderby' => 'title', 'order' => 'ASC');
 			                	$the_query = new WP_Query( $args );
@@ -458,7 +468,6 @@
 				                        <!-- Gallery Item -->
 				                        <li class="champ-list-item" yellow-runes-select><a href="#">
 				                            <?php if ( has_post_thumbnail() ) : ?>
-				                            	<span class="shadow"></span>
 				                            	<span><?php the_post_thumbnail('icon_liste'); ?></span>
 				                            	<span><?php the_title() ?></span>
 				                            	<input type="hidden" value="<?php echo the_ID(); ?>"> 
@@ -471,9 +480,9 @@
 		    				</div>
 
 						</div>
+						<h3>Glyph</h3>
 						<div class="runes-glyph">
-							<h3>Glyph</h3>
-							<ul>
+							<ul class="chosen-runes">
 								<li class="item-chosen" blue-runes-chosen>
 									<img src="">
 									<input type="hidden" name="blue-runes-1" blue-runes-input>
@@ -511,7 +520,7 @@
 									<input type="hidden" name="blue-runes-9" blue-runes-input>
 								</li>
 							</ul>
-							<div class="champ-list">
+							<div class="runes-list">
 			    				<?php
 			                	$args = array('post_type' => 'rune','posts_per_page' => -1,'kind' => 'blue','orderby' => 'title', 'order' => 'ASC');
 			                	$the_query = new WP_Query( $args );
@@ -522,7 +531,6 @@
 				                        <!-- Gallery Item -->
 				                        <li class="champ-list-item" blue-runes-select><a href="#">
 				                            <?php if ( has_post_thumbnail() ) : ?>
-				                            	<span class="shadow"></span>
 				                            	<span><?php the_post_thumbnail('icon_liste'); ?></span>
 				                            	<span><?php the_title() ?></span>
 				                            	<input type="hidden" value="<?php echo the_ID(); ?>"> 
@@ -535,9 +543,9 @@
 		    				</div>
 
 						</div>
+						<h3>Quint</h3>
 						<div class="runes-quinte">
-							<h3>Quint</h3>
-							<ul>
+							<ul class="chosen-runes">
 								<li class="item-chosen" black-runes-chosen>
 									<img src="">
 									<input type="hidden" name="black-runes-1" black-runes-input>
@@ -551,7 +559,7 @@
 									<input type="hidden" name="black-runes-3" black-runes-input>
 								</li>
 							</ul>
-							<div class="champ-list">
+							<div class="runes-list">
 			    				<?php
 			                	$args = array('post_type' => 'rune','posts_per_page' => -1,'kind' => 'black','orderby' => 'title', 'order' => 'ASC');
 			                	$the_query = new WP_Query( $args );
