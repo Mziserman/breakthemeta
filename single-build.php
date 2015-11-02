@@ -13,7 +13,7 @@
 				    <div class="build-header-content">
 				    	<div class="title-and-build">
 				    		<h2 style="color: #fff;"><?php the_title(); ?></h2>
-				    		<p class="build-excerpt"><?php echo the_excerpt(); ?></p>
+				    		<p class="build-excerpt"><?php the_excerpt(); ?></p>
 				    		<div class="items-list">
 				    			<ul>
 				    				<?php get_template_part('template-summary-header-summoner') ?>

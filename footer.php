@@ -19,7 +19,7 @@
         <ul class="footer-menu-list">
           <li class="footer-menu-item"><a href="<?php echo get_site_url(); ?>/">Landing</a></li>
           <li class="footer-menu-item"><a href="<?php echo get_site_url(); ?>/build/">Buildlist</a></li>
-          <li class="footer-menu-item"><a href="#">Create a new build</a></li>
+          <li class="footer-menu-item"><a href="<?php echo get_site_url(); ?>/create-build/">Create a new build</a></li>
           <!-- <li class="footer-menu-item"><a href="#">Profil</a></li> -->
         </ul>
       </div>

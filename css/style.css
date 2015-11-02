@@ -993,12 +993,12 @@ a{
 					}
 
 					.build-excerpt + p{
-						height: 100px;
+						height: 70px;
 					}
 
 					.title-and-build .items-list {
 						display: inline-block;
-						margin-top: 30px;
+						margin-top: 20px;
 						background: rgba(32, 34, 38, 0.7);
 					}
 
@@ -1008,6 +1008,7 @@ a{
 
 						.title-and-build  .items-list {
 							padding: 10px;
+							padding-bottom: 5px;
 						}
 
 							.items-list li {
