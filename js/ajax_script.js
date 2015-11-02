@@ -10,6 +10,12 @@ CurrentState.prototype = {
 		this.choiceContainer = $('.panel-choice');
 		this.panelContainer = $('.build-list-content');
 
+		this.filterStatus = {
+			championId: '',
+			lane: '',
+			role: ''
+		}
+
 		this.panels = {
 			date: new Panel($, 'date', this.choiceContainer.find('.date'), this.panelContainer.find('#panel-1')),
 			rand: new Panel($, 'rand', this.choiceContainer.find('.rand'), this.panelContainer.find('#panel-2')),
@@ -51,7 +57,10 @@ CurrentState.prototype = {
 			that.search = that.$(this).parent().find('input').val();
 			that.getSearchResults();
 		})
-
+		this.$('.champ-list').find('ul').find('.champ-list-item').on('click', 'a', function(e){
+    		that.filterStatus.championId = that.$(this).attr('href');
+    		that.getNumberFilteredBuilds();
+    	})
 	},
 	getBuilds: function(){
 		var orderBy = this.currentPanel.name;
@@ -71,6 +80,54 @@ CurrentState.prototype = {
 	        }
 		);
 	},
+	getFilteredBuilds: function(){
+		var orderBy = this.currentPanel.name;
+		var offset = this.currentPanel.pagination.offset;
+		var posts_per_page = this.currentPanel.pagination.postsPerPage;
+		var championId = this.filterStatus.championId
+		var that = this;
+		this.$.post(
+		    ajaxurl,
+		    {
+		        'action': 'get_filtered_builds',
+		        'offset': offset,
+		        'posts_per_page': posts_per_page,
+		        'orderby': orderBy,
+		        'championId': championId
+		    },
+		    function(response){
+		    	that.currentPanel.container.find('.blog-build-item').remove()
+		    	that.currentPanel.filterVisited = true;
+		    	that.currentPanel.container.prepend(response);
+	        }
+		);
+	},
+	getNumberFilteredBuilds: function() {
+		var orderBy = this.currentPanel.name;
+		var offset = this.currentPanel.pagination.offset;
+		var posts_per_page = this.currentPanel.pagination.postsPerPage;
+		var championId = this.filterStatus.championId
+		var that = this;
+		this.$.post(
+		    ajaxurl,
+		    {
+		        'action': 'get_number_filtered_builds',
+		        'offset': offset,
+		        'posts_per_page': posts_per_page,
+		        'orderby': orderBy,
+		        'championId': championId
+		    },
+		    function(response){
+		    	that.panels.date.removePagination();
+		    	that.panels.rand.removePagination();
+		    	that.panels.date.setPageMaxAndPrintPagination(Math.ceil(response / that.panels.date.pagination.postsPerPage));
+    			that.panels.rand.setPageMaxAndPrintPagination(Math.ceil(response / that.panels.rand.pagination.postsPerPage));
+    			that.getFilteredBuilds()
+	        }
+		)
+		
+		
+	},
 	getSearchResults: function() {
 		var search = this.search;
 		var that = this;
@@ -87,7 +144,6 @@ CurrentState.prototype = {
 					that.currentPanel.button.css('display', 'inline-block');
 				}
 		    	that.panels.search.container.empty().prepend(response);
-		    	console.log(response);
 	        }
 		);
 	},
@@ -109,6 +165,7 @@ Panel.prototype = {
 		
 		this.active = this.name === 'date';
 		this.visited = this.name === 'date';
+		this.filterVisited = false;
 
 		this.addInteractions()
 	},
@@ -122,6 +179,9 @@ Panel.prototype = {
 		this.button.removeClass('active')
 		this.container.removeClass('show').addClass('hide');
 		this.active = false;
+	},
+	removePagination: function() {
+		this.container.find('.nav-below').remove()
 	},
 	setPageMaxAndPrintPagination: function(pageMax) {
 		this.pagination.pageMax = pageMax;

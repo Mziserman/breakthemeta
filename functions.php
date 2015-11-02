@@ -182,27 +182,97 @@ add_action( 'wp_ajax_get_builds', 'get_builds' );
 add_action( 'wp_ajax_nopriv_get_builds', 'get_builds' );
 
 function get_builds() {
+    $posts_per_page = $_POST['posts_per_page'];
+    $offset = $_POST['offset'];
+    $orderby = $_POST['orderby'];
+    $search = $_POST['search'];
+    $args = array(
+        'posts_per_page' => $posts_per_page,
+        'offset' => $offset,
+        'post_type' => 'build', 
+        'orderby' => $orderby,
+        's' => $search
+    );
+     
+
+    $ajax_query = new WP_Query($args);
+    if ( $ajax_query->have_posts() ) : while ( $ajax_query->have_posts() ) : $ajax_query->the_post();
+        get_template_part( 'template_archive_build' );
+    endwhile;
+    endif;
+
+
+    die();
+
+}
+
+add_action( 'wp_ajax_get_filtered_builds', 'get_filtered_builds' );
+add_action( 'wp_ajax_nopriv_get_filtered_builds', 'get_filtered_builds' );
+
+function get_filtered_builds() {
+    $posts_per_page = $_POST['posts_per_page'];
+    $offset = $_POST['offset'];
+    $orderby = $_POST['orderby'];
+    $search = $_POST['search'];
+    $championId = $_POST['championId'];
+    $args = array(
+        'posts_per_page' => $posts_per_page,
+        'offset' => $offset,
+        'post_type' => 'build', 
+        'orderby' => $orderby,
+        's' => $search,
+        'meta_query' => array(
+        array(
+            'key' => 'champion',
+            'value' => $championId,
+            'compare' => 'LIKE'
+            )
+        )
+    );
+     
+
+    $ajax_query = new WP_Query($args);
+    if ( $ajax_query->have_posts() ) : while ( $ajax_query->have_posts() ) : $ajax_query->the_post();
+        get_template_part( 'template_archive_build' );
+    endwhile;
+    endif;
+
+
+    die();
+}
+
+add_action( 'wp_ajax_get_number_filtered_builds', 'get_number_filtered_builds' );
+add_action( 'wp_ajax_nopriv_get_number_filtered_builds', 'get_number_filtered_builds' );
+function get_number_filtered_builds() {
 	$posts_per_page = $_POST['posts_per_page'];
-	$offset = $_POST['offset'];
-	$orderby = $_POST['orderby'];
-	$search = $_POST['search'];
-	$args = array(
-		'posts_per_page' => $posts_per_page,
-		'offset' => $offset,
-	    'post_type' => 'build', 
-	    'orderby' => $orderby,
-	    's' => $search
-	);
+    $offset = $_POST['offset'];
+    $orderby = $_POST['orderby'];
+    $search = $_POST['search'];
+    $championId = $_POST['championId'];
+    $args = array(
+        'posts_per_page' => $posts_per_page,
+        'offset' => $offset,
+        'post_type' => 'build', 
+        'orderby' => $orderby,
+        's' => $search,
+        'meta_query' => array(
+        array(
+            'key' => 'champion',
+            'value' => $championId,
+            'compare' => 'LIKE'
+            )
+        )
+    );
+     
+    $count_posts = 0;
+    $ajax_query = new WP_Query($args);
+    echo $ajax_query->found_posts;
+    // if ( $ajax_query->have_posts() ) : while ( $ajax_query->have_posts() ) : $ajax_query->the_post();
+    //     $count_posts++;
+    // endwhile; endif;
+    // echo $count_posts;
 
-	$ajax_query = new WP_Query($args);
-	if ( $ajax_query->have_posts() ) : while ( $ajax_query->have_posts() ) : $ajax_query->the_post();
-		get_template_part( 'template_archive_build' );
-	endwhile;
-	endif;
-
-
-	die();
-
+    die();
 }
 add_action( 'wp_ajax_get_number_of_builds', 'get_number_of_builds' );
 add_action( 'wp_ajax_nopriv_get_number_of_builds', 'get_number_of_builds' );

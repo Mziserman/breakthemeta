@@ -16,28 +16,22 @@
     				</div>
     				<div class="champ-list">
     					<ul>
-    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Aatrox.png" alt=""><span class="champ-name">Aatrox</span></a></li>
-    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Ahri.png" alt=""><span class="champ-name">Ahri</span></a></li>
-    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Akali.png" alt=""><span class="champ-name">Akali</span></a></li>
-    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Alistar.png" alt=""><span class="champ-name">Alistar</span></a></li>
-    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Amumu.png" alt=""><span class="champ-name">Amumu</span></a></li>
-    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Anivia.png" alt=""><span class="champ-name">Anivia</span></a></li>
-    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Annie.png" alt=""><span class="champ-name">Annie</span></a></li>
-    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Ashe.png" alt=""><span class="champ-name">Ashe</span></a></li>
-    						<li class="champ-list-item active"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Azir.png" alt=""><span class="champ-name">Azir</span></a></li>
-    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Blitzcrank.png" alt=""><span class="champ-name">Blitzcrank</span></a></li>
-    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Brand.png" alt=""><span class="champ-name">Brand</span></a></li>
-    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Braum.png" alt=""><span class="champ-name">Braum</span></a></li>
-    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Caitlyn.png" alt=""><span class="champ-name">Caitlyn</span></a></li>
-    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Corki.png" alt=""><span class="champ-name">Corki</span></a></li>
-    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Darius.png" alt=""><span class="champ-name">Darius</span></a></li>
-    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Diana.png" alt=""><span class="champ-name">Diana</span></a></li>
-    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Draven.png" alt=""><span class="champ-name">Draven</span></a></li>
-    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/DrMundo.png" alt=""><span class="champ-name">Mundo</span></a></li>
-    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Elise.png" alt=""><span class="champ-name">Elise</span></a></li>
-    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Evelynn.png" alt=""><span class="champ-name">Evelynn</span></a></li>
-    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Ezreal.png" alt=""><span class="champ-name">Ezreal</span></a></li>
-    						<li class="champ-list-item"><a href=""><span class="shadow"></span><img src="<?php echo get_template_directory_uri(); ?>/img/champion/Fiora.png" alt=""><span class="champ-name">Fiora</span></a></li>
+                            <?php
+                                $args = array('post_type' => 'champion','posts_per_page' => -1, 'orderby' => 'title', 'order' => 'ASC');
+                                $the_query = new WP_Query( $args );
+                            ?>
+                            <?php if ($the_query->have_posts()) : ?>
+                                    <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                                    <!-- Gallery Item -->
+                                    <li  class="champ-list-item" champion-select><a href="<?php echo the_ID(); ?>">
+                                        <?php if ( has_post_thumbnail() ) : ?>
+                                            <span class="shadow"></span>
+                                            <span><?php the_post_thumbnail('champion_liste'); ?></span>
+                                            <span class="champ-name"><?php the_title() ?></span>
+                                        <?php endif ?>
+                                    </li></a>
+                                <?php endwhile; ?>
+                            <?php endif; ?>
     					</ul>
     				</div>
     			</div>
