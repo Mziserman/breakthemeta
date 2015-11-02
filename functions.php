@@ -191,7 +191,14 @@ function get_builds() {
         'offset' => $offset,
         'post_type' => 'build', 
         'orderby' => $orderby,
-        's' => $search
+        's' => $search,
+        'meta_query' => array(
+        array(
+            'key' => 'champion',
+            'value' => $championId,
+            'compare' => 'LIKE'
+            )
+        )
     );
      
 
@@ -267,10 +274,6 @@ function get_number_filtered_builds() {
     $count_posts = 0;
     $ajax_query = new WP_Query($args);
     echo $ajax_query->found_posts;
-    // if ( $ajax_query->have_posts() ) : while ( $ajax_query->have_posts() ) : $ajax_query->the_post();
-    //     $count_posts++;
-    // endwhile; endif;
-    // echo $count_posts;
 
     die();
 }
