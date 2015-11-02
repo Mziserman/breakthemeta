@@ -5,7 +5,7 @@
     	<div class="aside">
 
     		<div class="filters">
-    			<p>Filtres</p>
+    			<p>Filters</p>
     		</div>
 
     		<div class="aside-list-items">
