@@ -147,7 +147,7 @@
 					</ul>
 				</div>
 				<div class="main create-build"  >
-					<div class="panel" id="panel-1" champion>
+					<div class="panel show" id="panel-1" champion>
 						<div class="panel-section">
 							<h3>Guide title</h3>
 							<input type="text" name="title">
