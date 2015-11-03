@@ -214,14 +214,6 @@ a{
 
 	}
 
-	.footer-contain{
-		height: 160px;
-		width: 100%;
-		background: #212327;
-		box-shadow: 0px -1px 4px 0px rgba(0,0,0,0.50);
-		border-top:1px solid #3A3C42 ;
-		display: table;
-	}
 		
 /* @end CONTAINERS */
 
@@ -357,13 +349,13 @@ a{
 			}
 
 			/* Scrollbar */
-				::-webkit-scrollbar              {
+				.aside-list-items ::-webkit-scrollbar {
 					width: 10px;
 				}
-				::-webkit-scrollbar-track-piece  {
+				.aside-list-items ::-webkit-scrollbar-track-piece {
 					background-color: #303136;
 				}
-				::-webkit-scrollbar-thumb        {
+				.aside-list-items ::-webkit-scrollbar-thumb {
 					background-color: #3A3C42;
 					height: 10px;
 				}
@@ -382,14 +374,16 @@ a{
 				}
 
 					.search-champion .search-field {
-						width: 100%;
-						height: 35px;
+						height: 30px;
 						margin-left: 35px;
 						background-color: transparent;
 						color: #fff;
 						font-family: "PT Sans";
 						border: none;
 						outline: none;
+						appearance: none;
+						-webkit-appearance: none;
+						-moz-appearance:none;
 					}
 
 					.search-champion button {
@@ -622,6 +616,9 @@ a{
 				font-family: "PT Sans";
 				font-size: 16px;
 				color: #FFFFFF;
+				appearance: none;
+				-webkit-appearance: none;
+				-moz-appearance: none;
 			}
 
 			.search-bar button {
@@ -1784,6 +1781,15 @@ a{
 	
 	.footer-contain{
 		min-width: 1280px;
+	}
+
+	.footer-contain{
+		height: 160px;
+		width: 100%;
+		background: #212327;
+		box-shadow: 0px -1px 4px 0px rgba(0,0,0,0.50);
+		border-top:1px solid #3A3C42 ;
+		display: table;
 	}
 		.footer-logo{
 			text-transform: uppercase;
