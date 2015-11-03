@@ -102,6 +102,12 @@ a{
 						line-height: 80px;
 					}
 
+		@media screen and (max-width: 800px) {
+			.header .navbar li {
+				min-width: 0;
+			}
+		}
+
 		/* LOGIN FORM & REGISTER FORM */
 
 			#loginform {
@@ -249,10 +255,7 @@ a{
 		-webkit-background-size: cover;
 		background-size: cover;
 		height: 100vh;
-	}
-
-	.build-container {
-
+		text-align: center;
 	}
 
 		
@@ -279,23 +282,20 @@ a{
 		text-align: center;
 	}
 
-	.home-container-btn{
+	.home-container-btn {
 		background: #BB3A3A;
 		box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.50);
-		display: block;
+		display: inline-block;
 		margin: 67px auto 0;
-		width: 160px;
+		padding: 0 10px;
 		height: 50px;
+		text-transform: uppercase;
+		font-size: 20px;
+		color: #FFFFFF;
+		line-height: 50px;
+		vertical-align: middle;
+		text-align: center;
 	}
-
-		.home-container-btn-text{
-			text-transform: uppercase;
-			font-size: 20px;
-			color: #FFFFFF;
-			line-height: 50px;
-			vertical-align: middle;
-			text-align: center;
-		}
 
 /* @end HOME PAGE */
 
@@ -1831,6 +1831,23 @@ a{
 	}
 
 /* @end BUILD DETAIL */
+
+/* @group Page 404 */
+
+	.notfound-container{
+		font-weight: 700;
+		background-image: url("../img/404-bg.png");
+		-webkit-background-size: cover;
+		background-size: cover;
+		height: 100vh;
+		text-align: center;
+	}
+
+		.notfound-container .home-container-btn {
+			font-size: 16px;
+		}
+
+/* @end Page 404 */
 
 
 /* @group FOOTER */
