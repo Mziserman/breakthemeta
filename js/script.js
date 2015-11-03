@@ -149,12 +149,12 @@ jQuery(document).ready(function($) {
 	contentVideo.parent().css('text-align','center');
 
 	// Remove text in login form when the user start writing 
-	$('#loginform').find('input[type="text"], input[type=password]').on('keyup', function(e) {
+	$('#loginform').find('input[type="text"], input[type=password]').on('keypress', function(e) {
 
 		var that = $(this),
 			label = that.prev('label');
 
-		if(that.val() === '') {
+		if(that.value == '') {
 			label.removeClass('hide');
 		} else {
 			label.addClass('hide');
