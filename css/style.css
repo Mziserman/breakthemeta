@@ -88,7 +88,7 @@ a{
 					margin-left: -3px;
 				}
 
-				.header .navbar li.active {
+				.header .navbar li.current_page_item {
 					background-color: #BB3A3A;
 				}
 
@@ -102,7 +102,7 @@ a{
 						line-height: 80px;
 					}
 
-		/* LOGIN FORM */
+		/* LOGIN FORM & REGISTER FORM */
 
 			#loginform {
 				display: none;
@@ -114,7 +114,8 @@ a{
 				box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
 			}
 
-			#loginform.show {
+			#loginform.show,
+			#registerform.show {
 				display: inline-block;
 			}
 
@@ -164,7 +165,8 @@ a{
 							z-index:2;
 						}
 
-						#loginform input[type=submit] {
+						#loginform input[type=submit],
+						#registerform input[type=submit] {
 							padding: 10px;
 							border: 0;
 							background: #BB3A3A;
@@ -176,6 +178,45 @@ a{
 							box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.50);
 							outline: none;
 						}
+
+			#registerform {
+				display: none;
+				position: absolute;
+				right: 0;
+				top: 80px;
+				max-width: 250px;
+				padding: 20px 20px 10px;
+				background-color: #212327;
+				box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
+			}
+
+				#registerform span {
+					display: block;
+					font-size: 11px;
+					margin: 5px 0;
+				}
+				
+				#registerform p {
+					margin-bottom: 10px;
+				}
+
+				#registerform input[type=text],
+				#registerform input[type=email] {
+					display: block;
+					width: 200px;
+					padding-left: 10px;
+					border: none;
+					outline: none;
+					line-height: 30px;
+					color: #fff;
+					background-color: #3A3C42;
+					box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.3);
+					z-index:2;
+				}
+
+				#registerform input[type=text] {
+					margin-bottom: 10px;
+				}
 
 
 /* @end HEADER */
@@ -416,6 +457,7 @@ a{
 
 					.aside .champ-list li {
 						display: inline-block;
+						vertical-align: top;
 						position: relative;
 						text-transform: uppercase;
 						width: 70px;
@@ -1076,7 +1118,8 @@ a{
 					padding-top: 15px;
 				}
 
-					.build-content .aside .recommend-button button {
+					.build-content .aside .recommend-button button,
+					.build-content .aside .validate-button .submit-button {
 						padding: 10px;
 						margin-bottom: 15px;
 						border: 0;
@@ -1088,6 +1131,15 @@ a{
 						line-height: 15px;
 						box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.50);
 						outline: none;
+					}
+
+					.build-content .aside .validate-button .submit-button {
+						background-color: #794141;
+					}
+
+					.build-content .aside .validate-button span {
+						display: block;
+						margin-bottom: 10px;
 					}
 
 					.build-content .aside .recommend-button button:hover {
@@ -1201,6 +1253,8 @@ a{
 
 									.panel.summary .left .panel-section:nth-child(2) li img {
 										margin-right: 15px;
+										width: 58px;
+										height: 60px;
 									}
 
 									.panel.summary .left .panel-section:nth-child(2) li span {
@@ -1305,6 +1359,8 @@ a{
 
 							.panel.runes  li img {
 								margin-right: 15px;
+								width: 58px;
+								height: 60px;
 							}
 
 							.panel.runes li span {
