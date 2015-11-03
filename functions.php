@@ -9,7 +9,7 @@ add_action('wp_footer', 'init_js');
 function init_js() {
 	wp_enqueue_script( 'jquery', 'http://code.jquery.com/jquery-1.8.3.min.js');
 	wp_enqueue_script( 'bootstrap', get_template_directory_uri().'/js/bootstrap.js');
-	wp_enqueue_script( 'custom', get_template_directory_uri().'/js/script.js');
+    wp_enqueue_script( 'custom', get_template_directory_uri().'/js/script.js');
 	wp_enqueue_script( 'script', get_template_directory_uri().'/js/ajax_script.js', array('jquery'), '1.0', true );
 
     if ( is_page_template( 'create-build.php' ) )
@@ -323,4 +323,11 @@ function mytheme_comment($comment, $args, $depth) {
     </li>
 <?php
         }
+
+add_action('wp_logout','go_home');
+function go_home(){
+  wp_redirect( home_url() );
+  exit();
+}
+
 ?>

@@ -43,15 +43,29 @@
         <div class="navigation">
             <div class="navbar">
                 <ul class="">
+                    <li class=""><a href="<?php echo get_site_url(); ?>/build/">Build list</a></li>
                     <li class="active"><a href="<?php echo get_site_url(); ?>/create-build/">Create a new build</a></li>
-                    <li class="underline login"><a href="">Login</a></li>
-                    <?php if(!is_user_logged_in()) :
-                        if (get_option('users_can_register')) : ?>
-                            <li class="underline register"><a href="#">Register</a></li>
-                        <?php endif;
-                    endif; ?>
+                    <?php if(!is_user_logged_in()) { ?>
+                        <li class="underline login"><a href="">Login</a></li>
+                        <li class="underline register"><a href="#">Register</a></li>
+                    <?php }else{ ?>
+                         <li class=""><a href="<?php echo wp_logout_url( home_url() ); ?>">Log out</a></li>
+                    <?php } ?>
                 </ul>
             </div>
         </div>
         <?php wp_login_form(); ?>
+
+        <div style=""> <!-- Registration -->
+                <div id="registerform">
+                    <p>Register here</p>
+                    <form action="<?php echo site_url('wp-login.php?action=register', 'login_post'); ?>" method="post">
+                        <input type="text" name="user_login" placeholder="Username" id="user_login" class="input" />
+                        <input type="email" name="user_email" placeholder="Email" id="user_email" class="input"  />
+                            <?php do_action('register_form'); ?>
+                        <span>You'll receive a mail for confirmation</span>
+                        <input type="submit" value="Register" id="register" />
+                    </form>
+                </div>
+        </div><!-- /Registration -->
     </div><!-- End Header -->
