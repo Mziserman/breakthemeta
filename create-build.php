@@ -134,7 +134,7 @@
 			
 				<div class="aside">
 					<div class="validate-button">
-						<input type="submit" value="Submit the build">
+						<?php if(!is_user_logged_in()) : ?><span>You must be connected to submit a build</span><button class="submit-button">Submit the build</button><?php else: ?><input type="submit" value="Submit the build"><?php endif; ?>
 					</div>
 					<ul class="panel-choice-detail">
 						<li class="active"><a href="#panel-1">Champion</a></li>
