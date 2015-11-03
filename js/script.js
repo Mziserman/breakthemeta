@@ -149,8 +149,7 @@ jQuery(document).ready(function($) {
 	contentVideo.parent().css('text-align','center');
 
 	// Remove text in login form when the user start writing 
-	var loginForm = $('#loginform');
-	$(loginForm).find('input[type="text"], input[type=password]').on('keyup', function(e) {
+	$('#loginform').find('input[type="text"], input[type=password]').on('keyup', function(e) {
 
 		var that = $(this),
 			label = that.prev('label');
@@ -162,18 +161,27 @@ jQuery(document).ready(function($) {
 		}
 	});
 
-	// Display login panel clicking on menu item
-	$('.navbar .login a').on('click', function(e) {
-		e.preventDefault();
+	function showForm(elem, form, second) {
+		// Display login panel clicking on menu item
+		$('.navbar .'+elem+' a').on('click', function(e) {
+			e.preventDefault();
 
-		if(loginForm.hasClass('show')) {
-			loginForm.removeClass('show');
-			loginForm.fadeOut();
-		} else {
-			loginForm.fadeIn();
-			loginForm.addClass('show');
-		}
-	});
+			second.removeClass('show');
+			second.fadeOut();
+
+			if(form.hasClass('show')) {
+				$(form).removeClass('show');
+				$(form).fadeOut();
+			} else {
+				$(form).fadeIn();
+				$(form).addClass('show');
+			}
+		});
+	}
+
+	showForm('login', $('#loginform'), $('#registerform'));
+	showForm('register', $('#registerform'), $('#loginform'));
+
 
 });
 
