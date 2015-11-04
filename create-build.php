@@ -236,25 +236,30 @@
 							<textarea name="excerpt"></textarea>
 						</div>
 
+			    		
 			    		<div class="lane">
-			              <h3>For which lane ?</h3>
-			              <select name="lane">
-			                <option value="all" >All</option>
-			                <option value="top" >Top</option>
-			                <option value="mid" >Mid</option>
-			                <option value="jungle" >Jungle</option>
-			                <option value="bottom" >Bottom</option>
-			              </select>
+							<h3>For which lane ?</h3>
+							<span class="custom-dropdown">
+								<select name="lane">
+									<option value="all" >All</option>
+									<option value="top" >Top</option>
+									<option value="mid" >Mid</option>
+									<option value="jungle" >Jungle</option>
+									<option value="bottom" >Bottom</option>
+								</select>
+							</span>
 			            </div>
-
+			            
 			            <div class="roles">
-			              <h3>Which role ?</h3>
-			              <select name="role">
-			                <option value="carry_ad" >Carry AD</option>
-			                <option value="carry_ap" >Carry AP</option>
-			                <option value="tank" >Tank</option>
-			                <option value="support" >Support</option>
-			              </select>
+			              	<h3>Which role ?</h3>
+			              	<span class="custom-dropdown">
+			            		<select name="role">
+									<option value="carry_ad" >Carry AD</option>
+									<option value="carry_ap" >Carry AP</option>
+									<option value="tank" >Tank</option>
+									<option value="support" >Support</option>
+			            		</select>
+							</span>
 			            </div>
 						
 						<div class="champions">
