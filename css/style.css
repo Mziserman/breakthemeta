@@ -75,6 +75,11 @@ a{
 				height: 100%;
 			}
 
+				.header .navbar li.register,
+				.header .navbar li.login {
+					min-width: 80px;
+				}
+
 				.header .navbar li {
 					position: relative;
 					display: inline-block;

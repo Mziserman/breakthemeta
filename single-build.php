@@ -1,3 +1,23 @@
+<?php 
+	session_start();
+	$the_ID = get_the_ID();
+
+	$score = get_field_object('likes')['value'];
+
+	if (!empty($_POST['plus']) && !in_array($the_ID, $_SESSION['voted'])) {
+		
+		if (!$_SESSION['voted']) {
+			$_SESSION['voted'] = array();
+		}
+
+		
+		$score++;
+
+		update_field('field_563a0d82658bd', $score, get_the_ID());
+
+		array_push($_SESSION['voted'], get_the_ID());
+	}
+?>
 <?php get_header(); ?>
 
 	<!-- Page Content --> 
@@ -28,7 +48,7 @@
 				    </div>
 				    <div class="creator-infos">
 				    	<img class="creator-image" src="<?php echo get_template_directory_uri(); ?>/img/champion/Vi.png" alt="">
-				    	<a href="">Popolopo26</a>
+				    	<a href="http://euw.op.gg/summoner/userName=<?php the_author(); ?>" target="_BLANK"><?php the_author(); ?></a>
 				    	<div class="creator-division">
 				    		<img src="<?php echo get_template_directory_uri(); ?>/img/division_gold.png" alt="">
 				    		<p>Gold V</p>
@@ -41,8 +61,11 @@
 				<div class="build-content">
 					<div class="aside">
 						<div class="recommend-button">
-							<button><i class="fa fa-heart"></i>Recommend this build</button>
-							<p><i class="fa fa-heart"></i>15 people recommended this build</p>
+							<form action="#" method="POST">
+								<input type="hidden" name ="plus" value="un">
+								<button type="submit"><i class="fa fa-heart"></i>Recommend this build</button>	
+							</form>
+							<p><i class="fa fa-heart"></i><?php echo $score ?> people recommended this build</p>
 						</div>
 						<ul class="panel-choice-detail">
 							<li class="active"><a href="#panel-1">Summary</a></li>
