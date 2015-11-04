@@ -468,6 +468,10 @@ a{
 						margin-bottom: 4px;
 					}
 
+					.aside .champ-list li.hide {
+						display: none;
+					}
+
 					.aside .champ-list li.active img {
 						border: 2px solid #BB3A3A;
 					}

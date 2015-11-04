@@ -194,6 +194,12 @@
 						margin-bottom: 4px;
 					}
 
+					.create-build .champ-list li.hide {
+						display: none;
+
+					}
+
+
 					.create-build .champ-list li.active img {
 						border: 2px solid #BB3A3A;
 					}
