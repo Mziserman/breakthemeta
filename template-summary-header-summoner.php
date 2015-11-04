@@ -3,5 +3,5 @@
 ?>
 
 <?php for ($i = 0; $i < count($summoners); $i++) {?>
-	<li><?php echo get_the_post_thumbnail($summoners[$i]->ID) ?></li>
+	<li><?php echo get_the_post_thumbnail($summoners[$i]['spell']->ID) ?></li>
 <?php } ?>
