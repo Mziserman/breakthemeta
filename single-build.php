@@ -1,21 +1,26 @@
 <?php 
 	session_start();
 	$the_ID = get_the_ID();
+    $score = get_field_object('likes')['value'] || 0;
 
-	$score = get_field_object('likes')['value'];
-
-	if (!empty($_POST['plus']) && !in_array($the_ID, $_SESSION['voted'])) {
+	
+	if (!empty($_POST['plus'])) {
 		
 		if (!$_SESSION['voted']) {
 			$_SESSION['voted'] = array();
 		}
 
-		
-		$score++;
+		if (!in_array($the_ID, $_SESSION['voted'])){	
+			$score++;
+			echo '<pre>';
+			print_r($score);
+			echo '</pre>';
 
-		update_field('field_563a0d82658bd', $score, get_the_ID());
 
-		array_push($_SESSION['voted'], get_the_ID());
+			update_field('field_563a19efbc69d', $score, get_the_ID());
+
+			array_push($_SESSION['voted'], get_the_ID());
+		}
 	}
 ?>
 <?php get_header(); ?>
