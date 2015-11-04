@@ -350,10 +350,10 @@ function get_spells_pictures() {
 
     $ajax_query = new WP_Query($args);
     if ( $ajax_query->have_posts() ) : while ( $ajax_query->have_posts() ) : $ajax_query->the_post();
-        $spell['q_spell'] = wp_get_attachment_url( get_post_thumbnail_id(get_field_object('Q_spell')['value']->ID) );
-        $spell['w_spell'] = wp_get_attachment_url( get_post_thumbnail_id(get_field_object('W_spell')['value']->ID) );
-        $spell['e_spell'] = wp_get_attachment_url( get_post_thumbnail_id(get_field_object('E_spell')['value']->ID) );
-        $spell['r_spell'] = wp_get_attachment_url( get_post_thumbnail_id(get_field_object('R_spell')['value']->ID) );
+        $spell['q_spell'] = wp_get_attachment_url( get_post_thumbnail_id(get_field_object('q_spell')['value']->ID) );
+        $spell['w_spell'] = wp_get_attachment_url( get_post_thumbnail_id(get_field_object('w_spell')['value']->ID) );
+        $spell['e_spell'] = wp_get_attachment_url( get_post_thumbnail_id(get_field_object('e_spell')['value']->ID) );
+        $spell['r_spell'] = wp_get_attachment_url( get_post_thumbnail_id(get_field_object('r_spell')['value']->ID) );
         $spell['passive'] = wp_get_attachment_url( get_post_thumbnail_id(get_field_object('passive')['value']->ID) );
     endwhile;
     endif;
