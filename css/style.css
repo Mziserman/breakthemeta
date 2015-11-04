@@ -1209,6 +1209,10 @@ a{
 					padding: 0 20px;
 				}
 
+				.build-content .main .panel.skill-order {
+					max-width: 1200px;
+				}
+
 				.build-content .main .panel.show {
 					display: block;
 				}
@@ -1519,58 +1523,64 @@ a{
 				}
 
 				.so-skill-level{
-					margin-left: 21px;
-					width: 13px;
+					width: 40px;
+					text-align: center;
 					display: inline-block;
+				}
+
+				.table-line-skill.first{
+					margin-left: 55px;
 				}
 
 				.table-line{
 					padding-bottom: 2px;
-					height: 56px;
+					height: 40px;
 				}
 
-				.table-line:hover{
+				.table-line-skill:hover{
 					background-color: #26282D;
 				}
 
 				.table-line-control{
 					font-size: 18px;
 					font-family: "PTSans-bold";
-					padding: 0 7px 0 13px;
-					vertical-align: middle;
-					width: 15px;
 					display: inline-block;
+					width: 20px;
+					height: 20px;
+					position: relative;
+					text-align: center;
+					top: -20px;
 				}
 
 				.table-line-image{
-					margin-right: 12px;	
+					width: 40px;
+					height: 40px;
+					position: absolute;
 				}
 
 				.table-line-image img{
-					vertical-align: middle;
+					height: 100%;
+					width: 100%;
+					top: 0;
+					left: 0;
 				}	
 
 				.table-line-skill{
 					background: transparent;
-					margin-top: 20px;
-					margin-right: 19px;
-					width: 15px;
-					height: 15px;
+					width: 40px;
+					height: 40px;
 					display: inline-block;
 					vertical-align: sub;
 				}
 
-				.table-line-skill{
-					background: transparent;
-					margin-top: 20px;
-					margin-right: 19.05px;
-					width: 15px;
-					height: 15px;
-					display: inline-block;
-					vertical-align: sub;
+				.table-line-skill div{
+					margin: 25%;
+					width: 50%;
+					height: 50%;
 				}
 
-				.table-line-skill.active{
+
+				.table-line-skill.active div{
 					background: #BB3A3A;
 					box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.50), inset 0px 1px 3px 0px rgba(0,0,0,0.50);
 				}
