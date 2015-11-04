@@ -1,6 +1,6 @@
 <?php 
 	/* Template name: Create build */	
-	get_header();
+
 
   	require_once (dirname(__DIR__).'/breakthemeta/php/create-build.class.php');
 
@@ -10,11 +10,19 @@
   	if ( !empty($_POST) )
   	{
   		$image_id = get_post_thumbnail_id( $_POST['champ'] );
+
   		$post_id = $cb->create_post($_POST['title'],$_POST['description'],'build',$_POST['excerpt'],$image_id);
+
   		if ( !empty($post_id) )
   		{
-	  		// champion
-  			update_field("champion", $_POST['champ'], $post_id);
+  			// champion
+			update_field("champion", $_POST['champ'], $post_id);
+
+  			// lane
+  			wp_set_object_terms( $post_id, $_POST['lane'], 'lane');
+
+  			// role
+  			wp_set_object_terms( $post_id, $_POST['role'], 'role');
 
   			// begin item
   			$begin_item = get_field(field_5630ea67f0b4b, $post_id);
@@ -50,81 +58,103 @@
 		  	}
 		  	update_field( field_5630e250b0a69, $summoner, $post_id );
 
-  		}
 
-  		// MARKS
-  		$get_marks = [];
-  		for ( $i =1; $i <= 9; $i ++ )
-  		{
-  			$get_marks[] = $_POST['red-runes-'.$i];
-  		}
-  		$marks_sorted = $cb->preset_runes($get_marks);
-
-  		$marks = get_field(field_5631ecf03daf7, $post_id);
-  		for ( $i = 0; $i < count($marks_sorted); $i ++ )
-  		{
-  			if ( !empty($marks_sorted[$i]['rune']) )
+		  	// spell order
+	  		$spell_order = get_field(field_563788d6796f6, $post_id);
+	  		for ( $i = 1; $i <= 18; $i ++ )
+		  	{			
+		  		for ( $j = 1; $j <= 5; $j ++)
 		  		{
-					$marks[] = array("mark" => $marks_sorted[$i]['rune'], 'quantity' => $marks_sorted[$i]['quantity']);		
+			  		if ( !empty($_POST['order-input-'.$j.'-'.$i]) && $_POST['order-input-'.$j.'-'.$i] == 1 )
+			  		{
+						$spell_order[] = array("line" => $j );		
+			  		}
 		  		}
-  		}
-  		update_field( field_5631ecf03daf7, $marks, $post_id );
+		  	}
+		  	update_field( field_563788d6796f6, $spell_order, $post_id );
 
-  		// GLYPHS
-  		$get_glyphs = [];
-  		for ( $i =1; $i <= 9; $i ++ )
-  		{
-  			$get_glyphs[] = $_POST['blue-runes-'.$i];
-  		}
-  		$glyphs_sorted = $cb->preset_runes($get_glyphs);
+  		
 
-  		$glyphs = get_field(field_5631edb53dafd, $post_id);
-  		for ( $i = 0; $i < count($glyphs_sorted); $i ++ )
-  		{
-  			if ( !empty($glyphs_sorted[$i]['rune']) )
-		  		{
-					$glyphs[] = array("glyph" => $glyphs_sorted[$i]['rune'], 'quantity' => $glyphs_sorted[$i]['quantity']);		
-		  		}
-  		}
-  		update_field( field_5631edb53dafd, $glyphs, $post_id );
+	  		// MARKS
+	  		$get_marks = [];
+	  		for ( $i =1; $i <= 9; $i ++ )
+	  		{
+	  			$get_marks[] = $_POST['red-runes-'.$i];
+	  		}
+	  		$marks_sorted = $cb->preset_runes($get_marks);
 
-  		// SEALS
-  		$get_seals = [];
-  		for ( $i =1; $i <= 9; $i ++ )
-  		{
-  			$get_seals[] = $_POST['yellow-runes-'.$i];
-  		}
-  		$seals_sorted = $cb->preset_runes($get_seals);
+	  		$marks = get_field(field_5631ecf03daf7, $post_id);
+	  		for ( $i = 0; $i < count($marks_sorted); $i ++ )
+	  		{
+	  			if ( !empty($marks_sorted[$i]['rune']) )
+			  		{
+						$marks[] = array("mark" => $marks_sorted[$i]['rune'], 'quantity' => $marks_sorted[$i]['quantity']);		
+			  		}
+	  		}
+	  		update_field( field_5631ecf03daf7, $marks, $post_id );
 
-  		$seals = get_field(field_5631ed3d3dafb, $post_id);
-  		for ( $i = 0; $i < count($seals_sorted); $i ++ )
-  		{
-  			if ( !empty($seals_sorted[$i]['rune']) )
-		  		{
-					$seals[] = array("seal" => $seals_sorted[$i]['rune'], 'quantity' => $seals_sorted[$i]['quantity']);		
-		  		}
-  		}
-  		update_field( field_5631ed3d3dafb, $seals, $post_id );
+	  		// GLYPHS
+	  		$get_glyphs = [];
+	  		for ( $i =1; $i <= 9; $i ++ )
+	  		{
+	  			$get_glyphs[] = $_POST['blue-runes-'.$i];
+	  		}
+	  		$glyphs_sorted = $cb->preset_runes($get_glyphs);
 
-  		// QUINTE
-  		$get_quintes = [];
-  		for ( $i =1; $i <= 9; $i ++ )
-  		{
-  			$get_quintes[] = $_POST['black-runes-'.$i];
-  		}
-  		$quintes_sorted = $cb->preset_runes($get_quintes);
+	  		$glyphs = get_field(field_5631edb53dafd, $post_id);
+	  		for ( $i = 0; $i < count($glyphs_sorted); $i ++ )
+	  		{
+	  			if ( !empty($glyphs_sorted[$i]['rune']) )
+			  		{
+						$glyphs[] = array("glyph" => $glyphs_sorted[$i]['rune'], 'quantity' => $glyphs_sorted[$i]['quantity']);		
+			  		}
+	  		}
+	  		update_field( field_5631edb53dafd, $glyphs, $post_id );
 
-  		$quintes = get_field(field_5631e6a4768f7, $post_id);
-  		for ( $i = 0; $i < count($quintes_sorted); $i ++ )
-  		{
-  			if ( !empty($quintes_sorted[$i]['rune']) )
-		  		{
-					$quintes[] = array("quintessence" => $quintes_sorted[$i]['rune'], 'quantity' => $quintes_sorted[$i]['quantity']);		
-		  		}
+	  		// SEALS
+	  		$get_seals = [];
+	  		for ( $i =1; $i <= 9; $i ++ )
+	  		{
+	  			$get_seals[] = $_POST['yellow-runes-'.$i];
+	  		}
+	  		$seals_sorted = $cb->preset_runes($get_seals);
+
+	  		$seals = get_field(field_5631ed3d3dafb, $post_id);
+	  		for ( $i = 0; $i < count($seals_sorted); $i ++ )
+	  		{
+	  			if ( !empty($seals_sorted[$i]['rune']) )
+			  		{
+						$seals[] = array("seal" => $seals_sorted[$i]['rune'], 'quantity' => $seals_sorted[$i]['quantity']);		
+			  		}
+	  		}
+	  		update_field( field_5631ed3d3dafb, $seals, $post_id );
+
+	  		// QUINTE
+	  		$get_quintes = [];
+	  		for ( $i =1; $i <= 9; $i ++ )
+	  		{
+	  			$get_quintes[] = $_POST['black-runes-'.$i];
+	  		}
+	  		$quintes_sorted = $cb->preset_runes($get_quintes);
+
+	  		$quintes = get_field(field_5631e6a4768f7, $post_id);
+	  		for ( $i = 0; $i < count($quintes_sorted); $i ++ )
+	  		{
+	  			if ( !empty($quintes_sorted[$i]['rune']) )
+			  		{
+						$quintes[] = array("quintessence" => $quintes_sorted[$i]['rune'], 'quantity' => $quintes_sorted[$i]['quantity']);		
+			  		}
+	  		}
+	  		update_field( field_5631e6a4768f7, $quintes, $post_id );
+	  		
+	  		$url = get_post_permalink($post_id);
+	  		wp_redirect($url);
+			exit();
   		}
-  		update_field( field_5631e6a4768f7, $quintes, $post_id );
+
   	}
 
+	get_header();
 ?>
 
 	<div class="container create-build-container">
@@ -134,7 +164,7 @@
 			
 				<div class="aside">
 					<div class="validate-button">
-						<?php if(!is_user_logged_in()) : ?><span>You must be connected to submit a build</span><button class="submit-button">Submit the build</button><?php else: ?><input type="submit" value="Submit the build"><?php endif; ?>
+						<input type="submit" value="Submit the build">
 					</div>
 					<ul class="panel-choice-detail">
 						<li class="active"><a href="#panel-1">Champion</a></li>
@@ -148,15 +178,35 @@
 				</div>
 				<div class="main create-build"  >
 					<a class="back-link" href="<?php echo get_site_url(); ?>/build/" class="pull-right"><i class="icon-arrow-left"></i>Back to builds</a>
-					<div class="panel show" id="panel-1" champion>
+					<div class="panel" id="panel-1" champion>
 						<div class="panel-section">
 							<h3>Guide title</h3>
 							<input type="text" name="title">
 						</div>
 						<div class="description">
-							<h3>Breve description</h3>
+							<h3>Short description</h3>
 							<textarea name="excerpt"></textarea>
 						</div>
+
+			    		<div class="lane">
+			              <h3>For which lane ?</h3>
+			              <select name="lane">
+			                <option value="top" >Top</option>
+			                <option value="mid" >Mid</option>
+			                <option value="jungle" >Jungle</option>
+			                <option value="bottom" >Bottom</option>
+			              </select>
+			            </div>
+
+			            <div class="roles">
+			              <h3>Which role ?</h3>
+			              <select name="role">
+			                <option value="carry_ad" >Carry AD</option>
+			                <option value="carry_ap" >Carry AP</option>
+			                <option value="tank" >Tank</option>
+			                <option value="support" >Support</option>
+			              </select>
+			            </div>
 						
 						<div class="champions">
 							<h3>Champion</h3>
@@ -308,8 +358,153 @@
 						</div>
 					</div>
 
-					<div class="panel" id="panel-3">
-						
+					<div class="panel show skill-order" id="panel-3" skill-order>
+						<h3>Skill Order</h3>
+							<div class="panel-section">
+								<div class="so-header">
+									<p class="so-level">Player level</p>
+									<p class="so-skill-level">1</p>
+									<p class="so-skill-level">2</p>
+									<p class="so-skill-level">3</p>
+									<p class="so-skill-level">4</p>
+									<p class="so-skill-level">5</p>
+									<p class="so-skill-level">6</p>
+									<p class="so-skill-level">7</p>
+									<p class="so-skill-level">8</p>
+									<p class="so-skill-level">9</p>
+									<p class="so-skill-level">10</p>
+									<p class="so-skill-level">11</p>
+									<p class="so-skill-level">12</p>
+									<p class="so-skill-level">13</p>
+									<p class="so-skill-level">14</p>
+									<p class="so-skill-level">15</p>
+									<p class="so-skill-level">16</p>
+									<p class="so-skill-level">17</p>
+									<p class="so-skill-level">18</p>
+								</div>
+								<div class="so-table">
+									<div class="table-line">
+										<span class="table-line-control">Q</span>
+										<span class="table-line-image">
+											<img class="spell-order-img" order-img-q src="" alt="ability image">
+										</span>
+										<div order-select order-level="1" order-line="1" class="table-line-skill first"><div><input value="0" type="hidden" name="order-input-1-1"></div></div>
+										<div order-select order-level="2" order-line="1" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-1-2"></div></div>
+										<div order-select order-level="3" order-line="1" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-1-3"></div></div>
+										<div order-select order-level="4" order-line="1" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-1-4"></div></div>
+										<div order-select order-level="5" order-line="1" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-1-5"></div></div>
+										<div order-select order-level="6" order-line="1" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-1-6"></div></div>
+										<div order-select order-level="7" order-line="1" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-1-7"></div></div>
+										<div order-select order-level="8" order-line="1" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-1-8"></div></div>
+										<div order-select order-level="9" order-line="1" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-1-9"></div></div>
+										<div order-select order-level="10" order-line="1" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-1-10"></div></div>
+										<div order-select order-level="11" order-line="1" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-1-11"></div></div>
+										<div order-select order-level="12" order-line="1" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-1-12"></div></div>
+										<div order-select order-level="13" order-line="1" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-1-13"></div></div>
+										<div order-select order-level="14" order-line="1" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-1-14"></div></div>
+										<div order-select order-level="15" order-line="1" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-1-15"></div></div>
+										<div order-select order-level="16" order-line="1" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-1-16"></div></div>
+										<div order-select order-level="17" order-line="1" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-1-17"></div></div>
+										<div order-select order-level="18" order-line="1" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-1-18"></div></div>
+									</div>
+									<div class="table-line">
+										<span class="table-line-control">W</span>
+										<span class="table-line-image">
+											<img class="spell-order-img" order-img-w src="" alt="ability image">
+										</span>
+										<div order-select order-level="1" order-line="2" class="table-line-skill first"><div><input value="0" type="hidden" name="order-input-2-1"></div></div>
+										<div order-select order-level="2" order-line="2" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-2-2"></div></div>
+										<div order-select order-level="3" order-line="2" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-2-3"></div></div>
+										<div order-select order-level="4" order-line="2" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-2-4"></div></div>
+										<div order-select order-level="5" order-line="2" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-2-5"></div></div>
+										<div order-select order-level="6" order-line="2" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-2-6"></div></div>
+										<div order-select order-level="7" order-line="2" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-2-7"></div></div>
+										<div order-select order-level="8" order-line="2" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-2-8"></div></div>
+										<div order-select order-level="9" order-line="2" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-2-9"></div></div>
+										<div order-select order-level="10" order-line="2" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-2-10"></div></div>
+										<div order-select order-level="11" order-line="2" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-2-11"></div></div>
+										<div order-select order-level="12" order-line="2" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-2-12"></div></div>
+										<div order-select order-level="13" order-line="2" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-2-13"></div></div>
+										<div order-select order-level="14" order-line="2" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-2-14"></div></div>
+										<div order-select order-level="15" order-line="2" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-2-15"></div></div>
+										<div order-select order-level="16" order-line="2" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-2-16"></div></div>
+										<div order-select order-level="17" order-line="2" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-2-17"></div></div>
+										<div order-select order-level="18" order-line="2" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-2-18"></div></div>
+									</div>
+									<div class="table-line">
+										<span class="table-line-control">E</span>
+										<span class="table-line-image">
+											<img class="spell-order-img" order-img-e src="" alt="ability image">
+										</span>
+										<div order-select order-level="1" order-line="3" class="table-line-skill first"><div><input value="0" type="hidden" name="order-input-3-1"></div></div>
+										<div order-select order-level="2" order-line="3" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-3-2"></div></div>
+										<div order-select order-level="3" order-line="3" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-3-3"></div></div>
+										<div order-select order-level="4" order-line="3" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-3-4"></div></div>
+										<div order-select order-level="5" order-line="3" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-3-5"></div></div>
+										<div order-select order-level="6" order-line="3" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-3-6"></div></div>
+										<div order-select order-level="7" order-line="3" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-3-7"></div></div>
+										<div order-select order-level="8" order-line="3" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-3-8"></div></div>
+										<div order-select order-level="9" order-line="3" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-3-9"></div></div>
+										<div order-select order-level="10" order-line="3" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-3-1O"></div></div>
+										<div order-select order-level="11" order-line="3" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-3-11"></div></div>
+										<div order-select order-level="12" order-line="3" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-3-12"></div></div>
+										<div order-select order-level="13" order-line="3" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-3-13"></div></div>
+										<div order-select order-level="14" order-line="3" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-3-14"></div></div>
+										<div order-select order-level="15" order-line="3" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-3-15"></div></div>
+										<div order-select order-level="16" order-line="3" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-3-16"></div></div>
+										<div order-select order-level="17" order-line="3" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-3-17"></div></div>
+										<div order-select order-level="18" order-line="3" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-3-18"></div></div>
+									</div>
+									<div class="table-line">
+										<p class="table-line-control">R</p>
+										<span class="table-line-image">
+											<img class="spell-order-img" order-img-r src="" alt="ability image">
+										</span>
+										<div order-select order-level="1" order-line="4" class="table-line-skill first"><div><input value="0" type="hidden" name="order-input-4-1"></div></div>
+										<div order-select order-level="2" order-line="4" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-4-2"></div></div>
+										<div order-select order-level="3" order-line="4" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-4-3"></div></div>
+										<div order-select order-level="4" order-line="4" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-4-4"></div></div>
+										<div order-select order-level="5" order-line="4" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-4-5"></div></div>
+										<div order-select order-level="6" order-line="4" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-4-6"></div></div>
+										<div order-select order-level="7" order-line="4" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-4-7"></div></div>
+										<div order-select order-level="8" order-line="4" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-4-8"></div></div>
+										<div order-select order-level="9" order-line="4" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-4-9"></div></div>
+										<div order-select order-level="10" order-line="4" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-4-10"></div></div>
+										<div order-select order-level="11" order-line="4" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-4-11"></div></div>
+										<div order-select order-level="12" order-line="4" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-4-12"></div></div>
+										<div order-select order-level="13" order-line="4" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-4-13"></div></div>
+										<div order-select order-level="14" order-line="4" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-4-14"></div></div>
+										<div order-select order-level="15" order-line="4" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-4-15"></div></div>
+										<div order-select order-level="16" order-line="4" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-4-16"></div></div>
+										<div order-select order-level="17" order-line="4" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-4-17"></div></div>
+										<div order-select order-level="18" order-line="4" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-4-18"></div></div>
+									</div>
+									<div class="table-line">
+										<span class="table-line-control">∞</span>
+										<span class="table-line-image">
+											<img class="spell-order-img" order-img-passive src="" alt="ability image">
+										</span>
+										<div order-select order-level="1" order-line="5" class="table-line-skill first"><div><input value="0" type="hidden" name="order-input-5-1"></div></div>
+										<div order-select order-level="2" order-line="5" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-5-2"></div></div>
+										<div order-select order-level="3" order-line="5" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-5-3"></div></div>
+										<div order-select order-level="4" order-line="5" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-5-4"></div></div>
+										<div order-select order-level="5" order-line="5" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-5-5"></div></div>
+										<div order-select order-level="6" order-line="5" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-5-6"></div></div>
+										<div order-select order-level="7" order-line="5" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-5-7"></div></div>
+										<div order-select order-level="8" order-line="5" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-5-8"></div></div>
+										<div order-select order-level="9" order-line="5" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-5-9"></div></div>
+										<div order-select order-level="10" order-line="5" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-5-10"></div></div>
+										<div order-select order-level="11" order-line="5" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-5-11"></div></div>
+										<div order-select order-level="12" order-line="5" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-5-12"></div></div>
+										<div order-select order-level="13" order-line="5" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-5-13"></div></div>
+										<div order-select order-level="14" order-line="5" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-5-14"></div></div>
+										<div order-select order-level="15" order-line="5" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-5-15"></div></div>
+										<div order-select order-level="16" order-line="5" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-5-16"></div></div>
+										<div order-select order-level="17" order-line="5" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-5-17"></div></div>
+										<div order-select order-level="18" order-line="5" class="table-line-skill"><div><input value="0" type="hidden" name="order-input-5-18"></div></div>
+									</div>
+								</div>
+							</div>
 					</div>
 					<div class="panel" id="panel-4" summoner>
 						<div class="summoner-spell">

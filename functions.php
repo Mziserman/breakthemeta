@@ -15,6 +15,8 @@ function init_js() {
     if ( is_page_template( 'create-build.php' ) )
     {
         wp_enqueue_script( 'create-build', get_template_directory_uri().'/js/create-build.js', array('jquery'), '1.0', true );
+        
+        wp_localize_script('create-build', 'ajax_url', admin_url( 'admin-ajax.php' ) );
     }
 
 	// pass Ajax Url to script.js
@@ -335,6 +337,32 @@ function remove_admin_bar() {
     if (!current_user_can('administrator') && !is_admin()) {
       show_admin_bar(false);
     }
+}
+
+add_action( 'wp_ajax_get_spells_pictures', 'get_spells_pictures' );
+add_action( 'wp_ajax_nopriv_get_spells_pictures', 'get_spells_pictures' );
+function get_spells_pictures() {
+    $championId = $_POST['championId'];
+    $args = array(
+        'post_type' => 'champion', 
+        'page_id' => $championId
+    );
+
+    $ajax_query = new WP_Query($args);
+    if ( $ajax_query->have_posts() ) : while ( $ajax_query->have_posts() ) : $ajax_query->the_post();
+        $spell['q_spell'] = wp_get_attachment_url( get_post_thumbnail_id(get_field_object('Q_spell')['value']->ID) );
+        $spell['w_spell'] = wp_get_attachment_url( get_post_thumbnail_id(get_field_object('W_spell')['value']->ID) );
+        $spell['e_spell'] = wp_get_attachment_url( get_post_thumbnail_id(get_field_object('E_spell')['value']->ID) );
+        $spell['r_spell'] = wp_get_attachment_url( get_post_thumbnail_id(get_field_object('R_spell')['value']->ID) );
+        $spell['passive'] = wp_get_attachment_url( get_post_thumbnail_id(get_field_object('passive')['value']->ID) );
+    endwhile;
+    endif;
+
+    echo json_encode($spell);
+
+
+
+    die();
 }
 
 

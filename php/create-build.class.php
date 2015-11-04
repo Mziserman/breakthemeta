@@ -1,10 +1,10 @@
 <?php 
 class Create_build 
 {
-	public function __construct($wpdb)
-	{
-		$this->wpdb = $wpdb;
-	}
+    public function __construct($wpdb)
+    {
+        $this->wpdb = $wpdb;
+    }
 
 
 
@@ -21,9 +21,6 @@ class Create_build
             );
 
             $post_id = wp_insert_post( $my_post );
-        } else {
-            $existed = get_page_by_title( $title, OBJECT, $type );
-            $post_id = $existed->ID;
         }
 
         if ( !empty($post_id) )
@@ -34,7 +31,6 @@ class Create_build
     public function preset_runes($args){
         $sorted = [];
         foreach ($args as $_arg) {
-            echo $_arg;
             $exist = 0;
 
             for ( $i = 0; $i < count($sorted); $i ++ )
