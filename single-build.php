@@ -1,8 +1,7 @@
 <?php 
 	session_start();
 	$the_ID = get_the_ID();
-    $score = get_field_object('likes')['value'] || 0;
-
+    $score = get_field_object('likes')['value'];
 	
 	if (!empty($_POST['plus'])) {
 		
@@ -12,14 +11,12 @@
 
 		if (!in_array($the_ID, $_SESSION['voted'])){	
 			$score++;
-			echo '<pre>';
-			print_r($score);
-			echo '</pre>';
 
+			update_field('field_563a19efbc69d', $score);
 
-			update_field('field_563a19efbc69d', $score, get_the_ID());
-
-			array_push($_SESSION['voted'], get_the_ID());
+			array_push($_SESSION['voted'], $the_ID);
+		} else {
+			$recommend_errors = 'You have already recommened this build.';
 		}
 	}
 ?>
@@ -70,6 +67,9 @@
 								<input type="hidden" name ="plus" value="un">
 								<button type="submit"><i class="fa fa-heart"></i>Recommend this build</button>	
 							</form>
+							<?php if(!empty($recommend_errors)) : ?>
+								<p><?php echo $recommend_errors; ?></p>
+							<?php endif; ?>
 							<p><i class="fa fa-heart"></i><?php echo $score ?> people recommended this build</p>
 						</div>
 						<ul class="panel-choice-detail">
