@@ -12,7 +12,7 @@
     			<div class="champions">
     				<div class="title">Champions</div>
     				<div class="search-champion">
-    					<form action=""><input type="search" class="search-field" name="search-champ" id="search-champ" placeholder="Search champion"><button type="submit"><i class="fa fa-search"></i></button></form>
+    					<form action=""><input champion-search type="search" class="search-field" name="search-champ" id="search-champ" placeholder="Search champion"><button type="submit"><i class="fa fa-search"></i></button></form>
     				</div>
     				<div class="champ-list">
     					<ul>
@@ -27,7 +27,7 @@
                                         <?php if ( has_post_thumbnail() ) : ?>
                                             <span class="shadow"></span>
                                             <span><?php the_post_thumbnail('champion_liste'); ?></span>
-                                            <span class="champ-name"><?php the_title() ?></span>
+                                            <span class="champion-name"><?php the_title() ?></span>
                                         <?php endif ?>
                                     </li></a>
                                 <?php endwhile; ?>

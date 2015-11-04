@@ -263,10 +263,11 @@
 							<?php endif ?>
 							<h3>Champion</h3>
 
-
 	    					<img class="item-chosen" src="" champion-chosen>
 	    					<span class="item-chosen-name" champion-chosen-name></span>
 	    					<input type="hidden" name="champ" champion-input>
+
+	    					<input type="text" champion-search>
 
 		    				<div class="champ-list">
 			    				<?php
@@ -403,11 +404,9 @@
 				                            <?php if ( has_post_thumbnail() ) : ?>
 				                            	<span class="shadow"></span>
 				                            	<span><?php the_post_thumbnail('icon_liste'); ?></span>
-<<<<<<< HEAD
+
 				                            	<?php if (preg_match('/^Enchantment/', the_title())) : str_ireplace('Enchantment', '', the_title()); endif; ?></span>
-=======
-				                            	<span class="champ-name"><?php the_title(); ?></span>
->>>>>>> b463ee91ccb9f03d6c24162429da4dbb96ba0fd0
+
 				                            	<input type="hidden" value="<?php echo the_ID(); ?>"> 
 				                        	<?php endif ?>
 				                        </a></li>

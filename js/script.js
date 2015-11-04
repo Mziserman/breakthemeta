@@ -185,6 +185,28 @@ jQuery(document).ready(function($) {
 	showForm('login', $('#loginform'), $('#registerform'));
 	showForm('register', $('#registerform'), $('#loginform'));
 
+	function searchChamp(field, champ){
+		field.on('keyup',function(){
+
+				var text = $(this).val();
+				text = text.toLowerCase();
+
+				for ( i = 0; i < champ.length; i ++)
+				{
+					var name = $(champ[i]).find('.champion-name').html();
+					name = name.toLowerCase();
+					if( name.indexOf(text) == 0 )
+					{
+						$(champ[i]).removeClass('hide');
+					} else {
+						$(champ[i]).addClass('hide');
+					}
+					
+				}
+			});
+	}
+
+	searchChamp($('[champion-search]'), $('[champion-select]'));
 
 });
 
