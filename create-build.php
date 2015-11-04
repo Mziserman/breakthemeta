@@ -403,11 +403,7 @@
 				                            <?php if ( has_post_thumbnail() ) : ?>
 				                            	<span class="shadow"></span>
 				                            	<span><?php the_post_thumbnail('icon_liste'); ?></span>
-<<<<<<< HEAD
-				                            	<?php if (preg_match('/^Enchantment/', the_title())) : str_ireplace('Enchantment', '', the_title()); endif; ?></span>
-=======
-				                            	<span class="champ-name"><?php the_title(); ?></span>
->>>>>>> b463ee91ccb9f03d6c24162429da4dbb96ba0fd0
+				                            	<span class="champ-name"><?php if (preg_match('/^Enchantment/', the_title())) : str_ireplace('Enchantment', '', the_title()); endif; ?></span>
 				                            	<input type="hidden" value="<?php echo the_ID(); ?>"> 
 				                        	<?php endif ?>
 				                        </a></li>
