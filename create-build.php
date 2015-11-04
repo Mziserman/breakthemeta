@@ -271,9 +271,9 @@
 	    					<img class="item-chosen" src="" champion-chosen>
 	    					<span class="item-chosen-name" champion-chosen-name></span>
 	    					<input type="hidden" name="champ" champion-input>
-
-	    					<input type="text" champion-search>
-
+							<div class="search-champion">
+    							<form action=""><input champion-search type="search" class="search-field" name="search-champ" id="search-champ" placeholder="Search champion"><button type="submit"><i class="fa fa-search"></i></button></form>
+    						</div>
 		    				<div class="champ-list">
 			    				<?php
 			                	$args = array('post_type' => 'champion','posts_per_page' => -1, 'orderby' => 'title', 'order' => 'ASC');
