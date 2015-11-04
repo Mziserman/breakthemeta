@@ -110,7 +110,6 @@ jQuery(document).ready(function($) {
 					break; 
 			}
 
-			$(this).remove();
 		});	
 	}
 
