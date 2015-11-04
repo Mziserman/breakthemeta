@@ -43,8 +43,9 @@
         <div class="navigation">
             <div class="navbar">
                 <ul class="">
-                    <li class=""><a href="<?php echo get_site_url(); ?>/build/">Build list</a></li>
-                    <li class="active"><a href="<?php echo get_site_url(); ?>/create-build/">Create a new build</a></li>
+                    <?php $permalink =  get_permalink(); ?>
+                    <li class="<?php if (preg_match("(\/build\/)", $permalink)) : echo 'active';  endif;?>"><a href="<?php echo get_site_url(); ?>/build/">Build list</a></li>
+                    <li class="<?php if (preg_match("/create-build/", $permalink)) : echo 'active';  endif;?>"><a href="<?php echo get_site_url(); ?>/create-build/">Create a new build</a></li>
                     <?php if(!is_user_logged_in()) { ?>
                         <li class="underline login"><a href="">Login</a></li>
                         <li class="underline register"><a href="#">Register</a></li>

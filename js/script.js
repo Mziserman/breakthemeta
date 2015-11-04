@@ -168,13 +168,16 @@ jQuery(document).ready(function($) {
 
 			second.removeClass('show');
 			second.fadeOut();
+			$(this).parent().parent().find('li.login,li.register').removeClass('active');
 
 			if(form.hasClass('show')) {
 				$(form).removeClass('show');
 				$(form).fadeOut();
+				$(this).parent().removeClass('active');
 			} else {
 				$(form).fadeIn();
 				$(form).addClass('show');
+				$(this).parent().addClass('active');
 			}
 		});
 	}

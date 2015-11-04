@@ -88,7 +88,7 @@ a{
 					margin-left: -3px;
 				}
 
-				.header .navbar li.current_page_item {
+				.header .navbar li.active {
 					background-color: #BB3A3A;
 				}
 
