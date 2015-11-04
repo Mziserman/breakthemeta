@@ -7,9 +7,9 @@
 <li class="blog-build-item">
     <?php echo get_the_post_thumbnail($champion->ID, 'full',['class' => 'champion-portrait']) ?>
     <div class="author-and-date">
-        <a class="build-link" href="<?php the_permalink(); ?>" class="clearfix"><?php the_title(); ?></a>
+        <a class="build-link" href="<?php the_permalink(); ?>" class="clearfix" target="_BLANK"><?php the_title(); ?></a>
 
-        <p>by <a href=""><?php the_author(); ?></a> - <?php echo get_the_date(); ?></p>
+        <p>by <a href="http://euw.op.gg/summoner/userName=<?php the_author(); ?>"><?php the_author(); ?></a> - <?php echo get_the_date(); ?></p>
     </div>
     <div class="items-list">
         <ul>
