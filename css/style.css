@@ -390,13 +390,16 @@ a{
 			}
 
 			/* Scrollbar */
-				.aside-list-items ::-webkit-scrollbar {
+				.aside-list-items ::-webkit-scrollbar,
+				.panel ::-webkit-scrollbar {
 					width: 10px;
 				}
-				.aside-list-items ::-webkit-scrollbar-track-piece {
+				.aside-list-items ::-webkit-scrollbar-track-piece,
+				.panel ::-webkit-scrollbar-track-piece {
 					background-color: #303136;
 				}
-				.aside-list-items ::-webkit-scrollbar-thumb {
+				.aside-list-items ::-webkit-scrollbar-thumb,
+				.panel ::-webkit-scrollbar-thumb {
 					background-color: #3A3C42;
 					height: 10px;
 				}
@@ -1851,35 +1854,43 @@ a{
 
 
 /* @group FOOTER */
-	
-	.footer-contain{
-		min-width: 1280px;
-	}
 
 	.footer-contain{
 		height: 160px;
 		width: 100%;
+		min-width: 900px;
 		background: #212327;
 		box-shadow: 0px -1px 4px 0px rgba(0,0,0,0.50);
 		border-top:1px solid #3A3C42 ;
-		display: table;
+		display: -webkit-flex;
+				display: flex;
+		align-items: center;
+		flex-wrap: wrap;
 	}
+
+		.footer-logo,
+		.footer-about,
+		.footer-share {
+			flex: 1;
+			min-height: 80px;
+		}
+
+		.footer-menu {
+			flex: 2;
+		}
+
+
 		.footer-logo{
 			text-transform: uppercase;
 			font-size: 24px;
 			font-weight: 700;
 			text-align: center;
-			display: table-cell;
 			line-height: 100%;
-			vertical-align: middle;
-			padding-left: 50px;
 		}
 
 		.footer-about{
-			display: table-cell;
 			line-height: 100%;
 			vertical-align: middle;
-			padding-left: 50px;
 		}
 
 			.footer-about-title{
@@ -1890,7 +1901,7 @@ a{
 
 			.footer-about-text{
 				line-height: 15px;
-				width: 240px;
+				/*width: 240px;*/
 			}
 
 				.footer-about-text--bold{
@@ -1899,9 +1910,7 @@ a{
 				}
 
 		.footer-menu{
-			display: table-cell;
 			font-size: 14px;
-			padding-top: 70px;
 			margin-right: 50px;
 		}
 
@@ -1952,15 +1961,13 @@ a{
 		}
 	
 	.footer-share{
-		display: table-cell;
 		line-height: 100%;
-		vertical-align: top;
-		padding-top: 35px;
 	}
 
 		.footer-share-text{
 			font-size: 16px;
 			color: #fff;
+			text-decoration: underline;
 		}
 
 		.footer-share-icons{
