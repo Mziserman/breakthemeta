@@ -6,4 +6,5 @@
 	$champNameBrut = get_the_title($championID);
 	$champName = str_replace(' ', '', $champNameBrut);
 ?>
+
 <img class="build-header-bg" src="<?php echo $upload_dir['baseurl']; ?>/2015/11/<?php echo $champName; ?>_0.jpg" alt="">
