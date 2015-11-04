@@ -295,7 +295,7 @@
 				                            <?php if ( has_post_thumbnail() ) : ?>
 				                            	<span class="shadow"></span>
 				                            	<span><?php the_post_thumbnail('icon_liste'); ?></span>
-				                            	<span class="item-name"><?php the_title() ?></span>
+				                            	<?php if (preg_match('/^Enchantment', the_title())) : str_ireplace('Enchantment', '', the_title()); endif; ?></span>
 				                            	<input type="hidden" value="<?php echo the_ID(); ?>"> 
 				                        	<?php endif ?>
 				                        </a></li>
