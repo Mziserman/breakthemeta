@@ -28,7 +28,7 @@
 				    </div>
 				    <div class="creator-infos">
 				    	<img class="creator-image" src="<?php echo get_template_directory_uri(); ?>/img/champion/Vi.png" alt="">
-				    	<a href="">Popolopo26</a>
+				    	<a href="http://euw.op.gg/summoner/userName=<?php the_author(); ?>" target="_BLANK"><?php the_author(); ?></a>
 				    	<div class="creator-division">
 				    		<img src="<?php echo get_template_directory_uri(); ?>/img/division_gold.png" alt="">
 				    		<p>Gold V</p>

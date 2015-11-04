@@ -8,7 +8,7 @@
     <div class="author-and-date">
         <a class="build-link" href="<?php the_permalink(); ?>" class="clearfix"><?php the_title(); ?></a>
 
-        <p>by <a href="">Popolopo26</a> - <?php echo get_the_date(); ?></p>
+        <p>by <a href=""><?php the_author(); ?></a> - <?php echo get_the_date(); ?></p>
     </div>
     <div class="items-list">
         <ul>
