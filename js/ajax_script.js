@@ -1,24 +1,12 @@
 //Objects definitions
-var filter = function($) {
-	this.init($)
+var Controler = function($, currentState) {
+	this.init($, currentState)
 }
-filter.prototype = {
-	init: function($) {
+Controler.prototype = {
+	init: function($, currentState) {
 		this.$ = $;
-		this.champion = '';
-		this.lane = '';
-		this.role = '';
-	}
-}
+		this.currentState = currentState;
 
-var CurrentState = function($){
-	this.init($)
-}
-CurrentState.prototype = {
-	init: function($) {
-		this.$ = $;
-		this.order = 'date';
-		this.search = '';
 		this.choiceContainer = $('.panel-choice');
 		this.panelContainer = $('.build-list-content');
 
@@ -28,50 +16,83 @@ CurrentState.prototype = {
 			search: new Panel($, 'search', this.choiceContainer.find('.search-result'), this.panelContainer.find('#panel-3')),
 		}
 
-		this.currentPanel = this.panels.date;
-		this.addInteractions();
+		this.currentState.setCurrentPanel(this.panels.date)
+		this.addInteractions()
 	},
 	switchPanel: function(from, to){
 		from.hide();
 		to.show();
-		this.currentPanel = to;
+		this.currentState.currentPanel = to;
 	},
 	addInteractions: function() {
 		var that = this;
-		this.panels.date.button.on('click', function(e){
-			e.preventDefault();
-			that.switchPanel(that.currentPanel, that.panels.date);
-			if (!that.currentPanel.visited){
-				that.currentPanel.visited = true;
-				that.getBuilds();
-			}
-		});
-		this.panels.rand.button.on('click', function(e){
-			e.preventDefault();
-			that.switchPanel(that.currentPanel, that.panels.rand);
-			if (!that.currentPanel.visited){
-				that.currentPanel.visited = true;
-				that.getBuilds();
-			}
-		});
+		//Switch panels
+		if ( this.currentState.filterChampion == '' && this.currentState.filterLane == '' && this.filterRole == '' ) {
+			this.panels.date.button.on('click', function(e){
+				e.preventDefault();
+				that.switchPanel(that.currentState.currentPanel, that.panels.date);
+				if (!that.currentState.currentPanel.visited){
+					that.currentState.currentPanel.visited = true;
+					that.getBuilds();
+				}
+			});
+			this.panels.rand.button.on('click', function(e){
+				e.preventDefault();
+				that.switchPanel(that.currentState.currentPanel, that.panels.rand);
+				if (!that.currentState.currentPanel.visited){
+					that.currentState.currentPanel.visited = true;
+					that.getBuilds();
+				}
+			});
+		} else {
+			this.panels.date.button.on('click', function(e){
+				e.preventDefault();
+				that.switchPanel(that.currentState.currentPanel, that.panels.date);
+				if (!that.currentState.currentPanel.visited){
+					that.currentState.currentPanel.visited = true;
+					that.getFilteredBuilds();
+				}
+			});
+			this.panels.rand.button.on('click', function(e){
+				e.preventDefault();
+				that.switchPanel(that.currentState.currentPanel, that.panels.rand);
+				if (!that.currentState.currentPanel.visited){
+					that.currentState.currentPanel.visited = true;
+					that.getFilteredBuilds();
+				}
+			});
+		}
+
 		this.panels.search.button.on('click', function(e){
 			e.preventDefault();
-			that.switchPanel(that.currentPanel, that.panels.search);
+			that.switchPanel(that.currentState.currentPanel, that.panels.search);
 		})
+		
+		
+		//Search
 		this.$('.search-bar').on('click', 'button', function(e){
 			e.preventDefault()
 			that.search = that.$(this).parent().find('input').val();
 			that.getSearchResults();
 		})
+
+		//Filter
 		this.$('.champ-list').find('ul').find('.champ-list-item').on('click', 'a', function(e){
-    		that.filterStatus.championId = that.$(this).attr('href');
+			e.preventDefault();
+    		that.currentState.filterChampion = that.$(this).attr('href');
     		that.getNumberFilteredBuilds();
+    	})
+
+    	this.$('.filters').on('click', '.filter-champ', function(e) {
+    		that.$(this).remove();
+    		that.currentState.filterChampion = '';
+    		that.getBuilds();
     	})
 	},
 	getBuilds: function(){
-		var orderBy = this.currentPanel.name;
-		var offset = this.currentPanel.pagination.offset;
-		var posts_per_page = this.currentPanel.pagination.postsPerPage;
+		var orderBy = this.currentState.currentPanel.name;
+		var offset = this.currentState.currentPanel.pagination.offset;
+		var posts_per_page = this.currentState.currentPanel.pagination.postsPerPage;
 		var that = this;
 		this.$.post(
 		    ajaxurl,
@@ -82,15 +103,15 @@ CurrentState.prototype = {
 		        'orderby': orderBy,
 		    },
 		    function(response){
-		    	that.currentPanel.container.prepend(response);
+		    	that.currentState.currentPanel.container.prepend(response);
 	        }
 		);
 	},
 	getFilteredBuilds: function(){
-		var orderBy = this.currentPanel.name;
-		var offset = this.currentPanel.pagination.offset;
-		var posts_per_page = this.currentPanel.pagination.postsPerPage;
-		var championId = this.filterStatus.championId
+		var orderBy = this.currentState.currentPanel.name;
+		var offset = this.currentState.currentPanel.pagination.offset;
+		var posts_per_page = this.currentState.currentPanel.pagination.postsPerPage;
+		var championId = this.currentState.filterChampion;
 		var that = this;
 		this.$.post(
 		    ajaxurl,
@@ -102,25 +123,19 @@ CurrentState.prototype = {
 		        'championId': championId
 		    },
 		    function(response){
-		    	that.currentPanel.container.find('.blog-build-item').remove()
-		    	that.currentPanel.filterVisited = true;
-		    	that.currentPanel.container.prepend(response);
+		    	that.currentState.currentPanel.container.find('.blog-build-item').remove()
+		    	that.currentState.currentPanel.container.prepend(response);
 	        }
 		);
 	},
 	getNumberFilteredBuilds: function() {
-		var orderBy = this.currentPanel.name;
-		var offset = this.currentPanel.pagination.offset;
-		var posts_per_page = this.currentPanel.pagination.postsPerPage;
-		var championId = this.filterStatus.championId
+		var posts_per_page = this.currentState.currentPanel.pagination.postsPerPage;
+		var championId = this.currentState.filterChampion;
 		var that = this;
 		this.$.post(
 		    ajaxurl,
 		    {
 		        'action': 'get_number_filtered_builds',
-		        'offset': offset,
-		        'posts_per_page': posts_per_page,
-		        'orderby': orderBy,
 		        'championId': championId
 		    },
 		    function(response){
@@ -144,15 +159,32 @@ CurrentState.prototype = {
 		        'search': search
 		    },
 		    function(response){
-   				that.switchPanel(that.currentPanel, that.panels.search);
-   				if (!that.currentPanel.visited){
-					that.currentPanel.visited = true;
-					that.currentPanel.button.css('display', 'inline-block');
+   				that.switchPanel(that.currentState.currentPanel, that.panels.search);
+   				if (!that.currentState.currentPanel.visited){
+					that.currentState.currentPanel.visited = true;
+					that.currentState.currentPanel.button.css('display', 'inline-block');
 				}
 		    	that.panels.search.container.empty().prepend(response);
 	        }
 		);
+	}
+}
+
+var CurrentState = function($){
+	this.init($)
+}
+CurrentState.prototype = {
+	init: function($) {
+		this.$ = $;
+		this.order = 'date';
+		this.search = '';
+		this.filterChampion = '';
+		this.filterLane = '';
+		this.filterRole = '';
 	},
+	setCurrentPanel: function(currentPanel) {
+		this.currentPanel = currentPanel;
+	}
 }
 
 var Panel = function($, name, button, container) {
@@ -258,15 +290,17 @@ Pagination.prototype = {
 
 jQuery(document).ready(function($){
 	var currentState = new CurrentState($);
-
+	var controler = new Controler($, currentState)
 	$.post(
 	    ajaxurl,
 	    {
 	        'action': 'get_number_of_builds',
 	    },
 	    function(response){
-	    	currentState.panels.date.setPageMaxAndPrintPagination(Math.ceil(response / currentState.panels.date.pagination.postsPerPage));
-	    	currentState.panels.rand.setPageMaxAndPrintPagination(Math.ceil(response / currentState.panels.rand.pagination.postsPerPage));
+
+	    	controler.panels.date.setPageMaxAndPrintPagination(Math.ceil(response / controler.panels.date.pagination.postsPerPage));
+	    	controler.panels.rand.setPageMaxAndPrintPagination(Math.ceil(response / controler.panels.rand.pagination.postsPerPage));
+	    	
 	    }
     )
 
