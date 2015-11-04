@@ -7,7 +7,7 @@
 	    	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
 				<div class="build-header">
-				    <img class="build-header-bg" src="<?php echo get_template_directory_uri(); ?>/img/azir_splash.png" alt="">
+					<?php get_template_part('template-summary-header-background'); ?>
 				    <span class="shadow"></span>
 
 				    <div class="build-header-content">
@@ -39,7 +39,6 @@
 				</div>
 
 				<div class="build-content">
-
 					<div class="aside">
 						<div class="recommend-button">
 							<button><i class="fa fa-heart"></i>Recommend this build</button>

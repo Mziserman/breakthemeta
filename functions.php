@@ -332,12 +332,12 @@ function go_home(){
   exit();
 }
 
-add_action('after_setup_theme', 'remove_admin_bar');
-function remove_admin_bar() {
-    if (!current_user_can('administrator') && !is_admin()) {
-      show_admin_bar(false);
-    }
-}
+// add_action('after_setup_theme', 'remove_admin_bar');
+// function remove_admin_bar() {
+//     if (!current_user_can('admin') && !is_admin()) {
+//       show_admin_bar(false);
+//     }
+// }
 
 add_action( 'wp_ajax_get_spells_pictures', 'get_spells_pictures' );
 add_action( 'wp_ajax_nopriv_get_spells_pictures', 'get_spells_pictures' );
