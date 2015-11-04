@@ -28,10 +28,10 @@
     </div>
 
     <div class="footer-share">
-      <p class="footer-share-text">Connect with us !</p>
+      <a href="mailto:stephen.richard@hetic.net" class="footer-share-text">Connect with us !</a>
       <div class="footer-share-icons">
         <a href="#" class="footer-share-icon">
-          <img src="<?php echo get_template_directory_uri(); ?>/img/fb-icon.png" alt="">
+          <!-- <img src="<?php echo get_template_directory_uri(); ?>/img/fb-icon.png" alt=""> -->
         </a>
       </div>
     </div>
