@@ -1122,7 +1122,8 @@ a{
 			}
 
 				.build-content .aside .recommend-button {
-					height: 100px;
+					min-height: 100px;
+					max-height: 120px;
 					text-align: center;
 					padding-top: 15px;
 				}
@@ -1159,8 +1160,8 @@ a{
 							margin-right: 10px;
 						}
 
-					.build-content .aside .recommend-button p {
-
+					.build-content .aside .recommend-button p:nth-child(2) {
+						margin-bottom: 10px;
 					}
 
 						.build-content .aside .recommend-button p i {
@@ -1541,7 +1542,8 @@ a{
 					height: 40px;
 				}
 
-				.table-line-skill:hover{
+				.table-line-skill:hover,
+				.table-line-skill[order-line="1"]:hover {
 					background-color: #26282D;
 				}
 

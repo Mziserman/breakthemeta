@@ -124,7 +124,7 @@
 				.custom-dropdown::after { /*  Custom dropdown arrow */
 				  content: "\25BC";
 				  height: 1em;
-				  font-size: .625em;
+				  font-size: 10px;
 				  line-height: 1;
 				  right: 1.2em;
 				  top: 50%;
@@ -140,7 +140,7 @@
 				}
 			
 				.custom-dropdown::before {
-				  background-color: rgba(0,0,0,.15);
+				  
 				}
 
 				.custom-dropdown::after {
@@ -148,8 +148,8 @@
 				}
 
 				.custom-dropdown select {
-					border: 1px solid #BB3A3A;
-					background-color: #212327;
+					border: none;
+					background-color: #272A30;
 					height: 50px;
 					width: 150px;
 					color: #fff;
@@ -238,6 +238,23 @@
 								top: 2px;
 								background: rgba(0, 0, 0, 0.5);
 							}
+
+					.create-build .search-champion {
+						margin-right: 0;
+						margin-top: 35px;
+					}
+
+						.create-build .search-champion button {
+							position: absolute;
+							width: 35px;
+							height: 100%;
+							margin-top: -6px;
+							margin-left: -2px;
+						}
+
+						.create-build .search-champion .search-field {
+							margin-left: 40px;
+						}
 
 	/* Items */
 
