@@ -186,126 +186,127 @@
 									<div class="table-line">
 										<span class="table-line-control">Q</span>
 										<span class="table-line-image">
-											<img src="<?php echo get_template_directory_uri(); ?>/img/skill-order.png" alt="ability image">
+											<img class="spell-order-img" order-img-q src="<?php echo wp_get_attachment_url( get_post_thumbnail_id(get_field_object('q_spell')['value']->ID)); ?>" alt="ability image">
 										</span>
-										<div data-level="1" data-display-order="1" class="table-line-skill"></div>
-										<div data-level="2" data-display-order="1" class="table-line-skill active"></div>
-										<div data-level="3" data-display-order="1" class="table-line-skill"></div>
-										<div data-level="4" data-display-order="1" class="table-line-skill active"></div>
-										<div data-level="5" data-display-order="1" class="table-line-skill active"></div>
-										<div data-level="6" data-display-order="1" class="table-line-skill"></div>
-										<div data-level="7" data-display-order="1" class="table-line-skill active"></div>
-										<div data-level="8" data-display-order="1" class="table-line-skill"></div>
-										<div data-level="9" data-display-order="1" class="table-line-skill active"></div>
-										<div data-level="10" data-display-order="1" class="table-line-skill"></div>
-										<div data-level="11" data-display-order="1" class="table-line-skill"></div>
-										<div data-level="12" data-display-order="1" class="table-line-skill"></div>
-										<div data-level="13" data-display-order="1" class="table-line-skill"></div>
-										<div data-level="14" data-display-order="1" class="table-line-skill"></div>
-										<div data-level="15" data-display-order="1" class="table-line-skill"></div>
-										<div data-level="16" data-display-order="1" class="table-line-skill"></div>
-										<div data-level="17" data-display-order="1" class="table-line-skill"></div>
-										<div data-level="18" data-display-order="1" class="table-line-skill last"></div>
+										<div order-select order-level="1" order-line="1" class="table-line-skill first <?php if( get_field_object('skill_order')['value'][0]['line'] == 1 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="2" order-line="1" class="table-line-skill <?php if( get_field_object('skill_order')['value'][1]['line'] == 1 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="3" order-line="1" class="table-line-skill <?php if( get_field_object('skill_order')['value'][2]['line'] == 1 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="4" order-line="1" class="table-line-skill <?php if( get_field_object('skill_order')['value'][3]['line'] == 1 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="5" order-line="1" class="table-line-skill <?php if( get_field_object('skill_order')['value'][4]['line'] == 1 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="6" order-line="1" class="table-line-skill <?php if( get_field_object('skill_order')['value'][5]['line'] == 1 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="7" order-line="1" class="table-line-skill <?php if( get_field_object('skill_order')['value'][6]['line'] == 1 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="8" order-line="1" class="table-line-skill <?php if( get_field_object('skill_order')['value'][7]['line'] == 1 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="9" order-line="1" class="table-line-skill <?php if( get_field_object('skill_order')['value'][8]['line'] == 1 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="10" order-line="1" class="table-line-skill <?php if( get_field_object('skill_order')['value'][9]['line'] == 1 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="11" order-line="1" class="table-line-skill <?php if( get_field_object('skill_order')['value'][10]['line'] == 1 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="12" order-line="1" class="table-line-skill <?php if( get_field_object('skill_order')['value'][11]['line'] == 1 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="13" order-line="1" class="table-line-skill <?php if( get_field_object('skill_order')['value'][12]['line'] == 1 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="14" order-line="1" class="table-line-skill <?php if( get_field_object('skill_order')['value'][13]['line'] == 1 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="15" order-line="1" class="table-line-skill <?php if( get_field_object('skill_order')['value'][14]['line'] == 1 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="16" order-line="1" class="table-line-skill <?php if( get_field_object('skill_order')['value'][15]['line'] == 1 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="17" order-line="1" class="table-line-skill <?php if( get_field_object('skill_order')['value'][16]['line'] == 1 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="18" order-line="1" class="table-line-skill <?php if( get_field_object('skill_order')['value'][17]['line'] == 1 ) echo "active"; ?>"><div></div></div>
 									</div>
 									<div class="table-line">
 										<span class="table-line-control">W</span>
 										<span class="table-line-image">
-											<img src="<?php echo get_template_directory_uri(); ?>/img/skill-order.png" alt="ability image">
+											<img class="spell-order-img" order-img-w src="<?php echo wp_get_attachment_url( get_post_thumbnail_id(get_field_object('q_spell')['value']->ID)); ?>" alt="ability image">
 										</span>
-										<div data-level="1" data-display-order="2" class="table-line-skill active"></div>
-										<div data-level="2" data-display-order="2" class="table-line-skill"></div>
-										<div data-level="3" data-display-order="2" class="table-line-skill"></div>
-										<div data-level="4" data-display-order="2" class="table-line-skill"></div>
-										<div data-level="5" data-display-order="2" class="table-line-skill"></div>
-										<div data-level="6" data-display-order="2" class="table-line-skill"></div>
-										<div data-level="7" data-display-order="2" class="table-line-skill"></div>
-										<div data-level="8" data-display-order="2" class="table-line-skill active"></div>
-										<div data-level="9" data-display-order="2" class="table-line-skill"></div>
-										<div data-level="10" data-display-order="2" class="table-line-skill active"></div>
-										<div data-level="11" data-display-order="2" class="table-line-skill"></div>
-										<div data-level="12" data-display-order="2" class="table-line-skill active"></div>
-										<div data-level="13" data-display-order="2" class="table-line-skill active"></div>
-										<div data-level="14" data-display-order="2" class="table-line-skill"></div>
-										<div data-level="15" data-display-order="2" class="table-line-skill"></div>
-										<div data-level="16" data-display-order="2" class="table-line-skill"></div>
-										<div data-level="17" data-display-order="2" class="table-line-skill"></div>
-										<div data-level="18" data-display-order="2" class="table-line-skill last"></div>
+										<div order-select order-level="1" order-line="2" class="table-line-skill first <?php if( get_field_object('skill_order')['value'][0]['line'] == 2 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="2" order-line="2" class="table-line-skill <?php if( get_field_object('skill_order')['value'][1]['line'] == 2 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="3" order-line="2" class="table-line-skill <?php if( get_field_object('skill_order')['value'][2]['line'] == 2 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="4" order-line="2" class="table-line-skill <?php if( get_field_object('skill_order')['value'][3]['line'] == 2 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="5" order-line="2" class="table-line-skill <?php if( get_field_object('skill_order')['value'][4]['line'] == 2 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="6" order-line="2" class="table-line-skill <?php if( get_field_object('skill_order')['value'][5]['line'] == 2 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="7" order-line="2" class="table-line-skill <?php if( get_field_object('skill_order')['value'][6]['line'] == 2 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="8" order-line="2" class="table-line-skill <?php if( get_field_object('skill_order')['value'][7]['line'] == 2 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="9" order-line="2" class="table-line-skill <?php if( get_field_object('skill_order')['value'][8]['line'] == 2 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="10" order-line="2" class="table-line-skill <?php if( get_field_object('skill_order')['value'][9]['line'] == 2 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="11" order-line="2" class="table-line-skill <?php if( get_field_object('skill_order')['value'][10]['line'] == 2 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="12" order-line="2" class="table-line-skill <?php if( get_field_object('skill_order')['value'][11]['line'] == 2 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="13" order-line="2" class="table-line-skill <?php if( get_field_object('skill_order')['value'][12]['line'] == 2 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="14" order-line="2" class="table-line-skill <?php if( get_field_object('skill_order')['value'][13]['line'] == 2 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="15" order-line="2" class="table-line-skill <?php if( get_field_object('skill_order')['value'][14]['line'] == 2 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="16" order-line="2" class="table-line-skill <?php if( get_field_object('skill_order')['value'][15]['line'] == 2 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="17" order-line="2" class="table-line-skill <?php if( get_field_object('skill_order')['value'][16]['line'] == 2 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="18" order-line="2" class="table-line-skill <?php if( get_field_object('skill_order')['value'][17]['line'] == 2 ) echo "active"; ?>"><div></div></div>
 									</div>
 									<div class="table-line">
 										<span class="table-line-control">E</span>
 										<span class="table-line-image">
-											<img src="<?php echo get_template_directory_uri(); ?>/img/skill-order.png" alt="ability image">
+											<img class="spell-order-img" order-img-e src="<?php echo wp_get_attachment_url( get_post_thumbnail_id(get_field_object('w_spell')['value']->ID)); ?>" alt="ability image">
 										</span>
-										<div data-level="1" data-display-order="3" class="table-line-skill"></div>
-										<div data-level="2" data-display-order="3" class="table-line-skill"></div>
-										<div data-level="3" data-display-order="3" class="table-line-skill active"></div>
-										<div data-level="4" data-display-order="3" class="table-line-skill"></div>
-										<div data-level="5" data-display-order="3" class="table-line-skill"></div>
-										<div data-level="6" data-display-order="3" class="table-line-skill"></div>
-										<div data-level="7" data-display-order="3" class="table-line-skill"></div>
-										<div data-level="8" data-display-order="3" class="table-line-skill"></div>
-										<div data-level="9" data-display-order="3" class="table-line-skill"></div>
-										<div data-level="10" data-display-order="3" class="table-line-skill"></div>
-										<div data-level="11" data-display-order="3" class="table-line-skill"></div>
-										<div data-level="12" data-display-order="3" class="table-line-skill"></div>
-										<div data-level="13" data-display-order="3" class="table-line-skill"></div>
-										<div data-level="14" data-display-order="3" class="table-line-skill active"></div>
-										<div data-level="15" data-display-order="3" class="table-line-skill active"></div>
-										<div data-level="16" data-display-order="3" class="table-line-skill"></div>
-										<div data-level="17" data-display-order="3" class="table-line-skill active"></div>
-										<div data-level="18" data-display-order="3" class="table-line-skill active last"></div>
+										<div order-select order-level="1" order-line="3" class="table-line-skill first <?php if( get_field_object('skill_order')['value'][0]['line'] == 3 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="2" order-line="3" class="table-line-skill <?php if( get_field_object('skill_order')['value'][1]['line'] == 3 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="3" order-line="3" class="table-line-skill <?php if( get_field_object('skill_order')['value'][2]['line'] == 3 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="4" order-line="3" class="table-line-skill <?php if( get_field_object('skill_order')['value'][3]['line'] == 3 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="5" order-line="3" class="table-line-skill <?php if( get_field_object('skill_order')['value'][4]['line'] == 3 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="6" order-line="3" class="table-line-skill <?php if( get_field_object('skill_order')['value'][5]['line'] == 3 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="7" order-line="3" class="table-line-skill <?php if( get_field_object('skill_order')['value'][6]['line'] == 3 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="8" order-line="3" class="table-line-skill <?php if( get_field_object('skill_order')['value'][7]['line'] == 3 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="9" order-line="3" class="table-line-skill <?php if( get_field_object('skill_order')['value'][8]['line'] == 3 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="10" order-line="3" class="table-line-skill <?php if( get_field_object('skill_order')['value'][9]['line'] == 3 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="11" order-line="3" class="table-line-skill <?php if( get_field_object('skill_order')['value'][10]['line'] == 3 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="12" order-line="3" class="table-line-skill <?php if( get_field_object('skill_order')['value'][11]['line'] == 3 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="13" order-line="3" class="table-line-skill <?php if( get_field_object('skill_order')['value'][12]['line'] == 3 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="14" order-line="3" class="table-line-skill <?php if( get_field_object('skill_order')['value'][13]['line'] == 3 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="15" order-line="3" class="table-line-skill <?php if( get_field_object('skill_order')['value'][14]['line'] == 3 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="16" order-line="3" class="table-line-skill <?php if( get_field_object('skill_order')['value'][15]['line'] == 3 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="17" order-line="3" class="table-line-skill <?php if( get_field_object('skill_order')['value'][16]['line'] == 3 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="18" order-line="3" class="table-line-skill <?php if( get_field_object('skill_order')['value'][17]['line'] == 3 ) echo "active"; ?>"><div></div></div>
 									</div>
 									<div class="table-line">
 										<p class="table-line-control">R</p>
 										<span class="table-line-image">
-											<img src="<?php echo get_template_directory_uri(); ?>/img/skill-order.png" alt="ability image">
+											<img class="spell-order-img" order-img-r src="<?php echo wp_get_attachment_url( get_post_thumbnail_id(get_field_object('e_spell')['value']->ID)); ?>" alt="ability image">
 										</span>
-										<div data-level="1" data-display-order="4" class="table-line-skill"></div>
-										<div data-level="2" data-display-order="4" class="table-line-skill"></div>
-										<div data-level="3" data-display-order="4" class="table-line-skill"></div>
-										<div data-level="4" data-display-order="4" class="table-line-skill"></div>
-										<div data-level="5" data-display-order="4" class="table-line-skill"></div>
-										<div data-level="6" data-display-order="4" class="table-line-skill active"></div>
-										<div data-level="7" data-display-order="4" class="table-line-skill"></div>
-										<div data-level="8" data-display-order="4" class="table-line-skill"></div>
-										<div data-level="9" data-display-order="4" class="table-line-skill"></div>
-										<div data-level="10" data-display-order="4" class="table-line-skill"></div>
-										<div data-level="11" data-display-order="4" class="table-line-skill active"></div>
-										<div data-level="12" data-display-order="4" class="table-line-skill"></div>
-										<div data-level="13" data-display-order="4" class="table-line-skill"></div>
-										<div data-level="14" data-display-order="4" class="table-line-skill"></div>
-										<div data-level="15" data-display-order="4" class="table-line-skill"></div>
-										<div data-level="16" data-display-order="4" class="table-line-skill active"></div>
-										<div data-level="17" data-display-order="4" class="table-line-skill"></div>
-										<div data-level="18" data-display-order="4" class="table-line-skill last"></div>
+										<div order-select order-level="1" order-line="4" class="table-line-skill first <?php if( get_field_object('skill_order')['value'][0]['line'] == 4 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="2" order-line="4" class="table-line-skill <?php if( get_field_object('skill_order')['value'][1]['line'] == 4 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="3" order-line="4" class="table-line-skill <?php if( get_field_object('skill_order')['value'][2]['line'] == 4 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="4" order-line="4" class="table-line-skill <?php if( get_field_object('skill_order')['value'][3]['line'] == 4 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="5" order-line="4" class="table-line-skill <?php if( get_field_object('skill_order')['value'][4]['line'] == 4 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="6" order-line="4" class="table-line-skill <?php if( get_field_object('skill_order')['value'][5]['line'] == 4 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="7" order-line="4" class="table-line-skill <?php if( get_field_object('skill_order')['value'][6]['line'] == 4 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="8" order-line="4" class="table-line-skill <?php if( get_field_object('skill_order')['value'][7]['line'] == 4 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="9" order-line="4" class="table-line-skill <?php if( get_field_object('skill_order')['value'][8]['line'] == 4 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="10" order-line="4" class="table-line-skill <?php if( get_field_object('skill_order')['value'][9]['line'] == 4 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="11" order-line="4" class="table-line-skill <?php if( get_field_object('skill_order')['value'][10]['line'] == 4 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="12" order-line="4" class="table-line-skill <?php if( get_field_object('skill_order')['value'][11]['line'] == 4 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="13" order-line="4" class="table-line-skill <?php if( get_field_object('skill_order')['value'][12]['line'] == 4 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="14" order-line="4" class="table-line-skill <?php if( get_field_object('skill_order')['value'][13]['line'] == 4 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="15" order-line="4" class="table-line-skill <?php if( get_field_object('skill_order')['value'][14]['line'] == 4 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="16" order-line="4" class="table-line-skill <?php if( get_field_object('skill_order')['value'][15]['line'] == 4 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="17" order-line="4" class="table-line-skill <?php if( get_field_object('skill_order')['value'][16]['line'] == 4 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="18" order-line="4" class="table-line-skill <?php if( get_field_object('skill_order')['value'][17]['line'] == 4 ) echo "active"; ?>"><div></div></div>
 									</div>
 									<div class="table-line">
 										<span class="table-line-control">∞</span>
 										<span class="table-line-image">
-											<img src="<?php echo get_template_directory_uri(); ?>/img/skill-order.png" alt="ability image">
+											<img class="spell-order-img" order-img-passive src="<?php echo wp_get_attachment_url( get_post_thumbnail_id(get_field_object('passive')['value']->ID)); ?>" alt="ability image">
 										</span>
-										<div data-level="1" data-display-order="5" class="table-line-skill"></div>
-										<div data-level="2" data-display-order="5" class="table-line-skill"></div>
-										<div data-level="3" data-display-order="5" class="table-line-skill"></div>
-										<div data-level="4" data-display-order="5" class="table-line-skill"></div>
-										<div data-level="5" data-display-order="5" class="table-line-skill"></div>
-										<div data-level="6" data-display-order="5" class="table-line-skill"></div>
-										<div data-level="7" data-display-order="5" class="table-line-skill"></div>
-										<div data-level="8" data-display-order="5" class="table-line-skill"></div>
-										<div data-level="9" data-display-order="5" class="table-line-skill"></div>
-										<div data-level="10" data-display-order="5" class="table-line-skill"></div>
-										<div data-level="11" data-display-order="5" class="table-line-skill"></div>
-										<div data-level="12" data-display-order="5" class="table-line-skill"></div>
-										<div data-level="13" data-display-order="5" class="table-line-skill"></div>
-										<div data-level="14" data-display-order="5" class="table-line-skill"></div>
-										<div data-level="15" data-display-order="5" class="table-line-skill"></div>
-										<div data-level="16" data-display-order="5" class="table-line-skill"></div>
-										<div data-level="17" data-display-order="5" class="table-line-skill"></div>
-										<div data-level="18" data-display-order="5" class="table-line-skill last"></div>
+										<div order-select order-level="1" order-line="5" class="table-line-skill first <?php if( get_field_object('skill_order')['value'][0]['line'] == 5 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="2" order-line="5" class="table-line-skill <?php if( get_field_object('skill_order')['value'][1]['line'] == 5 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="3" order-line="5" class="table-line-skill <?php if( get_field_object('skill_order')['value'][2]['line'] == 5 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="4" order-line="5" class="table-line-skill <?php if( get_field_object('skill_order')['value'][3]['line'] == 5 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="5" order-line="5" class="table-line-skill <?php if( get_field_object('skill_order')['value'][4]['line'] == 5 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="6" order-line="5" class="table-line-skill <?php if( get_field_object('skill_order')['value'][5]['line'] == 5 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="7" order-line="5" class="table-line-skill <?php if( get_field_object('skill_order')['value'][6]['line'] == 5 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="8" order-line="5" class="table-line-skill <?php if( get_field_object('skill_order')['value'][7]['line'] == 5 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="9" order-line="5" class="table-line-skill <?php if( get_field_object('skill_order')['value'][8]['line'] == 5 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="10" order-line="5" class="table-line-skill <?php if( get_field_object('skill_order')['value'][9]['line'] == 5 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="11" order-line="5" class="table-line-skill <?php if( get_field_object('skill_order')['value'][10]['line'] == 5 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="12" order-line="5" class="table-line-skill <?php if( get_field_object('skill_order')['value'][11]['line'] == 5 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="13" order-line="5" class="table-line-skill <?php if( get_field_object('skill_order')['value'][12]['line'] == 5 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="14" order-line="5" class="table-line-skill <?php if( get_field_object('skill_order')['value'][13]['line'] == 5 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="15" order-line="5" class="table-line-skill <?php if( get_field_object('skill_order')['value'][14]['line'] == 5 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="16" order-line="5" class="table-line-skill <?php if( get_field_object('skill_order')['value'][15]['line'] == 5 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="17" order-line="5" class="table-line-skill <?php if( get_field_object('skill_order')['value'][16]['line'] == 5 ) echo "active"; ?>"><div></div></div>
+										<div order-select order-level="18" order-line="5" class="table-line-skill <?php if( get_field_object('skill_order')['value'][17]['line'] == 5 ) echo "active"; ?>"><div></div></div>
 									</div>
 								</div>
 							</div>
-							<div class="panel-section">
+						</div>
+							<!-- <div class="panel-section">
 								<div class="table-expl">
 									<p class="table-expl-control">Q</p>
 									<span class="table-expl-image">
@@ -329,7 +330,7 @@
 									Having said that it's still not worth maxing before Q so just don't do it. For more concrete usage of this skill, check Tips&Tricks</p>
 								</div>
 								
-							</div>
+							</div> -->
 						</div>
 
 
