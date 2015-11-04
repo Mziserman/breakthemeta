@@ -214,6 +214,33 @@ function get_builds() {
     die();
 
 }
+add_action( 'wp_ajax_get_builds_ordered_by_likes', 'get_builds_ordered_by_likes' );
+add_action( 'wp_ajax_nopriv_get_builds_ordered_by_likes', 'get_builds_ordered_by_likes' );
+
+function get_builds_ordered_by_likes() {
+    $posts_per_page = $_POST['posts_per_page'];
+    $offset = $_POST['offset'];
+    $orderby = $_POST['orderby'];
+    $search = $_POST['search'];
+    $args = array(
+        'posts_per_page' => $posts_per_page,
+        'offset' => $offset,
+        'post_type' => 'build', 
+        'orderby'   => 'meta_value_num',
+        'meta_key'  => 'likes',
+    );
+     
+
+    $ajax_query = new WP_Query($args);
+    if ( $ajax_query->have_posts() ) : while ( $ajax_query->have_posts() ) : $ajax_query->the_post();
+        get_template_part( 'template_archive_build' );
+    endwhile;
+    endif;
+
+
+    die();
+
+}
 
 add_action( 'wp_ajax_get_filtered_builds', 'get_filtered_builds' );
 add_action( 'wp_ajax_nopriv_get_filtered_builds', 'get_filtered_builds' );
@@ -334,7 +361,7 @@ function go_home(){
 
 // add_action('after_setup_theme', 'remove_admin_bar');
 // function remove_admin_bar() {
-//     if (!current_user_can('administrator') && !is_admin()) {
+//     if (!current_user_can('admin') && !is_admin()) {
 //       show_admin_bar(false);
 //     }
 // }
@@ -364,5 +391,6 @@ function get_spells_pictures() {
 
     die();
 }
+
 
 ?>

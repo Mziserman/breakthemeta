@@ -1,4 +1,16 @@
 //Objects definitions
+var filter = function($) {
+	this.init($)
+}
+filter.prototype = {
+	init: function($) {
+		this.$ = $;
+		this.champion = '';
+		this.lane = '';
+		this.role = '';
+	}
+}
+
 var CurrentState = function($){
 	this.init($)
 }
@@ -9,12 +21,6 @@ CurrentState.prototype = {
 		this.search = '';
 		this.choiceContainer = $('.panel-choice');
 		this.panelContainer = $('.build-list-content');
-
-		this.filterStatus = {
-			championId: '',
-			lane: '',
-			role: ''
-		}
 
 		this.panels = {
 			date: new Panel($, 'date', this.choiceContainer.find('.date'), this.panelContainer.find('#panel-1')),
@@ -163,7 +169,6 @@ Panel.prototype = {
 		
 		this.pagination = new Pagination(10);
 		
-		this.active = this.name === 'date';
 		this.visited = this.name === 'date';
 		this.filterVisited = false;
 
@@ -173,12 +178,10 @@ Panel.prototype = {
 		this.button.addClass('active')
 		this.container.removeClass('hide').addClass('show');
 		this.button.addClass
-		this.active = true;
 	},
 	hide: function() {
 		this.button.removeClass('active')
 		this.container.removeClass('show').addClass('hide');
-		this.active = false;
 	},
 	removePagination: function() {
 		this.container.find('.nav-below').remove()
