@@ -305,7 +305,7 @@
 									</div>
 								</div>
 							</div>
-						</div>
+	
 							<!-- <div class="panel-section">
 								<div class="table-expl">
 									<p class="table-expl-control">Q</p>
