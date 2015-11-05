@@ -39,6 +39,11 @@ a{
 	text-decoration: underline;
 }
 
+.errors {
+	color: #BB3A3A;
+	margin-bottom: 5px;
+}
+
 /* @group HEADER */
 
 	.header {
