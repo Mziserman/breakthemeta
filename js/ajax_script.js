@@ -136,7 +136,7 @@ Controler.prototype = {
 		      
 		    },
 		    function(response){
-		    	that.currentState.currentPanel.container.find('.blog-build-item').remove()
+		    	that.currentState.currentPanel.container.empty();
 		    	that.currentState.currentPanel.container.prepend(response);
 	        }
 		);
