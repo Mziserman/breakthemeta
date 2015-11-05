@@ -95,18 +95,18 @@ class Create_build
         }
 
         // spell order
-        $errors['spell-order'] = "Spell order not complete";
-        for ( $i = 1; $i <= 18; $i ++ )
-        {           
-            for ( $j = 1; $j <= 5; $j ++)
-            {
-                if ( !empty($_POST['order-input-'.$j.'-'.$i]) && $_POST['order-input-'.$j.'-'.$i] == 1 )
-                {
-                    $errors['spell-order'] = "";
-                    break;   
-                }
-            }
-        }
+        // $errors['spell-order'] = "Spell order not complete";
+        // for ( $i = 1; $i <= 18; $i ++ )
+        // {           
+        //     for ( $j = 1; $j <= 5; $j ++)
+        //     {
+        //         if ( !empty($_POST['order-input-'.$j.'-'.$i]) && $_POST['order-input-'.$j.'-'.$i] == 1 )
+        //         {
+        //             $errors['spell-order'] = "";
+        //             break;   
+        //         }
+        //     }
+        // }
 
         // summoner spells
         $errors['summoner'] = "";
