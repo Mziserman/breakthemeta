@@ -86,6 +86,8 @@
                                     while ( have_posts() ) : the_post();
                                         get_template_part('template_archive_build');
                                     endwhile; 
+                                else:
+                                    echo '<p>No results found.</p>';
                                 endif;
                             ?>
                         </ul>
