@@ -12,56 +12,49 @@ Controler.prototype = {
 
 		this.panels = {
 			date: new Panel($, 'date', this.choiceContainer.find('.date'), this.panelContainer.find('#panel-1')),
-			rand: new Panel($, 'rand', this.choiceContainer.find('.rand'), this.panelContainer.find('#panel-2')),
+			like: new Panel($, 'like', this.choiceContainer.find('.like'), this.panelContainer.find('#panel-2')),
 			search: new Panel($, 'search', this.choiceContainer.find('.search-result'), this.panelContainer.find('#panel-3')),
 		}
 
 		this.currentState.setCurrentPanel(this.panels.date)
+		this.currentState.setNotCurrentPanel(this.panels.like)
 		this.addInteractions()
 	},
 	switchPanel: function(from, to){
 		from.hide();
 		to.show();
 		this.currentState.currentPanel = to;
+		this.currentState.notCurrentPanel = from;
 	},
 	addInteractions: function() {
 		var that = this;
 		//Switch panels
-		if ( this.currentState.filterChampion == '' && this.currentState.filterLane == '' && this.filterRole == '' ) {
-			this.panels.date.button.on('click', function(e){
-				e.preventDefault();
-				that.switchPanel(that.currentState.currentPanel, that.panels.date);
-				if (!that.currentState.currentPanel.visited){
-					that.currentState.currentPanel.visited = true;
+		
+		this.panels.date.button.on('click', function(e){
+			e.preventDefault();
+			that.switchPanel(that.currentState.currentPanel, that.panels.date);
+			if (!that.currentState.currentPanel.visited){
+				that.currentState.currentPanel.visited = true;
+				if ( that.currentState.filterChampion == '' && that.currentState.filterLane == '' && that.currentState.filterRole == '' ) {
 					that.getBuilds();
-				}
-			});
-			this.panels.rand.button.on('click', function(e){
-				e.preventDefault();
-				that.switchPanel(that.currentState.currentPanel, that.panels.rand);
-				if (!that.currentState.currentPanel.visited){
-					that.currentState.currentPanel.visited = true;
-					that.getBuilds();
-				}
-			});
-		} else {
-			this.panels.date.button.on('click', function(e){
-				e.preventDefault();
-				that.switchPanel(that.currentState.currentPanel, that.panels.date);
-				if (!that.currentState.currentPanel.visited){
-					that.currentState.currentPanel.visited = true;
+				} else {
 					that.getFilteredBuilds();
 				}
-			});
-			this.panels.rand.button.on('click', function(e){
-				e.preventDefault();
-				that.switchPanel(that.currentState.currentPanel, that.panels.rand);
-				if (!that.currentState.currentPanel.visited){
-					that.currentState.currentPanel.visited = true;
+			}
+		});
+		this.panels.like.button.on('click', function(e){
+			e.preventDefault();
+			that.switchPanel(that.currentState.currentPanel, that.panels.like);
+			if (!that.currentState.currentPanel.visited){
+				that.currentState.currentPanel.visited = true;
+				if ( that.currentState.filterChampion == '' && that.currentState.filterLane == '' && that.currentState.filterRole == '' ) {
+					that.getBuilds();
+				} else {
 					that.getFilteredBuilds();
 				}
-			});
-		}
+			}
+		});
+	
 
 		this.panels.search.button.on('click', function(e){
 			e.preventDefault();
@@ -81,26 +74,27 @@ Controler.prototype = {
 			e.preventDefault();
     		that.currentState.filterChampion = that.$(this).attr('href');
     		that.getNumberFilteredBuilds();
+    		that.currentState.notCurrentPanel.visited = false;
     	})
 
     	this.$('.filters').on('click', '.filter-champ', function(e) {
     		that.$(this).remove();
     		that.currentState.filterChampion = '';
+    		that.currentState.currentPanel.container.find('.blog-build-item').remove();
     		that.getBuilds();
     	})
 	},
 	getBuilds: function(){
-		var orderBy = this.currentState.currentPanel.name;
+		var action = this.currentState.currentPanel.name == 'date' ? 'get_builds_ordered_by_date' : 'get_builds_ordered_by_likes';
 		var offset = this.currentState.currentPanel.pagination.offset;
 		var posts_per_page = this.currentState.currentPanel.pagination.postsPerPage;
 		var that = this;
 		this.$.post(
 		    ajaxurl,
 		    {
-		        'action': 'get_builds',
+		        'action': action,
 		        'offset': offset,
 		        'posts_per_page': posts_per_page,
-		        'orderby': orderBy,
 		    },
 		    function(response){
 		    	that.currentState.currentPanel.container.prepend(response);
@@ -108,19 +102,24 @@ Controler.prototype = {
 		);
 	},
 	getFilteredBuilds: function(){
-		var orderBy = this.currentState.currentPanel.name;
+		var action = this.currentState.currentPanel.name == 'date' ? 'get_filtered_builds_ordered_by_date' : 'get_filtered_builds_ordered_by_likes';
+		var orderBy = this.currentState.currentPanel.name
 		var offset = this.currentState.currentPanel.pagination.offset;
 		var posts_per_page = this.currentState.currentPanel.pagination.postsPerPage;
 		var championId = this.currentState.filterChampion;
+		var laneId = this.currentState.filterLane;
+		var roleId = this.currentState.filterRole;
 		var that = this;
 		this.$.post(
 		    ajaxurl,
 		    {
-		        'action': 'get_filtered_builds',
+		        'action': action,
 		        'offset': offset,
 		        'posts_per_page': posts_per_page,
 		        'orderby': orderBy,
-		        'championId': championId
+		        'championId': championId,
+		        'laneId': laneId,
+		        'roleId': roleId,
 		    },
 		    function(response){
 		    	that.currentState.currentPanel.container.find('.blog-build-item').remove()
@@ -140,9 +139,9 @@ Controler.prototype = {
 		    },
 		    function(response){
 		    	that.panels.date.removePagination();
-		    	that.panels.rand.removePagination();
+		    	that.panels.like.removePagination();
 		    	that.panels.date.setPageMaxAndPrintPagination(Math.ceil(response / that.panels.date.pagination.postsPerPage));
-    			that.panels.rand.setPageMaxAndPrintPagination(Math.ceil(response / that.panels.rand.pagination.postsPerPage));
+    			that.panels.like.setPageMaxAndPrintPagination(Math.ceil(response / that.panels.like.pagination.postsPerPage));
     			that.getFilteredBuilds()
 	        }
 		)
@@ -155,7 +154,7 @@ Controler.prototype = {
 		this.$.post(
 		    ajaxurl,
 		    {
-		        'action': 'get_builds',
+		        'action': 'get_search_results',
 		        'search': search
 		    },
 		    function(response){
@@ -184,6 +183,9 @@ CurrentState.prototype = {
 	},
 	setCurrentPanel: function(currentPanel) {
 		this.currentPanel = currentPanel;
+	},
+	setNotCurrentPanel: function(notCurrentPanel) {
+		this.notCurrentPanel = notCurrentPanel;
 	}
 }
 
@@ -250,17 +252,17 @@ Panel.prototype = {
 		})
 	}, 
 	getBuilds: function() {
-		var orderBy = this.name;
+		var action = this.name == 'date' ? "get_builds_ordered_by_date" : "get_builds_ordered_by_likes" ;
+		console.log(action)
 		var offset = this.pagination.offset;
 		var posts_per_page = this.pagination.postsPerPage;
 		var that = this;
 		this.$.post(
 		    ajaxurl,
 		    {
-		        'action': 'get_builds',
+		        'action': action,
 		        'offset': offset,
 		        'posts_per_page': posts_per_page,
-		        'orderby': orderBy,
 		    },
 		    function(response){
 		    	that.container.find('.blog-build-item').remove();
@@ -299,7 +301,7 @@ jQuery(document).ready(function($){
 	    function(response){
 
 	    	controler.panels.date.setPageMaxAndPrintPagination(Math.ceil(response / controler.panels.date.pagination.postsPerPage));
-	    	controler.panels.rand.setPageMaxAndPrintPagination(Math.ceil(response / controler.panels.rand.pagination.postsPerPage));
+	    	controler.panels.like.setPageMaxAndPrintPagination(Math.ceil(response / controler.panels.like.pagination.postsPerPage));
 	    	
 	    }
     )
