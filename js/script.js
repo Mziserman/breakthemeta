@@ -208,6 +208,16 @@ jQuery(document).ready(function($) {
 
 	searchChamp($('[champion-search]'), $('[champion-select]'));
 
+	$('.table-line-skill').on('mouseover', function (e) {
+		$id = $(this).attr('order-line');
+		$('*[order-line='+ $id +']').addClass('line-active');
+	});
+
+	$('.table-line-skill').on('mouseout', function (e) {
+		$('.table-line-skill').removeClass('line-active');
+	});
+
+
 });
 
 
