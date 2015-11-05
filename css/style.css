@@ -1160,7 +1160,7 @@ a{
 							margin-right: 10px;
 						}
 
-					.build-content .aside .recommend-button p:nth-child(2) {
+					.build-content .aside .recommend-button p:last-child {
 						margin-bottom: 10px;
 					}
 
@@ -1542,8 +1542,7 @@ a{
 					height: 40px;
 				}
 
-				.table-line-skill:hover,
-				.table-line-skill[order-line="1"]:hover {
+				.table-line-skill.line-active {
 					background-color: #26282D;
 				}
 
