@@ -199,6 +199,8 @@ function get_builds_ordered_by_date() {
     if ( $ajax_query->have_posts() ) : while ( $ajax_query->have_posts() ) : $ajax_query->the_post();
         get_template_part( 'template_archive_build' );
     endwhile;
+    else :
+        echo 'nothing found';
     endif;
 
 
@@ -224,6 +226,8 @@ function get_builds_ordered_by_likes() {
     if ( $ajax_query->have_posts() ) : while ( $ajax_query->have_posts() ) : $ajax_query->the_post();
         get_template_part( 'template_archive_build' );
     endwhile;
+    else :
+        echo 'nothing found';
     endif;
 
 
@@ -271,6 +275,8 @@ function get_filtered_builds_ordered_by_date() {
     if ( $ajax_query->have_posts() ) : while ( $ajax_query->have_posts() ) : $ajax_query->the_post();
         get_template_part( 'template_archive_build' );
     endwhile;
+    else :
+        echo 'nothing found';
     endif;
 
 
@@ -286,6 +292,8 @@ function get_filtered_builds_ordered_by_likes() {
     $offset = $_POST['offset'];
     $search = $_POST['search'];
     $championId = $_POST['championId'];
+    $laneSlug = $_POST['laneId'];
+    $roleSlug = $_POST['roleId'];
     $args = array(
         'posts_per_page' => $posts_per_page,
         'offset' => $offset,
@@ -300,6 +308,19 @@ function get_filtered_builds_ordered_by_likes() {
             'value' => '"' + $championId + '"',
             'compare' => '='
             )
+        ),
+        'tax_query' => array(
+            'relation' => 'AND',
+            array(
+                'taxonomy' => 'lane',
+                'field'    => 'slug',
+                'terms'    => $laneSlug,
+            ),
+            array(
+                'taxonomy' => 'role',
+                'field'    => 'slug',
+                'terms'    => $roleSlug,
+            )
         )
     );
      
@@ -308,6 +329,8 @@ function get_filtered_builds_ordered_by_likes() {
     if ( $ajax_query->have_posts() ) : while ( $ajax_query->have_posts() ) : $ajax_query->the_post();
         get_template_part( 'template_archive_build' );
     endwhile;
+    else :
+        echo 'nothing found';
     endif;
 
 
