@@ -1,23 +1,7 @@
 //Objects definitions
-<<<<<<< HEAD
-var filter = function($) {
-	this.init($)
-}
-filter.prototype = {
-	init: function($) {
-		this.$ = $;
-		this.champion = '';
-		this.lane = '';
-		this.role = '';
-	}
-}
 
-var CurrentState = function($){
-	this.init($)
-=======
 var Controler = function($, currentState) {
 	this.init($, currentState)
->>>>>>> brancheAjax
 }
 Controler.prototype = {
 	init: function($, currentState) {
