@@ -22,11 +22,14 @@
 ?>
 <?php get_header(); ?>
 
+
 	<!-- Page Content --> 
 	<div class="container build-container">
 
 	    <div class="build-main">
 	    	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+	    	<?php $championId = get_post_meta(get_the_ID() ,'champion', true);?>
+
 
 				<div class="build-header">
 					<?php get_template_part('template-summary-header-background'); ?>
@@ -186,7 +189,7 @@
 									<div class="table-line">
 										<span class="table-line-control">Q</span>
 										<span class="table-line-image">
-											<img class="spell-order-img" order-img-q src="<?php echo wp_get_attachment_url( get_post_thumbnail_id(get_field_object('q_spell')['value']->ID)); ?>" alt="ability image">
+											<img class="spell-order-img" order-img-q src="<?php echo wp_get_attachment_url( get_post_thumbnail_id(get_field_object('q_spell', $championID)['value']->ID)); ?>" alt="ability image">
 										</span>
 										<div order-select order-level="1" order-line="1" class="table-line-skill first <?php if( get_field_object('skill_order')['value'][0]['line'] == 1 ) echo "active"; ?>"><div></div></div>
 										<div order-select order-level="2" order-line="1" class="table-line-skill <?php if( get_field_object('skill_order')['value'][1]['line'] == 1 ) echo "active"; ?>"><div></div></div>
@@ -210,7 +213,7 @@
 									<div class="table-line">
 										<span class="table-line-control">W</span>
 										<span class="table-line-image">
-											<img class="spell-order-img" order-img-w src="<?php echo wp_get_attachment_url( get_post_thumbnail_id(get_field_object('q_spell')['value']->ID)); ?>" alt="ability image">
+											<img class="spell-order-img" order-img-w src="<?php echo wp_get_attachment_url( get_post_thumbnail_id(get_field_object('w_spell',$championId)['value']->ID)); ?>" alt="ability image">
 										</span>
 										<div order-select order-level="1" order-line="2" class="table-line-skill first <?php if( get_field_object('skill_order')['value'][0]['line'] == 2 ) echo "active"; ?>"><div></div></div>
 										<div order-select order-level="2" order-line="2" class="table-line-skill <?php if( get_field_object('skill_order')['value'][1]['line'] == 2 ) echo "active"; ?>"><div></div></div>
@@ -234,7 +237,7 @@
 									<div class="table-line">
 										<span class="table-line-control">E</span>
 										<span class="table-line-image">
-											<img class="spell-order-img" order-img-e src="<?php echo wp_get_attachment_url( get_post_thumbnail_id(get_field_object('w_spell')['value']->ID)); ?>" alt="ability image">
+											<img class="spell-order-img" order-img-e src="<?php echo wp_get_attachment_url( get_post_thumbnail_id(get_field_object('e_spell',$championId)['value']->ID)); ?>" alt="ability image">
 										</span>
 										<div order-select order-level="1" order-line="3" class="table-line-skill first <?php if( get_field_object('skill_order')['value'][0]['line'] == 3 ) echo "active"; ?>"><div></div></div>
 										<div order-select order-level="2" order-line="3" class="table-line-skill <?php if( get_field_object('skill_order')['value'][1]['line'] == 3 ) echo "active"; ?>"><div></div></div>
@@ -258,7 +261,7 @@
 									<div class="table-line">
 										<p class="table-line-control">R</p>
 										<span class="table-line-image">
-											<img class="spell-order-img" order-img-r src="<?php echo wp_get_attachment_url( get_post_thumbnail_id(get_field_object('e_spell')['value']->ID)); ?>" alt="ability image">
+											<img class="spell-order-img" order-img-r src="<?php echo wp_get_attachment_url( get_post_thumbnail_id(get_field_object('r_spell',$championId)['value']->ID)); ?>" alt="ability image">
 										</span>
 										<div order-select order-level="1" order-line="4" class="table-line-skill first <?php if( get_field_object('skill_order')['value'][0]['line'] == 4 ) echo "active"; ?>"><div></div></div>
 										<div order-select order-level="2" order-line="4" class="table-line-skill <?php if( get_field_object('skill_order')['value'][1]['line'] == 4 ) echo "active"; ?>"><div></div></div>
@@ -282,7 +285,7 @@
 									<div class="table-line">
 										<span class="table-line-control">∞</span>
 										<span class="table-line-image">
-											<img class="spell-order-img" order-img-passive src="<?php echo wp_get_attachment_url( get_post_thumbnail_id(get_field_object('passive')['value']->ID)); ?>" alt="ability image">
+											<img class="spell-order-img" order-img-passive src="<?php echo wp_get_attachment_url( get_post_thumbnail_id(get_field_object('passive',$championId)['value']->ID)); ?>" alt="ability image">
 										</span>
 										<div order-select order-level="1" order-line="5" class="table-line-skill first <?php if( get_field_object('skill_order')['value'][0]['line'] == 5 ) echo "active"; ?>"><div></div></div>
 										<div order-select order-level="2" order-line="5" class="table-line-skill <?php if( get_field_object('skill_order')['value'][1]['line'] == 5 ) echo "active"; ?>"><div></div></div>
