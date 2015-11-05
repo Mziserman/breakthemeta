@@ -1,8 +1,5 @@
 //Objects definitions
-<<<<<<< HEAD
-=======
 
->>>>>>> confict resolution
 var Controler = function($, currentState) {
 	this.init($, currentState)
 }
@@ -86,6 +83,8 @@ Controler.prototype = {
     		that.currentState.filterChampion = '';
     		that.currentState.currentPanel.container.find('.blog-build-item').remove();
     		that.getBuilds();
+
+	   		that.currentState.notCurrentPanel.visited = false;
     	})
 	},
 	getBuilds: function(){
@@ -184,6 +183,7 @@ CurrentState.prototype = {
 		this.filterChampion = '';
 		this.filterLane = '';
 		this.filterRole = '';
+
 	},
 	setCurrentPanel: function(currentPanel) {
 		this.currentPanel = currentPanel;
