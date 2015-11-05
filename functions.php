@@ -180,27 +180,17 @@ register_taxonomy(
 	)
 );
 
-add_action( 'wp_ajax_get_builds', 'get_builds' );
-add_action( 'wp_ajax_nopriv_get_builds', 'get_builds' );
+add_action( 'wp_ajax_get_builds_ordered_by_date', 'get_builds_ordered_by_date' );
+add_action( 'wp_ajax_nopriv_get_builds_ordered_by_date', 'get_builds_ordered_by_date' );
 
-function get_builds() {
+function get_builds_ordered_by_date() {
     $posts_per_page = $_POST['posts_per_page'];
     $offset = $_POST['offset'];
-    $orderby = $_POST['orderby'];
     $search = $_POST['search'];
     $args = array(
         'posts_per_page' => $posts_per_page,
         'offset' => $offset,
         'post_type' => 'build', 
-        'orderby' => $orderby,
-        's' => $search,
-        'meta_query' => array(
-        array(
-            'key' => 'champion',
-            'value' => $championId,
-            'compare' => 'LIKE'
-            )
-        )
     );
      
 
@@ -214,13 +204,12 @@ function get_builds() {
     die();
 
 }
+
 add_action( 'wp_ajax_get_builds_ordered_by_likes', 'get_builds_ordered_by_likes' );
 add_action( 'wp_ajax_nopriv_get_builds_ordered_by_likes', 'get_builds_ordered_by_likes' );
-
 function get_builds_ordered_by_likes() {
     $posts_per_page = $_POST['posts_per_page'];
     $offset = $_POST['offset'];
-    $orderby = $_POST['orderby'];
     $search = $_POST['search'];
     $args = array(
         'posts_per_page' => $posts_per_page,
@@ -242,10 +231,9 @@ function get_builds_ordered_by_likes() {
 
 }
 
-add_action( 'wp_ajax_get_filtered_builds', 'get_filtered_builds' );
-add_action( 'wp_ajax_nopriv_get_filtered_builds', 'get_filtered_builds' );
-
-function get_filtered_builds() {
+add_action( 'wp_ajax_get_filtered_builds_ordered_by_date', 'get_filtered_builds_ordered_by_date' );
+add_action( 'wp_ajax_nopriv_get_filtered_builds_ordered_by_date', 'get_filtered_builds_ordered_by_date' );
+function get_filtered_builds_ordered_by_date() {
     $posts_per_page = $_POST['posts_per_page'];
     $offset = $_POST['offset'];
     $orderby = $_POST['orderby'];
@@ -254,9 +242,40 @@ function get_filtered_builds() {
     $args = array(
         'posts_per_page' => $posts_per_page,
         'offset' => $offset,
+        'post_type' => 'build',         
+        'meta_query' => array(
+        array(
+            'key' => 'champion',
+            'value' => $championId,
+            'compare' => 'LIKE'
+            )
+        )
+    );
+     
+
+    $ajax_query = new WP_Query($args);
+    if ( $ajax_query->have_posts() ) : while ( $ajax_query->have_posts() ) : $ajax_query->the_post();
+        get_template_part( 'template_archive_build' );
+    endwhile;
+    endif;
+
+
+    die();
+}
+
+add_action( 'wp_ajax_get_filtered_builds_ordered_by_likes', 'get_filtered_builds_ordered_by_likes' );
+add_action( 'wp_ajax_nopriv_get_filtered_builds_ordered_by_likes', 'get_filtered_builds_ordered_by_likes' );
+function get_filtered_builds_ordered_by_likes() {
+    $posts_per_page = $_POST['posts_per_page'];
+    $offset = $_POST['offset'];
+    $search = $_POST['search'];
+    $championId = $_POST['championId'];
+    $args = array(
+        'posts_per_page' => $posts_per_page,
+        'offset' => $offset,
         'post_type' => 'build', 
-        'orderby' => $orderby,
-        's' => $search,
+        'orderby'   => 'meta_value_num',
+        'meta_key'  => 'likes',
         'meta_query' => array(
         array(
             'key' => 'champion',
@@ -306,16 +325,34 @@ function get_number_filtered_builds() {
 
     die();
 }
+
 add_action( 'wp_ajax_get_number_of_builds', 'get_number_of_builds' );
 add_action( 'wp_ajax_nopriv_get_number_of_builds', 'get_number_of_builds' );
-
 function get_number_of_builds() {
-	$count_posts = wp_count_posts('build');
+    $count_posts = wp_count_posts('build');
 
-	$published_posts = $count_posts->publish;
-	echo $published_posts;
+    $published_posts = $count_posts->publish;
+    echo $published_posts;
 
-	die();
+    die();
+}
+
+add_action( 'wp_ajax_get_search_results', 'get_search_results' );
+add_action( 'wp_ajax_nopriv_get_search_results', 'get_search_results' );
+function get_search_results() {
+
+    $search = $_POST['search'];
+    $args = array(
+        's' => $search,
+    );
+     
+    $ajax_query = new WP_Query($args);
+    if ( $ajax_query->have_posts() ) : while ( $ajax_query->have_posts() ) : $ajax_query->the_post();
+        get_template_part( 'template_archive_build' );
+    endwhile;
+    endif;
+
+    die();
 }
 
 function theme_queue_js(){
