@@ -221,16 +221,20 @@
 							<?php endif ?>
 						</div>
 						<div class="panel-section">
-							<?php if ( isset($errors['title']) && !empty($errors['title']) ) : ?>
-								<?php echo $errors['title'] ?>
-							<?php endif ?>
+							<div class="errors">
+								<?php if ( isset($errors['title']) && !empty($errors['title']) ) : ?>
+									<?php echo $errors['title'] ?>
+								<?php endif ?>
+							</div>
 							<h3>Guide title</h3>
 							<input type="text" name="title" value="<?php if ( isset($_POST['title']) ) echo $_POST['title']?>">
 						</div>
 						<div class="description">
-							<?php if ( isset($errors['excerpt']) && !empty($errors['excerpt']) ) : ?>
-								<?php echo $errors['excerpt'] ?>
-							<?php endif ?>
+							<div class="errors">
+								<?php if ( isset($errors['excerpt']) && !empty($errors['excerpt']) ) : ?>
+									<?php echo $errors['excerpt'] ?>
+								<?php endif ?>
+							</div>
 							<h3>Short description</h3>
 							<textarea name="excerpt" ><?php if ( isset($_POST['excerpt']) ) echo $_POST['excerpt']?></textarea>
 						</div>
@@ -262,9 +266,11 @@
 			            </div>
 						
 						<div class="champions">
-							<?php if ( isset($errors['champ']) && !empty($errors['champ']) ) : ?>
-								<?php echo $errors['champ'] ?>
-							<?php endif ?>
+							<div class="errors">
+								<?php if ( isset($errors['champ']) && !empty($errors['champ']) ) : ?>
+									<?php echo $errors['champ'] ?>
+								<?php endif ?>
+							</div>
 							<h3>Champion</h3>
 
 	    					<img class="item-chosen" src="<?php if ( isset($_POST['champ']) ) echo wp_get_attachment_url( get_post_thumbnail_id($_POST['champ']));?>" champion-chosen>
@@ -299,9 +305,11 @@
 					</div>
 
 					<div class="panel" id="panel-2" item>
-						<?php if ( isset($errors['begin-item']) && !empty($errors['begin-item']) ) : ?>
-								<?php echo $errors['begin-item'] ?>
+						<div class="errors">
+							<?php if ( isset($errors['begin-item']) && !empty($errors['begin-item']) ) : ?>
+									<?php echo $errors['begin-item'] ?>
 							<?php endif ?>
+						</div>
 						<h3>Starter item</h3>
 						<div class="begin-item">
 							<ul class="begin-end">
@@ -358,9 +366,11 @@
 		    				</div>
 
 						</div>
-						<?php if ( isset($errors['end-item']) && !empty($errors['end-item']) ) : ?>
-							<?php echo $errors['end-item'] ?>
-						<?php endif ?>
+						<div class="errors">
+							<?php if ( isset($errors['end-item']) && !empty($errors['end-item']) ) : ?>
+								<?php echo $errors['end-item'] ?>
+							<?php endif ?>
+						</div>
 						<h3>Core item</h3>
 						<div class="end-item">
 							<ul class="begin-end">
@@ -423,9 +433,11 @@
 					</div>
 
 					<div class="panel skill-order" id="panel-3" skill-order>
-						<?php if ( isset($errors['spell-order']) && !empty($errors['spell-order']) ) : ?>
-							<?php echo $errors['spell-order'] ?>
-						<?php endif ?>
+<!-- 						<div class="errors">
+							<?php if ( isset($errors['spell-order']) && !empty($errors['spell-order']) ) : ?>
+								<?php echo $errors['spell-order'] ?>
+							<?php endif ?>
+						</div> -->
 						<h3>Skill Order</h3>
 							<div class="panel-section">
 								<div class="so-header">
@@ -575,9 +587,11 @@
 					</div>
 					<div class="panel" id="panel-4" summoner>
 						<div class="summoner-spell">
-							<?php if ( isset($errors['summoner']) && !empty($errors['summoner']) ) : ?>
-								<?php echo $errors['summoner'] ?>
-							<?php endif ?>
+							<div class="errors">
+								<?php if ( isset($errors['summoner']) && !empty($errors['summoner']) ) : ?>
+									<?php echo $errors['summoner'] ?>
+								<?php endif ?>
+							</div>
 							<h3>Summoner spell</h3>
 							<ul>
 								<li class="item-chosen" summoner-chosen>
@@ -620,9 +634,11 @@
 					</div>
 
 					<div class="panel" id="panel-6" runes>
-						<?php if ( isset($errors['marks']) && !empty($errors['marks']) ) : ?>
-							<?php echo $errors['marks'] ?>
-						<?php endif ?>
+						<div class="errors">
+							<?php if ( isset($errors['marks']) && !empty($errors['marks']) ) : ?>
+								<?php echo $errors['marks'] ?>
+							<?php endif ?>
+						</div>
 						<h3>Marks</h3>
 						<div class="runes-marks">
 							<ul class="chosen-runes">
@@ -686,9 +702,11 @@
 		    				</div>
 
 						</div>
-						<?php if ( isset($errors['seals']) && !empty($errors['seals']) ) : ?>
-							<?php echo $errors['seals'] ?>
-						<?php endif ?>
+						<div class="errors">
+							<?php if ( isset($errors['seals']) && !empty($errors['seals']) ) : ?>
+								<?php echo $errors['seals'] ?>
+							<?php endif ?>
+						</div>
 						<h3>Seal</h3>
 						<div class="runes-seal">
 							<ul class="chosen-runes">
@@ -752,9 +770,11 @@
 		    				</div>
 
 						</div>
-						<?php if ( isset($errors['glyphs']) && !empty($errors['glyphs']) ) : ?>
-							<?php echo $errors['glyphs'] ?>
-						<?php endif ?>
+						<div class="errors">
+							<?php if ( isset($errors['glyphs']) && !empty($errors['glyphs']) ) : ?>
+								<?php echo $errors['glyphs'] ?>
+							<?php endif ?>
+						</div>
 						<h3>Glyph</h3>
 						<div class="runes-glyph">
 							<ul class="chosen-runes">
@@ -818,9 +838,11 @@
 		    				</div>
 
 						</div>
-						<?php if ( isset($errors['quintes']) && !empty($errors['quintes']) ) : ?>
-							<?php echo $errors['quintes'] ?>
-						<?php endif ?>
+						<div class="errors">
+							<?php if ( isset($errors['quintes']) && !empty($errors['quintes']) ) : ?>
+								<?php echo $errors['quintes'] ?>
+							<?php endif ?>
+						</div>
 						<h3>Quint</h3>
 						<div class="runes-quinte">
 							<ul class="chosen-runes">
