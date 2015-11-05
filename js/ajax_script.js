@@ -124,8 +124,6 @@ Controler.prototype = {
 		var offset = this.currentState.currentPanel.pagination.offset;
 		var posts_per_page = this.currentState.currentPanel.pagination.postsPerPage;
 		var championId = this.currentState.filterChampion;
-		var laneSlug = this.currentState.filterLane;
-		var roleSlug = this.currentState.filterRole;
 		var that = this;
 		this.$.post(
 		    ajaxurl,
@@ -135,8 +133,7 @@ Controler.prototype = {
 		        'posts_per_page': posts_per_page,
 		        'orderby': orderBy,
 		        'championId': championId,
-		        'laneSlug': laneSlug,
-		        'roleSlug': roleSlug,
+		      
 		    },
 		    function(response){
 		    	that.currentState.currentPanel.container.find('.blog-build-item').remove()

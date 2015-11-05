@@ -35,28 +35,7 @@
     					</ul>
     				</div>
     			</div>
-    			<div class="lanes">
-    				<a class="title" href="">Lanes<!-- <i class="fa fa-plus"></i> --><span class="plus"></span></a>
-    				<div class="filter-list">
-    					<ul>
-    						<li><a href="top">Toplane</a></li>
-    						<li><a href="jungle">Jungle</a></li>
-    						<li><a href="mid">Mid</a></li>
-    						<li><a href="bottom">Bottom</a></li>
-    					</ul>
-    				</div>
-    			</div>
-    			<div class="roles">
-    				<a class="title" href="">Roles<!-- <i class="fa fa-plus"></i> --><span class="plus"></span></a>
-    				<div class="filter-list">
-    					<ul>
-    						<li><a href="carry_ap">Carry AP</a></li>
-    						<li><a href="carry_ad">Carry AD</a></li>
-    						<li><a href="tank">Tank</a></li>
-    						<li><a href="support">Support</a></li>
-    					</ul>
-    				</div>
-    			</div>
+    			
     		</div>
     		
     	</div>
