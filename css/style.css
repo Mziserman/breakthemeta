@@ -904,6 +904,11 @@ a{
 							border: 1px solid #3A3C42;
 						}
 
+							.build-list-content .nav-below .page-numbers a,
+							.build-list-content .nav-below .page-numbers span {
+								margin-right: 5px;
+							}
+
 						.build-list-content .nav-below .page-numbers.next {
 
 						}

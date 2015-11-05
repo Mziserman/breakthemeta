@@ -16,7 +16,7 @@
 
 			array_push($_SESSION['voted'], $the_ID);
 		} else {
-			$recommend_errors = 'You have already recommened this build.';
+			$recommend_errors = 'You have already recommended this build.';
 		}
 	}
 ?>
