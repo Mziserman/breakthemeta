@@ -21,7 +21,8 @@ jQuery(document).ready(function($) {
 		}
 
 		// Get value of selected champion and display it as a filter
-		var champ = $(this).find('.champ-name').html();
+		var champ = $(this).find('.champion-name').html();
+		console.log(champ);
 		
 		if($('.filter-champ').length == 0) {
 			$('.filters').append('<div class="filter-button filter-champ red">'+ champ +'<i class="fa fa-times"></i></div>');

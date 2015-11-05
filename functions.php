@@ -262,10 +262,10 @@ function get_filtered_builds_ordered_by_date() {
 
     die();
 }
-add_action( 'wp_ajax_get_builds_ordered_by_likes', 'get_builds_ordered_by_likes' );
-add_action( 'wp_ajax_nopriv_get_builds_ordered_by_likes', 'get_builds_ordered_by_likes' );
+add_action( 'wp_ajax_get_filtered_builds_ordered_by_likes', 'get_filtered_builds_ordered_by_likes' );
+add_action( 'wp_ajax_nopriv_get_filtered_builds_ordered_by_likes', 'get_filtered_builds_ordered_by_likes' );
 
-function get_builds_ordered_by_likes() {
+function get_filtered_builds_ordered_by_likes() {
     $posts_per_page = $_POST['posts_per_page'];
     $offset = $_POST['offset'];
     $orderby = $_POST['orderby'];
@@ -290,38 +290,6 @@ function get_builds_ordered_by_likes() {
 
 }
 
-add_action( 'wp_ajax_get_filtered_builds_ordered_by_likes', 'get_filtered_builds_ordered_by_likes' );
-add_action( 'wp_ajax_nopriv_get_filtered_builds_ordered_by_likes', 'get_filtered_builds_ordered_by_likes' );
-function get_filtered_builds_ordered_by_likes() {
-    $posts_per_page = $_POST['posts_per_page'];
-    $offset = $_POST['offset'];
-    $search = $_POST['search'];
-    $championId = $_POST['championId'];
-    $args = array(
-        'posts_per_page' => $posts_per_page,
-        'offset' => $offset,
-        'post_type' => 'build', 
-        'orderby'   => 'meta_value_num',
-        'meta_key'  => 'likes',
-        'meta_query' => array(
-        array(
-            'key' => 'champion',
-            'value' => $championId,
-            'compare' => 'LIKE'
-            )
-        )
-    );
-     
-
-    $ajax_query = new WP_Query($args);
-    if ( $ajax_query->have_posts() ) : while ( $ajax_query->have_posts() ) : $ajax_query->the_post();
-        get_template_part( 'template_archive_build' );
-    endwhile;
-    endif;
-
-
-    die();
-}
 
 add_action( 'wp_ajax_get_number_filtered_builds', 'get_number_filtered_builds' );
 add_action( 'wp_ajax_nopriv_get_number_filtered_builds', 'get_number_filtered_builds' );
@@ -370,6 +338,7 @@ function get_search_results() {
 
     $search = $_POST['search'];
     $args = array(
+        'post_type' => 'build', 
         's' => $search,
     );
      
