@@ -74,7 +74,7 @@
                 <div class="build-list-header">
                     <ul class="panel-choice">
                         <li class="date active"><a href="date">Newest</a></li>
-                        <li class="rand"><a href="rand">Top rated</a></li>
+                        <li class="like"><a href="like">Top rated</a></li>
                         <li class="search-result" style="display: none"><a href="search-result">Search Result</a></li>
                     </ul>
                 </div>
