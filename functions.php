@@ -238,6 +238,8 @@ function get_filtered_builds_ordered_by_date() {
     $offset = $_POST['offset'];
     $search = $_POST['search'];
     $championId = $_POST['championId'];
+    $laneSlug = $_POST['laneId'];
+    $roleSlug = $_POST['roleId'];
     $args = array(
         'posts_per_page' => $posts_per_page,
         'offset' => $offset,
@@ -247,6 +249,19 @@ function get_filtered_builds_ordered_by_date() {
             'key' => 'champion',
             'value' => '"' + $championId + '"',
             'compare' => '='
+            )
+        ),
+        'tax_query' => array(
+            'relation' => 'AND',
+            array(
+                'taxonomy' => 'lane',
+                'field'    => 'slug',
+                'terms'    => $laneSlug,
+            ),
+            array(
+                'taxonomy' => 'role',
+                'field'    => 'slug',
+                'terms'    => $roleSlug,
             )
         )
     );

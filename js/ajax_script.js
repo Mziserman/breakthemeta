@@ -86,6 +86,20 @@ Controler.prototype = {
 
 	   		that.currentState.notCurrentPanel.visited = false;
     	})
+
+    	this.$('.lanes').find('ul').on('click', 'a', function(e){
+			e.preventDefault();
+    		that.currentState.filterLane = that.$(this).attr('href');
+    		that.getNumberFilteredBuilds();
+    		that.currentState.notCurrentPanel.visited = false;
+    	})
+
+    	this.$('.roles').find('ul').on('click', 'a', function(e){
+			e.preventDefault();
+    		that.currentState.filterRole = that.$(this).attr('href');
+    		that.getNumberFilteredBuilds();
+    		that.currentState.notCurrentPanel.visited = false;
+    	})
 	},
 	getBuilds: function(){
 		var action = this.currentState.currentPanel.name == 'date' ? 'get_builds_ordered_by_date' : 'get_builds_ordered_by_likes';
@@ -110,8 +124,8 @@ Controler.prototype = {
 		var offset = this.currentState.currentPanel.pagination.offset;
 		var posts_per_page = this.currentState.currentPanel.pagination.postsPerPage;
 		var championId = this.currentState.filterChampion;
-		var laneId = this.currentState.filterLane;
-		var roleId = this.currentState.filterRole;
+		var laneSlug = this.currentState.filterLane;
+		var roleSlug = this.currentState.filterRole;
 		var that = this;
 		this.$.post(
 		    ajaxurl,
@@ -121,8 +135,8 @@ Controler.prototype = {
 		        'posts_per_page': posts_per_page,
 		        'orderby': orderBy,
 		        'championId': championId,
-		        'laneId': laneId,
-		        'roleId': roleId,
+		        'laneSlug': laneSlug,
+		        'roleSlug': roleSlug,
 		    },
 		    function(response){
 		    	that.currentState.currentPanel.container.find('.blog-build-item').remove()
