@@ -262,20 +262,25 @@ function get_filtered_builds_ordered_by_date() {
 
     die();
 }
+
 add_action( 'wp_ajax_get_filtered_builds_ordered_by_likes', 'get_filtered_builds_ordered_by_likes' );
 add_action( 'wp_ajax_nopriv_get_filtered_builds_ordered_by_likes', 'get_filtered_builds_ordered_by_likes' );
-
 function get_filtered_builds_ordered_by_likes() {
     $posts_per_page = $_POST['posts_per_page'];
     $offset = $_POST['offset'];
-    $orderby = $_POST['orderby'];
-    $search = $_POST['search'];
+        $championId = $_POST['championId'];
+
     $args = array(
-        'posts_per_page' => $posts_per_page,
-        'offset' => $offset,
         'post_type' => 'build', 
         'orderby'   => 'meta_value_num',
         'meta_key'  => 'likes',
+        'meta_query' => array(
+        array(
+            'key' => 'champion',
+            'value' => $championId,
+            'compare' => 'LIKE'
+            )
+        )
     );
      
 
@@ -339,6 +344,7 @@ function get_search_results() {
     $search = $_POST['search'];
     $args = array(
         'post_type' => 'build', 
+
         's' => $search,
     );
      

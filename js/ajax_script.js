@@ -103,6 +103,7 @@ Controler.prototype = {
 	},
 	getFilteredBuilds: function(){
 		var action = this.currentState.currentPanel.name == 'date' ? 'get_filtered_builds_ordered_by_date' : 'get_filtered_builds_ordered_by_likes';
+		console.log(action);
 		var orderBy = this.currentState.currentPanel.name
 		var offset = this.currentState.currentPanel.pagination.offset;
 		var posts_per_page = this.currentState.currentPanel.pagination.postsPerPage;
@@ -114,9 +115,6 @@ Controler.prototype = {
 		    ajaxurl,
 		    {
 		        'action': action,
-		        'offset': offset,
-		        'posts_per_page': posts_per_page,
-		        'orderby': orderBy,
 		        'championId': championId,
 		        'laneId': laneId,
 		        'roleId': roleId,
