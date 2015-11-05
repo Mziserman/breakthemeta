@@ -1,4 +1,8 @@
 //Objects definitions
+<<<<<<< HEAD
+=======
+
+>>>>>>> confict resolution
 var Controler = function($, currentState) {
 	this.init($, currentState)
 }
