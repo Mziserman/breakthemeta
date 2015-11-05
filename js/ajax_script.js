@@ -1,4 +1,5 @@
 //Objects definitions
+
 var Controler = function($, currentState) {
 	this.init($, currentState)
 }
