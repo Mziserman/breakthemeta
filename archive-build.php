@@ -39,10 +39,10 @@
     				<a class="title" href="">Lanes<!-- <i class="fa fa-plus"></i> --><span class="plus"></span></a>
     				<div class="filter-list">
     					<ul>
-    						<li><a href="">Toplane</a></li>
-    						<li><a href="">Jungle</a></li>
-    						<li><a href="">Mid</a></li>
-    						<li><a href="">Bottom</a></li>
+    						<li><a href="top">Toplane</a></li>
+    						<li><a href="jungle">Jungle</a></li>
+    						<li><a href="mid">Mid</a></li>
+    						<li><a href="bottom">Bottom</a></li>
     					</ul>
     				</div>
     			</div>
@@ -50,10 +50,10 @@
     				<a class="title" href="">Roles<!-- <i class="fa fa-plus"></i> --><span class="plus"></span></a>
     				<div class="filter-list">
     					<ul>
-    						<li><a href="">Carry AP</a></li>
-    						<li><a href="">Carry AD</a></li>
-    						<li><a href="">Tank</a></li>
-    						<li><a href="">Support</a></li>
+    						<li><a href="carry_ap">Carry AP</a></li>
+    						<li><a href="carry_ad">Carry AD</a></li>
+    						<li><a href="tank">Tank</a></li>
+    						<li><a href="support">Support</a></li>
     					</ul>
     				</div>
     			</div>
