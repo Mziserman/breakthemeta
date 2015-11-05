@@ -902,12 +902,8 @@ a{
 							line-height: 15px;
 							padding: 3px 6px;
 							border: 1px solid #3A3C42;
+							margin-right: 5px;
 						}
-
-							.build-list-content .nav-below .page-numbers a,
-							.build-list-content .nav-below .page-numbers span {
-								margin-right: 5px;
-							}
 
 						.build-list-content .nav-below .page-numbers.next {
 
