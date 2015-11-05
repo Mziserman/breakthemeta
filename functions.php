@@ -242,6 +242,13 @@ function get_filtered_builds_ordered_by_date() {
         'posts_per_page' => $posts_per_page,
         'offset' => $offset,
         'post_type' => 'build', 
+        'meta_query' => array(
+        array(
+            'key' => 'champion',
+            'value' => '"' + $championId + '"',
+            'compare' => '='
+            )
+        )
     );
      
 
