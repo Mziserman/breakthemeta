@@ -1,5 +1,4 @@
 //Objects definitions
-
 var Controler = function($, currentState) {
 	this.init($, currentState)
 }
@@ -83,6 +82,7 @@ Controler.prototype = {
     		that.currentState.filterChampion = '';
     		that.currentState.currentPanel.container.find('.blog-build-item').remove();
     		that.getBuilds();
+	   		that.currentState.notCurrentPanel.visited = false;
     	})
 	},
 	getBuilds: function(){
@@ -115,9 +115,6 @@ Controler.prototype = {
 		    ajaxurl,
 		    {
 		        'action': action,
-		        'offset': offset,
-		        'posts_per_page': posts_per_page,
-		        'orderby': orderBy,
 		        'championId': championId,
 		        'laneId': laneId,
 		        'roleId': roleId,
