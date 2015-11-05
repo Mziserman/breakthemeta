@@ -254,19 +254,6 @@ function get_filtered_builds_ordered_by_date() {
             'value' => '"' + $championId + '"',
             'compare' => '='
             )
-        ),
-        'tax_query' => array(
-            'relation' => 'AND',
-            array(
-                'taxonomy' => 'lane',
-                'field'    => 'slug',
-                'terms'    => $laneSlug,
-            ),
-            array(
-                'taxonomy' => 'role',
-                'field'    => 'slug',
-                'terms'    => $roleSlug,
-            )
         )
     );
      
@@ -309,19 +296,6 @@ function get_filtered_builds_ordered_by_likes() {
             'compare' => '='
             )
         ),
-        'tax_query' => array(
-            'relation' => 'AND',
-            array(
-                'taxonomy' => 'lane',
-                'field'    => 'slug',
-                'terms'    => $laneSlug,
-            ),
-            array(
-                'taxonomy' => 'role',
-                'field'    => 'slug',
-                'terms'    => $roleSlug,
-            )
-        )
     );
      
 
