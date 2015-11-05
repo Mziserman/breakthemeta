@@ -214,7 +214,6 @@
 					</ul>
 				</div>
 				<div class="main create-build"  >
-					<a class="back-link" href="<?php echo get_site_url(); ?>/build/" class="pull-right"><i class="icon-arrow-left"></i>Back to builds</a>
 					<div class="panel show " id="panel-1" champion>
 						<div class="errors">
 							<?php if ( isset($errors['where']) && !empty($errors['where']) ) : ?>
